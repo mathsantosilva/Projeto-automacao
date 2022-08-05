@@ -37,4 +37,16 @@ class Login
         fill_in 'LogOnModel_Password', with: $senha
         find('button[id="btnFormLogin"]').click
     end
+
+    def logon_ambiente_pt()
+        fill_in 'LogOnModel_UserName', with: $user_br
+        fill_in 'LogOnModel_Password', with: $senha
+        find('input[id="btnFormLogin"]').click 
+    end
+
+    def logon_ambiente_mx()
+        fill_in 'LogOnModel_UserName', with: $user_br
+        fill_in 'LogOnModel_Password', with: $senha
+        find('input[id="btnFormLogin"]').click 
+    end
 end

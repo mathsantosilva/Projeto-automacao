@@ -2,6 +2,7 @@ class Resources
 
     include Capybara::DSL
     include RSpec::Matchers
+
     $campos_empresa_portugues_br = [
         'Código:',
         'CEI/CNO/CAEPF:',
@@ -116,6 +117,46 @@ class Resources
         'Logotipo personalizado:',
         'Estender LGPD:']
 
+    $campos_cadastro_relogio_DRep = [
+            'Código:',
+            'Descrição:',
+            'Modelo:',
+            'Configurações Equipamento:',
+            'Número de Fabricação:',
+            'Fuso horário:',
+            'Horário de verão:',
+            'Início horário de verão:',
+            'Fim horário de verão:',
+            'Desativar Comunicação:',
+            'CPF:',
+            'Log de monitoração:']
+
+    $campos_cadastro_relogio_DRep_pt = [
+            'Código:',
+            'Descrição:',
+            'Modelo:',
+            'Configurações Equipamento:',
+            'Número de Fabricação:',
+            'Fuso horário:',
+            'Horário de verão:',
+            'Início horário de verão:',
+            'Fim horário de verão:',
+            'Desativar Comunicação:',
+            'Log de monitoração:']
+
+    $campos_cadastro_relogio_DRep_mx = [
+            'Registro:',
+            'Descripción:',
+            'Modelo:',
+            'Configuraciones de equipo:',
+            'Número de Fabricación:',
+            'Huso:',
+            'Horario de verano:',
+            'Inicio horario de verano:',
+            'Fin de horario de verano:',
+            'Comunicación Desactivada:',
+            'Log de monitoração:']
+
     $resources_mensagem_obrigacao_empresa = [
         "Por favor adicione um código",
         "Por favor introduza um telefone",
@@ -126,6 +167,7 @@ class Resources
         "Por favor introduza o dia de abertura do período.",
         "Por favor introduza um bairro",
         "Por favor introduza um UF" ]
+
 
     def validando_nome_Campos (valor_campos)
         valor_campos.each do |campos|

@@ -7,16 +7,17 @@ require 'webdrivers'
 require 'common/cadastros_empresas'
 require 'common/campos_obrigatorios'
 require 'common/resources'
+require 'common/cadastros_relogios'
 
 Before do
 
-  $user_br = 'automacao@dimep.com.br'
+  $user_br = 'automacao@dimep.com.mx' #Qcdev = automacao@madis.com.br = automacao@dimep.com.br = automacao@dimep.pt = automacao@dimep.com.mx
   $user_es = 'automacao@dimep.com.es'
   $user_pt = 'automacao@dimep.com.pt'
   $user_en = 'automacao@dimep.com.en'
   $senha = '1'
   page.current_window.maximize
-  @page = 'https://www.dimepkairos.com.br/'
+  @page = 'https://qcdev.dimepkairos.com.mx/'
   @ambiente = 'Dimep'
   visit @page
 
@@ -28,6 +29,7 @@ Before do
   @complements = Complements.new
   @cadastros = Cadastros.new
   @obrigatorio = Obrigatorios.new
+  @cadastros_relogios = Cadastros_relogios.new
 
   
 end

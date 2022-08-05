@@ -55,8 +55,13 @@ class Common
     end
 
     #Clicando no botão salvar
-    def botaosalvar 
+    def botaosalvar
         drop = find('input[type="button"][value="Salvar"]', match: :first)
+        drop.click
+    end
+
+    def botaosalvar_mx
+        drop = find('input[type="button"][value="Grabar"]', match: :first)
         drop.click
     end
 
@@ -67,11 +72,26 @@ class Common
         find('span[class="PlusButton pointer"]', text: 'Sim').click
     end
 
+    #Clicando no botão salvar
+    def botaosalvar_config_relogio
+        drop = find('input[type="submit"][value="Salvar"]', match: :first)
+        drop.click
+    end
+
+    def botaosalvar_config_relogio_mx
+        drop = find('input[type="submit"][value="Grabar"]', match: :first)
+        drop.click
+    end
+
     # obtem os dados da primeira empresa da lista
     def obterdadosempresa
         $codigoPrimeiraEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(1)', match: :first).text
         $razaoPrimeiraEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(2)', match: :first).text
         $cnpjPrimeiraEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(3)', match: :first).text
         $cpfQuartaEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(4) > td:nth-child(3)', match: :first).text
+    end
+
+    def gravar_dados_config_relog
+
     end
 end
