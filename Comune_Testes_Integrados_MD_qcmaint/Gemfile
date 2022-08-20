@@ -1,19 +1,23 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+# git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem 'cucumber-rails'
 gem 'allure-cucumber'
 gem 'appium_lib'
 gem 'capybara'
 gem 'cpf_cnpj'
 gem 'cucumber'
-gem 'rails'
+gem 'cucumber-rails'
+gem 'faker', '~> 2.22'
 gem 'ffi'
+gem 'fiddle'
+gem 'nif', '~> 0.0.3'
+gem 'rails'
 gem 'rspec'
 gem 'selenium-webdriver'
 gem 'watir-scroll'
+gem 'webdrivers', '~> 5.0'
 
 group :development do
   gem 'better_errors'
