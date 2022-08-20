@@ -113,7 +113,8 @@ def Menu
   print('2 - CNPJ | ')
   print('3 - NIF | ')
   print('4 - Numeros | ')
-  print('5 - PIS: ')
+  print('5 - PIS | ')
+  print('6 - Todos: ')
 end
 
 def Escolha
@@ -133,7 +134,16 @@ def Escolha
     Gerador_num(linhas, quant)
   when '5'
     Gerador_pis(linhas)
+  when '6'
+    print('Informe a quantidade de numeros por linhas: ')
+    quant = $stdin.gets.strip.to_i
+    Gerador_cnpj(linhas)
+    Gerador_cpf(linhas)
+    Gerador_nif(linhas)
+    Gerador_num(linhas, quant)
+    Gerador_pis(linhas)
   else
+    puts 'Opção invalida, escolha novamente!!'
     Base()
   end
 end
