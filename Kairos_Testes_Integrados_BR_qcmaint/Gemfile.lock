@@ -77,6 +77,8 @@ GEM
     appium_lib_core (5.0.0)
       faye-websocket (~> 0.11.0)
       selenium-webdriver (~> 4.0.0)
+    backport (1.2.0)
+    benchmark (0.2.0)
     better_errors (2.9.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -209,6 +211,9 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
     rake (13.0.6)
+    readapt (1.4.4)
+      backport (~> 1.2)
+      thor (~> 1.0)
     regexp_parser (2.1.1)
     require_all (3.0.0)
     rexml (3.2.5)
@@ -270,6 +275,7 @@ PLATFORMS
 DEPENDENCIES
   allure-cucumber
   appium_lib
+  benchmark
   better_errors
   binding_of_caller
   capybara
@@ -281,6 +287,7 @@ DEPENDENCIES
   fiddle
   nif (~> 0.0.3)
   rails
+  readapt
   rspec
   selenium-webdriver
   watir-scroll
