@@ -11,13 +11,13 @@ require 'common/cadastros_relogios'
 
 Before do
 
-  $user_br = 'automacao@dimep.com.mx' #Qcdev = automacao@madis.com.br = automacao@dimep.com.br = automacao@dimep.pt = automacao@dimep.com.mx
+  $user_br = 'teste124234@dimep.com.br' #Qcdev = automacao@madis.com.br = automacao@dimep.com.br = automacao@dimep.pt = automacao@dimep.com.mx
   $user_es = 'automacao@dimep.com.es'
   $user_pt = 'automacao@dimep.com.pt'
   $user_en = 'automacao@dimep.com.en'
   $senha = '1'
   page.current_window.maximize
-  @page = 'https://qcdev.dimepkairos.com.mx/'
+  @page = 'http://qcmaint.dimepkairos.com.br/'
   @ambiente = 'Dimep'
   visit @page
 

@@ -89,7 +89,6 @@ def gerador_num(linhas)
 end
 
 def gerador_pis(linhas)
-  algarismopis = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
   time = Time.new.strftime('%Y-%m-%d-%H-%M')
   nome = 'PIS-' << time.to_s
   escolha = "PIS"
@@ -97,23 +96,25 @@ def gerador_pis(linhas)
   fase2 = []
   # Fase 4 - Divisor
   divisor = 11
-  pos_alga = 0
+
   basepis = []
   lista_pis = []
   contador = 1
 
 
   linhas.to_i.times do
+    pos_alga = 0
+    algarismopis = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
     pis_gerado = ''
+    fase2 = []
+
     numaleatorio = Faker::Number.number(digits: 10)
     basepis = numaleatorio.to_s.split('')
-    
     # Fase 2 - multiplicação
     basepis.each do |pos|
       fase2.push(pos.to_i * algarismopis[pos_alga].to_i)
       pos_alga += 1
     end
-
     # Fase 3 - Soma
     fase3 = fase2.inject(:+)
     # Fase 5 - Divisão
@@ -133,9 +134,8 @@ def gerador_pis(linhas)
       pis_gerado << pos.to_s
     end
     pis_gerado << fase7.to_s
-
-      # Guardando os Pis gerados em um Array
-      lista_pis.push(pis_gerado)
+    # Guardando os Pis gerados em um Array
+    lista_pis.push(pis_gerado)
   end
   # Fase 9 - Montando arquivo e escrevendo nele
   gerador_de_arquivos(nome,linhas,escolha,quant,lista_pis)
