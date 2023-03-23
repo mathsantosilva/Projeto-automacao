@@ -6,3 +6,4 @@ arquivos_testes/*
 log/
 logs/
 features/suport/hooks.rb
+.vscode
