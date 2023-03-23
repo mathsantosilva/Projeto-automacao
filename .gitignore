@@ -5,3 +5,4 @@ Tests/arquivos/
 arquivos_testes/*
 log/
 logs/
+features/suport/hooks.rb
