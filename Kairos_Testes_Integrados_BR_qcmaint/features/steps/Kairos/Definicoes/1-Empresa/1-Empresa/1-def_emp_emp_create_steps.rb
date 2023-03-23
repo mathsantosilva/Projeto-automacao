@@ -1,12 +1,11 @@
-Dado('que acesso a tela de empresas') do
+Dado('que vou ate a tela de empresas') do
     # Realiza login
     @login.logon_br
     # Acessando a empresa pela navegacao de telas
-    @common.nav_def('Empresa', 'div[id="MenuEmpresas"]')
+    @common.nav_def('Empresa','Empresas', 'label[class="pointer"]')
     # Carrega as variaveis utilizadas nas spec
     @complements.varcommon
     @complements.varcadastro
-    find('label[class="pointer"]').click
 end
   
   Quando('preencho os dados e uso cnpj') do
@@ -75,6 +74,10 @@ end
 
   Quando('clico no botão salvar') do
     @common.botaosalvar
+  end
+
+  Quando('cadastro empresa cpf em loopings') do
+    @cadastros.looping_empresas
   end
 
   Então('devo receber uma mensagem {string}') do |message_success|

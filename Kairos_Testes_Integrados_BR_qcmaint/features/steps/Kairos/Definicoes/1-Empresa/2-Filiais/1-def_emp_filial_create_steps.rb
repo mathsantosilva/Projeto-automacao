@@ -6,7 +6,7 @@ Dado('Acesso a tela de filiais para cadastrar') do
   sleep 1
 
   #Acessando o cadastro da empresa filial pela navegação de telas
-  @common.nav_def('Empresa','div[id="MenuFiliais"')
+  @common.nav_def('Empresa', 'Empresas', 'label[class="pointer"]')
 
 end
 
@@ -23,6 +23,10 @@ Quando('Apertando no botão salvar') do
   drop = find("input[type=submit][value='Salvar']", match: :first)
   drop.click
 
+end
+
+Quando('Cadastrando uma nova filial cnpj em looping') do
+  @cadastros.looping_filiais
 end
 
 Então('Aguardo uma mensagem de confirmação {string}') do |message_sucess|

@@ -20,7 +20,7 @@ describe 'configuração', :config_relogio do
 
   it 'Inserindo as configurações dos relogios', :cadastros_config_relogios do
     puts 'Cadastrando Relogios:'
-      ##'BioPoint II - Sensor 3' , 
+      #BioPoint II - Sensor 3 
         puts 'Cadastrando configuração de BioPoint II - Sensor 3'
         find('label[class="pointer"]', text: 'Adicionar').click
         find('label[for="radioModelo1"]').click
@@ -792,7 +792,7 @@ describe 'configuração', :config_relogio do
         expect(find('div[id=Summary-Field-Index]')).to have_content 'A Configuração Relógio foi criada com sucesso'
 
 
-      ##Biolite NG
+      #Biolite NG
         puts 'Cadastrando configuração de Biolite NG'
         find('label[class="pointer"]', text: 'Adicionar').click
         find('label[for="radioModelo21"]').click
@@ -804,7 +804,7 @@ describe 'configuração', :config_relogio do
         expect(find('div[id=Summary-Field-Index]')).to have_content 'A Configuração Relógio foi criada com sucesso'
 
 
-      ##Smart
+      #Smart
         puts 'Cadastrando configuração de Smart'
         find('label[class="pointer"]', text: 'Adicionar').click
         find('label[for="radioModelo22"]').click

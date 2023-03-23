@@ -3,6 +3,43 @@ class Resources
     include Capybara::DSL
     include RSpec::Matchers
 
+    $modulos_empresa = [
+        'Agendamento automatico',
+        'Compliance - Indicadores Gerenciais',
+        'Configurações Facial',
+        'Configurações Integração Acesso',
+        'ConnectNewPoint Server',
+        'Control ID',
+        'EDP',
+        'Escalas',
+        'Exportação Automática de Folha',
+        'Exportação de Provisionamento de Banco de Horas Cíclico',
+        'Formato de Provisionamento de Banco de Horas Cíclico',
+        'HorariosMultiplos',
+        'Impressão de relatório de marcações',
+        'Integração - REST API',
+        'Integração Acesso',
+        'Integração Desktop API',
+        'Integração Facial API',
+        'Kairos Connect',
+        'Kairos Connect',
+        'Marcação Ponto Mobile',
+        'Marcação WEB',
+        'Mobile Pedidos',
+        'ModuloHenry',
+        'Painel de Controle de Força de Trabalho',
+        'Painel de Monitoração de Equipamentos',
+        'PercentualPeriodoEDP',
+        'Relatório de Controle de Força de Trabalho',
+        'Relatorio Extra',
+        'Relatorio Extra - Relatorio Detalhado',
+        'Relatorio Extra - Relatorio Total Horas',
+        'Smart Tag',
+        'Widget "Gerencial de Ocorrências"',
+        'Widget Histograma de Ocorrências',
+        'Widget Indicadores Operacionais',
+    ]
+
     $campos_empresa_portugues_br = [
         'Código:',
         'CEI/CNO/CAEPF:',
@@ -178,6 +215,14 @@ class Resources
     def valida_mensagem_campos(valor_resource)
         valor_resource.each do |mensagem|
             expect(page).to have_content mensagem
+        end
+    end
+
+    def adicionando_modulos(valor_campos)
+        find('div[id="ModuleSelect_chosen"]').click
+        valor_campos.each do |campos|
+            find('div[id="ModuleSelect_chosen"]  ul[class="chosen-choices"] li[class="search-field"] input').set campos
+            find('li[class="active-result highlighted"]', text: campos).click
         end
     end
 end

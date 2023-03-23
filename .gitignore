@@ -1,4 +1,7 @@
 Kairos_Testes_Integrados_BR_qcmaint/log/**
 Kairos_Testes_Integrados_MD_qcmaint/log/**
-Tests/arquivos/**
+Tests/arquivos/
 **/spec/spec_helper.rb
+arquivos_testes/*
+log/
+logs/

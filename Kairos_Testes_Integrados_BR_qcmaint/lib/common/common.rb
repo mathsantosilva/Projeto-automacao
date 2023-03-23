@@ -5,11 +5,15 @@ class Common
     include RSpec::Matchers
 
     #executando a navegacao das paginas
-    def nav_def(text, value)
+    def nav_def(text, text2, value)
         sleep 5
         selecionar = find('div[id="toggleUserDefinitions"]')
         selecionar.hover
-        find('div[class="pointer DropDownHeaderElement"]', text: text).click
+        #Primeiro clique no menu para abrir as opções
+        find('span[class="togglesSpan"]', text: text).click
+        #Segundo clique que direciona para a pagina
+        find('div[class="pointer DropDownHeaderElement"]', text: text2).click
+        #Terceiro clique no botão novo cadastro
         find(value).click
     end
 
@@ -29,9 +33,9 @@ class Common
     end
 
     def select_list_table(texto,button)
-            @item = find('tr > td', text: texto)
-            @item.hover
-            find(button).click
+        @item = find('tr > td', text: texto)
+        @item.hover
+        find(button).click
     end
 
     def selecionarprimeiraocorrencia
@@ -91,7 +95,68 @@ class Common
         $cpfQuartaEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(4) > td:nth-child(3)', match: :first).text
     end
 
-    def gravar_dados_config_relog
+    def consultar_empresa_criada_razao
+        File.open("arquivos_testes/ListaEmpresasCriadas.txt", 'r') do |f|
+            leitura = f.readlines
+            tam = leitura.count
+            linha = leitura[tam -1]
+            linha_cortade = linha.split('|')
+            razao_sujo = linha_cortade[0].split(':')
+            razao_social = razao_sujo[1].strip
+            f.close
+            return razao_social
+        end
+    end
 
+    def consultar_empresa_criada_cnpj
+        File.open("arquivos_testes/ListaEmpresasCriadas.txt", 'r') do |f|
+            leitura = f.readlines
+            tam = leitura.count
+            linha = leitura[tam -1]
+            linha_cortade = linha.split('|')
+            cnpj_sujo = linha_cortade[1].split()
+            numero_cnpj = cnpj_sujo[1]
+            f.close
+            return numero_cnpj
+        end
+    end
+
+    def consultar_empresa_criada_email
+        File.open("arquivos_testes/ListaEmpresasCriadas.txt", 'r') do |f|
+            leitura = f.readlines
+            tam = leitura.count
+            linha = leitura[tam -1]
+            linha_cortade = linha.split('|')
+            email_sujo = linha_cortade[2].split()
+            email_empresa = email_sujo[1]
+            f.close
+            return email_empresa
+        end
+    end
+
+    def gravar_arquivo_dados_empresa(email,cnpj,razao)
+        File.open("./arquivos_testes/ListaEmpresasCriadas.txt", 'a+') do |f|
+            f.write("Razão_Social: " +  razao + " | " +  "CNPJ/CPF: " + cnpj + " | " + "Email: " + email )
+        end
+    end
+
+    def validar_troca_pagina(url)
+        while true do
+            if current_path == url
+                break
+            else
+                next 
+            end
+        end
+    end
+
+    def validar_permanencia_pagina(url)
+        while true do
+            if (current_path) != url
+                break
+            else
+                next 
+            end
+        end
     end
 end

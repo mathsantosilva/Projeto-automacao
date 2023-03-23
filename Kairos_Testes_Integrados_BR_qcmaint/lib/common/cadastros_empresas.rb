@@ -10,8 +10,7 @@ class Cadastros
     @complements = Complements.new
     @common = Common.new
 
-    @complements.varcommon
-    @complements.varcadastro
+
 
 
     #Alterando empresas filiais
@@ -283,5 +282,85 @@ class Cadastros
         print("Iniciar o codigo em qual numero: ")
         cod = $stdin.gets.strip
         cadas_obras(max, cod.to_i)
+    end
+
+    def cadas_empresas(max)
+        num = 0
+        cod = 1
+        while num < max.to_i do
+            @complements = Complements.new
+            @common = Common.new
+
+            @complements.varcommon
+            @complements.varcadastro
+            # Entrando na criacao de empresa
+            fill_in 'Empresa_Codigo', with: $codigo_aleatorio
+            fill_in 'Empresa_CEI', with: '294226088484'
+            fill_in 'Empresa_Telefone', with: '116541954654'
+            find('label[for="CbUtilizaPortaria"]', visible: true)
+            fill_in 'Empresa_RazaoSocial', with: 'Empresa Br - Automação de testes - ' << $time.to_s << ' ' << cod.to_s
+            find('label[for="rdCnpj"]').click
+            fill_in 'Empresa_CnpjCpf', with: $cnpj
+            select('INDÚSTRIAS EXTRATIVAS', from: 'Empresa_RamoAtividade_Id').select_option
+            fill_in 'Empresa_Endereco', with: $endereco_aleatorio
+            fill_in 'Empresa_Bairro', with: $bairro_aleatorio
+            fill_in 'Empresa_Cidade', with: $cidade_aleatoria
+            fill_in 'Empresa_UF', with: $estado_aleatorio
+            fill_in 'Empresa_Pais', with: $pais_aleatorio
+            fill_in 'Empresa_URL', with: $url_aleatoria
+            fill_in 'Empresa_Email', with: $email_aleatorio
+            fill_in 'Empresa_DataAbertura', with: '01012021'
+            select('UTC - 12', from: 'Empresa_FusoHorario_Id').select_option
+            find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
+            fill_in 'Empresa_InicioHorarioVerao', with: '10032021'
+            fill_in 'Empresa_FimHorarioVerao', with: '10052021'
+            fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
+            fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
+            fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
+
+            @common.botaosalvar
+
+            cod = cod + 1
+            num = num + 1
+
+            if num < max.to_i
+                find('label[class="pointer"]').click
+            end
+        end
+    end
+
+    def looping_empresas
+        print("Quantas vezes deseja repetir o looping: ")
+        max = $stdin.gets.strip
+        print('Ira repetir o cadastro: ' << max.to_s)
+        cadas_empresas(max)
+    end
+
+    def cadas_filiais(max)
+        num = 0
+        cod = 1
+        while num < max.to_i do
+            @complements = Complements.new
+            @common = Common.new
+            @complements.varcommon
+            @complements.varcadastro
+
+            cadas_emp_filial()
+
+            @common.botaosalvar
+
+            num = num + 1
+
+            if num < max.to_i
+                find('label[class="pointer"]').click
+            end
+        end
+    end
+
+    def looping_filiais
+        print("Quantas vezes deseja repetir o looping: ")
+        max = $stdin.gets.strip
+        print('Ira repetir o cadastro: ' << max.to_s)
+        cadas_filiais(max)
     end
 end
