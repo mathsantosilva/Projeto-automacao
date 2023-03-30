@@ -280,6 +280,7 @@ PLATFORMS
   x64-unknown
 
 DEPENDENCIES
+  activerecord (>= 7.0.4.1)
   allure-cucumber
   appium_lib
   benchmark
@@ -293,6 +294,7 @@ DEPENDENCIES
   ffi
   fiddle
   nif (~> 0.0.3)
+  rack (>= 2.2.6.4)
   rails
   readapt
   rspec

@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 # git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
+gem "activerecord", ">= 7.0.4.1"
 gem 'allure-cucumber'
 gem 'appium_lib'
 gem 'benchmark'
@@ -14,6 +15,7 @@ gem 'faker', '~> 2.22'
 gem 'ffi'
 gem 'fiddle'
 gem 'nif', '~> 0.0.3'
+gem "rack", ">= 2.2.6.4"
 gem 'rails'
 gem 'rspec'
 gem 'selenium-webdriver'
