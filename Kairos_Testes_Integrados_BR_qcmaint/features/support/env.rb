@@ -14,6 +14,7 @@ FileUtils.rm_f(Dir.glob("logs/*.json"))
 FileUtils.rm_f(Dir.glob("logs/*.png"))
 
 Capybara.configure do |config|
+    Webdrivers.install_dir = 'C:\Rspec\GoogleDrive\atual'
     config.default_driver = :selenium_chrome
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument('--log-level=0')

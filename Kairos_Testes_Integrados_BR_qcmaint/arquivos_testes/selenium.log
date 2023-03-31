@@ -1,0 +1,5 @@
+# Logfile created on 2023-03-31 17:52:16 -0300 by logger.rb/v1.5.0
+2023-03-31 18:27:34 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-03-31 18:27:34 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.

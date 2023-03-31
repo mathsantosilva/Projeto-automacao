@@ -4,3 +4,4 @@ Razão_Social: Empresa de testes - Automação - 23-03-2023 - 1528 | CNPJ/CPF: 5
 Razão_Social: Empresa de testes - Automação - 23-03-2023 - 1657 | CNPJ/CPF: 61061897835730 | Email: teste8258443723@dimep.com.br | Empresa_criada_em: 23-03-2023 - 1657
 Razão_Social: Empresa de testes - Automação - 23-03-2023 - 1712 | CNPJ/CPF: 00562218360004 | Email: teste5796369630@dimep.com.br | Empresa_criada_em: 23-03-2023 - 1712
 Razão_Social: Empresa de testes - Automação - 23-03-2023 - 1732 | CNPJ/CPF: 08143352563188 | Email: teste5830465910@dimep.com.br | Empresa_criada_em: 23-03-2023 - 1732
+Razão_Social: Empresa de testes - Automação - 31-03-2023 - 1744 | CNPJ/CPF: 49136572409839 | Email: teste9113929172@dimep.com.brRazão_Social: Empresa de testes - Automação - 31-03-2023 - 1750 | CNPJ/CPF: 35810640407845 | Email: teste3623463566@dimep.com.brRazão_Social: Empresa de testes - Automação - 31-03-2023 - 1827 | CNPJ/CPF: 10557306044900 | Email: teste6214522983@dimep.com.br
