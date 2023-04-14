@@ -2,6 +2,8 @@ Tests/arquivos/
 arquivos_testes/*
 log/*
 logs/*
+log
+logs
 **/features/suport/hooks.rb
 .vscode
 **/hooks.rb
