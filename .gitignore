@@ -6,5 +6,6 @@ log
 logs
 **/features/suport/hooks.rb
 .vscode
-**/hooks.rb
+hooks.rb
 Teste_automatizados/features/support/hooks.rb
+hooks
