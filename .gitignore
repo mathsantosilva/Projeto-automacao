@@ -4,8 +4,7 @@ log/*
 logs/*
 log
 logs
+.log
 **/features/suport/hooks.rb
 .vscode
-hooks.rb
 Teste_automatizados/features/support/hooks.rb
-hooks

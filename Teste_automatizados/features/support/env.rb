@@ -13,10 +13,12 @@ require 'webdrivers'
 FileUtils.rm_f(Dir.glob("logs/*.json"))
 FileUtils.rm_f(Dir.glob("logs/*.png"))
 
+
 Capybara.configure do |config|
-    Webdrivers.install_dir = 'C:\Rspec\GoogleDrive\atual'
+    Webdrivers.install_dir = '\GoogleDrive\atual'
     config.default_driver = :selenium_chrome
     options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument('start-maximized')
     options.add_argument('--log-level=0')
     options.add_argument('--disable-hang-monitor')
     options.add_argument('--ignore-certificate-errors')

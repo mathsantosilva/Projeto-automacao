@@ -9,7 +9,6 @@ class Login
         find('button[id="btnFormLogin"]').click
     end
 
-
     #Realizando o login BR
     def logon_br()
         fill_in 'LogOnModel_UserName', with: $user_br

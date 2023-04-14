@@ -1,6 +1,3 @@
-require 'common\complements'
-require 'common\common'
-
 class Cadastros
 
     #inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
