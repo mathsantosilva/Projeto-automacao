@@ -1,13 +1,7 @@
-Kairos_Testes_Integrados_BR_qcmaint/log/**
-Kairos_Testes_Integrados_MD_qcmaint/log/**
 Tests/arquivos/
-**/spec/spec_helper.rb
 arquivos_testes/*
-log/
-logs/
-features/suport/hooks.rb
+log/*
+logs/*
+**/features/suport/hooks.rb
 .vscode
-Kairos_Testes_Integrados_BR_qcmaint/arquivos_testes/ListaEmpresasCriadas.txt
-Kairos_Testes_Integrados_BR_qcmaint/arquivos_testes/selenium.log
-hooks.rb
-Teste_automatizados_kairos_mdcomune/features/support/hooks.rb
+**/hooks.rb
