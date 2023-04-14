@@ -9,3 +9,5 @@ features/suport/hooks.rb
 .vscode
 Kairos_Testes_Integrados_BR_qcmaint/arquivos_testes/ListaEmpresasCriadas.txt
 Kairos_Testes_Integrados_BR_qcmaint/arquivos_testes/selenium.log
+hooks.rb
+Teste_automatizados_kairos_mdcomune/features/support/hooks.rb
