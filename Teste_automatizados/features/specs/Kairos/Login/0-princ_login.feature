@@ -10,7 +10,7 @@ Funcionalidade: Login
         Quando insiro os dados de email e senha corretos
             |email|teste198652@dimep.com.br|
             |senha|1|
-        Então deverá logar com sucesso na empresa
+        Então deverá logar com sucesso na empresa e estar no path "Dimep/Dashboard"
 
     @login_senha_incorreta
     Cenario: Login com a senha incorreta
@@ -19,7 +19,7 @@ Funcionalidade: Login
         Quando insiro os dados de email e senha incorretos
             |email|teste198652@dimep.com.br|
             |senha|123456789|
-        Então devera informar a mensagem "Usuário e/ou senha estão incorretos."
+        Então devera informar a mensagem "Ops! Usuário e/ou senha incorreto"
 
     @login_email_incorreto
     Cenario: Login com a email incorreto
@@ -28,7 +28,7 @@ Funcionalidade: Login
         Quando insiro os dados de email incorreto e senha
             |email|testeincorreto@dimep.com.br|
             |senha|1|
-        Então devera apresentar a mensagem "Usuário e/ou senha estão incorretos."
+        Então devera apresentar a mensagem "Ops! Usuário e/ou senha incorreto"
 
     @login_senha_alterada
     Cenario: Login com a senha incorreta
@@ -41,4 +41,4 @@ Funcionalidade: Login
         Quando insiro os dados de email e nova senha
             |email|teste16578@dimep.com.br|
             |senha|2|
-        Então deverá logar com sucesso com a senha nova 
+        Então deverá logar com sucesso com a senha nova estar no path "Dimep/Dashboard"

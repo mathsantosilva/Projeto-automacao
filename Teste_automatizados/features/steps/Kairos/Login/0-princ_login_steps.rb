@@ -7,8 +7,8 @@ Dado('que acesso a tela de Login em {string}') do |path_site|
     @login.logar(user[:email], user[:senha])
   end
   
-  Então('deverá logar com sucesso na empresa') do
-    expect(page).to have_current_path(@page + @ambiente + '/Dashboard')
+  Então('deverá logar com sucesso na empresa e estar no path {string}') do |paht_site|
+    expect(page).to have_current_path(paht_site)
   end
   
   Quando('insiro os dados de email e senha incorretos') do |table|
@@ -17,7 +17,7 @@ Dado('que acesso a tela de Login em {string}') do |path_site|
   end
   
   Então('devera informar a mensagem {string}') do |message_success|
-    expect(find('span[style="display:inline-block;"]')).to have_content message_success
+    expect(find('div[id="dialogError"] h1[class="spanError"]')).to have_content message_success
   end
   
   Quando('insiro os dados de email incorreto e senha') do |table|
@@ -26,7 +26,7 @@ Dado('que acesso a tela de Login em {string}') do |path_site|
   end
 
   Então('devera apresentar a mensagem {string}') do |message_success|
-    expect(find('span[style="display:inline-block;"]')).to have_content message_success
+    expect(find('div[id="dialogError"] h1[class="spanError"]')).to have_content message_success
   end
   
   Quando('acesso a tela de alteração de senha') do
@@ -57,6 +57,6 @@ Dado('que acesso a tela de Login em {string}') do |path_site|
     @login.logar(user[:email], user[:senha])
   end
   
-  Então('deverá logar com sucesso com a senha nova') do
-    expect(page).to have_current_path(@page + @ambiente + '/Dashboard')
+  Então('deverá logar com sucesso com a senha nova estar no path {string}') do |path_site|
+    expect(page).to have_current_path(path_site)
   end

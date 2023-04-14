@@ -16,11 +16,10 @@ Quando('Preencho os dados necessarios utilizando CNPJ e o plano {string}') do |p
   fill_in 'EntityData_Cei', with: '268881103681'
   find('div[id="PlanSelected_chosen"]').click
   find('div[id="PlanSelected_chosen"] div[class="chosen-drop"] div[class="chosen-search"] input').set plano
-  sleep 10
-  find('li[class="active-result highlighted"]', text: plano).click
+  find('li[class$="highlighted"]', text: plano).click
   find('div[id="EntityData_RamoCodigo_chosen"]').click
   find('div[id="EntityData_RamoCodigo_chosen"] div[class="chosen-drop"] div[class="chosen-search"] input').set 'Indústrias De Transformação'
-  find('li[class="active-result highlighted"]', text: 'Indústrias De Transformação').click
+  find('li[class$="highlighted"]', text: 'Indústrias De Transformação').click
   fill_in 'EntityData_Address', with: $endereco_aleatorio
   fill_in 'EntityData_District', with: 'Centro'
   fill_in 'EntityData_Cep', with: $cep
@@ -35,7 +34,7 @@ Quando('Preencho os dados necessarios utilizando CNPJ e o plano {string}') do |p
   fill_in 'UserData_Cpf', with: $cpf
   find('div[id="LanguageSelected_chosen"]').click
   find('div[id="LanguageSelected_chosen"] div[class="chosen-drop"] div[class="chosen-search"] input').set 'Português BR'
-  find('li[class="active-result result-selected highlighted"]', text: 'Português BR').click
+  find('li[class$="highlighted"]', text: 'Português BR').click
   # sleep 50
   find('button[id="btnRegistrar"]').click
   expect(find('div[class="jquery-loading-modal__text"]')).to have_content 'Aguarde enquanto o cadastro é realizado'
