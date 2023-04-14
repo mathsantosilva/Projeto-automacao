@@ -1,10 +1,12 @@
-Dado('que acesso a tela de cadastro de empresa') do
+Dado('que acesso a store {string} e vou até a tela de cadastro') do |path_site|
+  visit path_site
+  @common.inserir_cookie_sessao()
   find('a[style="font-weight: bold"]', text: 'Empresas').click
   find('a[href="/store/Entity/Index"]', text: 'Gestão de Empresas').click
   find('a[class="btn btn-success"]', text: 'Cadastrar Empresa').click
 end
 
-Quando('Preencho os dados necessarios utilizando CNPJ') do
+Quando('Preencho os dados necessarios utilizando CNPJ e o plano {string}') do |plano|
   @razao_social = 'Empresa de testes - Automação - ' + $time.to_s
   fill_in 'EntityData_Name', with: @razao_social
   fill_in 'EntityData_CnpjCpf', with: $cnpj
@@ -13,10 +15,11 @@ Quando('Preencho os dados necessarios utilizando CNPJ') do
   fill_in 'EntityData_Phone', with: $codigo_area + $telefone
   fill_in 'EntityData_Cei', with: '268881103681'
   find('div[id="PlanSelected_chosen"]').click
-  find('div[id="PlanSelected_chosen"] div[class="chosen-drop"] div[class="chosen-search"] input[class="chosen-search-input"]').set 'Plano de teste - Duração 1 dia'
-  find('li[class="active-result highlighted"]', text: 'Plano de teste - Duração 1 dia').click
+  find('div[id="PlanSelected_chosen"] div[class="chosen-drop"] div[class="chosen-search"] input').set plano
+  sleep 10
+  find('li[class="active-result highlighted"]', text: plano).click
   find('div[id="EntityData_RamoCodigo_chosen"]').click
-  find('div[id="EntityData_RamoCodigo_chosen"] div[class="chosen-drop"] div[class="chosen-search"] input[class="chosen-search-input"]').set 'Indústrias De Transformação'
+  find('div[id="EntityData_RamoCodigo_chosen"] div[class="chosen-drop"] div[class="chosen-search"] input').set 'Indústrias De Transformação'
   find('li[class="active-result highlighted"]', text: 'Indústrias De Transformação').click
   fill_in 'EntityData_Address', with: $endereco_aleatorio
   fill_in 'EntityData_District', with: 'Centro'
@@ -31,7 +34,7 @@ Quando('Preencho os dados necessarios utilizando CNPJ') do
   fill_in 'UserData_Phone', with: $telefone
   fill_in 'UserData_Cpf', with: $cpf
   find('div[id="LanguageSelected_chosen"]').click
-  find('div[id="LanguageSelected_chosen"] div[class="chosen-drop"] div[class="chosen-search"] input[class="chosen-search-input"]').set 'Português BR'
+  find('div[id="LanguageSelected_chosen"] div[class="chosen-drop"] div[class="chosen-search"] input').set 'Português BR'
   find('li[class="active-result result-selected highlighted"]', text: 'Português BR').click
   # sleep 50
   find('button[id="btnRegistrar"]').click
@@ -39,7 +42,7 @@ Quando('Preencho os dados necessarios utilizando CNPJ') do
   @common.validar_troca_pagina('/store/Entity/CreateResult')
 end
 
-Quando('Preencho os dados necessarios utilizando CPF') do
+Quando('Preencho os dados necessarios utilizando CPF e o plano {string}') do |plano|
   pending # Write code here that turns the phrase above into concrete actions
 end
 

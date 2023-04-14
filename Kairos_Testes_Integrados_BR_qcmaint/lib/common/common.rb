@@ -136,7 +136,7 @@ class Common
 
     def gravar_arquivo_dados_empresa(email,cnpj,razao)
         File.open("./arquivos_testes/ListaEmpresasCriadas.txt", 'a+') do |f|
-            f.write("Razão_Social: " +  razao + " | " +  "CNPJ/CPF: " + cnpj + " | " + "Email: " + email )
+            f.write("Razão_Social: " +  razao + " | " +  "CNPJ/CPF: " + cnpj + " | " + "Email: " + email + "\n" )
         end
     end
 
@@ -158,5 +158,19 @@ class Common
                 next 
             end
         end
+    end
+    def inserir_cookie_sessao()
+        if (current_path.downcase) == '/store/admin'
+            browser = Capybara.current_session.driver.browser
+            browser.manage.add_cookie name: ".ASPXFORMSAUTHSTORE", value: $cookie_store, same_site: "Lax", http_only: true
+            refresh 
+          end
+        
+          if (current_path.downcase) == '/dimep/account/logon'
+            browser = Capybara.current_session.driver.browser
+            browser.manage.add_cookie name: "ASP.NET_SessionId", value:$cookie_kairos_sessionid, Max_Age: '240', secure: true
+            browser.manage.add_cookie name: ".AspNet.Cookies", value: $cookie_aspnet, http_only: true, secure: true
+            visit @page
+          end
     end
 end
