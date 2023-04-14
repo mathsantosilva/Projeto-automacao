@@ -1,5 +1,6 @@
-Dado('que acesso a tela de Login') do
-    #acessando a tela de login kairos
+Dado('que acesso a tela de Login {string}') do |path_site|
+    visit path_site
+    print current_url
   end
   
   Quando('insiro os dados de email e senha corretos') do |table|

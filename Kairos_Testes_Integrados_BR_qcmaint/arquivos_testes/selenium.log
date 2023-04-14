@@ -207,3 +207,47 @@
   https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
 
 2023-04-13 17:46:56 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.
+2023-04-13 23:50:38 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-04-13 23:50:38 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.
+2023-04-13 23:55:40 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-04-13 23:55:40 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.
+2023-04-13 23:57:22 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-04-13 23:57:22 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.
+2023-04-13 23:58:19 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-04-13 23:58:19 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.
+2023-04-13 23:59:35 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-04-13 23:59:35 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.
+2023-04-14 00:00:30 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-04-14 00:00:30 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.
+2023-04-14 00:03:41 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-04-14 00:03:41 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.
+2023-04-14 00:06:33 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-04-14 00:06:33 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.
+2023-04-14 00:08:45 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-04-14 00:08:45 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.
+2023-04-14 00:09:37 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-04-14 00:09:37 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.
+2023-04-14 00:11:51 WARN Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging#ruby
+
+2023-04-14 00:11:51 WARN Selenium [DEPRECATION] [:capabilities] The :capabilities parameter for Selenium::WebDriver::Chrome::Driver is deprecated. Use :options argument with an instance of Selenium::WebDriver::Chrome::Driver instead.

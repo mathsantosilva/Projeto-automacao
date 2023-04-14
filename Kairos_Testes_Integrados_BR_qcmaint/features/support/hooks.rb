@@ -21,7 +21,7 @@ Before do
   $user_en = 'automacao@dimep.com.en'
   $senha = '1'
   page.current_window.maximize
-  Capybara.app_host = 'http://qcdev.dimepkairos.com.br/'
+  Capybara.app_host = 'https://www.dimepkairos.com.br/'
   @ambiente = 'Dimep'
   $cookie_store = '34AE4A11F7C6659D344345D0711FE227D9233B5ECF26712965A4DFE99350B3B75BD13A0C537101F9EDC01157491265903904EE6999CF76DEF17C2A5872CBF1B14E92719403A14EE33911275480994724D55718D710378918682FCDFCF3BE93EE84E10D72274B1782208897DE1139189DEC704C07'
   $cookie_kairos_sessionid = 'rcn1yosinjg4r4wxg21b5m0e'
