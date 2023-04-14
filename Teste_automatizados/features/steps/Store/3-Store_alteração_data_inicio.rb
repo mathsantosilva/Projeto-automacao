@@ -1,4 +1,5 @@
 Dado('acesso a tela de gestão da empresa') do
+  visit 
   find('a[style="font-weight: bold"]', text: 'Empresas').click
   find('a[href="/store/Entity/Index"]', text: 'Gestão de Empresas').click
 end

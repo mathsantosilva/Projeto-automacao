@@ -9,3 +9,4 @@ logs
 .vscode
 Teste_automatizados/features/support/hooks.rb
 Teste_automatizados/arquivos_testes/selenium.log
+Teste_automatizados/arquivos_testes/ListaEmpresasCriadas.txt

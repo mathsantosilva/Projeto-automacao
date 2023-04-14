@@ -136,7 +136,7 @@ class Common
 
     def gravar_arquivo_dados_empresa(email,cnpj,razao)
         File.open("./arquivos_testes/ListaEmpresasCriadas.txt", 'a+') do |f|
-            f.write("Razão_Social: " +  razao + " | " +  "CNPJ/CPF: " + cnpj + " | " + "Email: " + email + "\n" )
+            f.write("Razão_Social: " +  razao + " | " +  "CNPJ/CPF: " + cnpj + " | " + "Email: " + email + " | "+ "Host: " + current_host + "\n" )
         end
     end
 

@@ -15,6 +15,7 @@ class Complements
 
   def varcadastro 
     Faker::Config.locale = 'pt-BR'
+    $rfc = "mx" + (Faker::Number.number(digits: 13)).to_s
     $nome = Faker::Name.name 
     $site = Faker::Internet.url
     $cep = Faker::Address.zip_code
