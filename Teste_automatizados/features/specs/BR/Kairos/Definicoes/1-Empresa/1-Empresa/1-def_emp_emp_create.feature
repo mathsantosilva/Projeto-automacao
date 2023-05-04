@@ -1,34 +1,34 @@
 #language: pt
 
-@BR_empresa_create
+@br
+@br_definicoes
+@br_empresa
+@br_empresa_create
 Funcionalidade: Criação de empresa
+    Rotina responsavel pela criação de novas empresas dentro do mesmo banco
 
-    @empresa_create_cnpj
+    Contexto: Acessando a tela de cadastro de empresas
+        Dado que acesso a tela de login em "Dimep/Account/LogOn" no ambiente BR
+        Então faço o caminho até a tela cadastro de empresa BR
+
+    @br_empresa_create_unico
+    @br_empresa_create_cnpj
     Cenario: Criação de Subempresa com CNPJ
-        Dado que acesso a tela de login em "Dimep/Account/LogOn"
-        E vou até a tela de cadastro de empresa 
-        Quando preencho os dados e uso cnpj
-        Quando aperto no botão salvar
+        Dado que preencho os dados, uso CNPJ e clico em salvar
         Então deverá apresentar uma mensagem "A Empresa foi criada com sucesso"
 
-    @empresa_create_cpf
+    @br_empresa_create_unico
+    @br_empresa_create_cpf
     Cenario: Criação de Subempresa com CPF
-        Dado que acesso a tela de login em "Dimep/Account/LogOn"
-        E vou até a tela de cadastro de empresa 
-        Quando preencho os dados e uso cpf
-        Quando clico no botão salvar
-        Então devo receber uma mensagem "A Empresa foi criada com sucesso"
+        Dado que preencho os dados, uso CPF e clico em salvar
+        Então deverá apresentar uma mensagem "A Empresa foi criada com sucesso"
 
-    @empresa_create_cnpj_looping
+    @br_empresa_create_cnpj_looping
     Cenario: Criação de Subempresa com CNPJ
-        Dado que acesso a tela de login em "Dimep/Account/LogOn"
-        E vou até a tela de cadastro de empresa 
-        Quando cadastro empresa cnpj em loopings
-        Então devo receber uma mensagem "A Empresa foi criada com sucesso"
+        Dado que preencho os dados, uso CNPJ em looping
+        Então deverá apresentar uma mensagem "A Empresa foi criada com sucesso"
 
-    @empresa_create_cpf_looping
+    @br_empresa_create_cpf_looping
     Cenario: Criação de Subempresa com CPF
-        Dado que acesso a tela de login em "Dimep/Account/LogOn"
-        E vou até a tela de cadastro de empresa 
-        Quando cadastro empresa cpf em loopings
-        Então devo receber uma mensagem "A Empresa foi criada com sucesso"
+        Dado que preencho os dados, uso CPF em looping
+        Então deverá apresentar uma mensagem "A Empresa foi criada com sucesso"
