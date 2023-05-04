@@ -10,7 +10,13 @@ class Complements
     $cnpj = CNPJ.generate
     $cpf = CPF.generate
     $time = Time.new.strftime("%d-%m-%Y - %H%M")
-    $inicio_mes = Time.new.strftime("01-%m-%Y")
+    data_inicio_mes = Time.new.strftime("01%m%Y")
+    $data_inicio_ano = Time.new.strftime("0101%Y")
+    $data_ano_atual = Time.new.strftime("%Y")
+    $data_inicio_verao = Time.new.strftime("1005%Y")
+    $data_fim_verao = Time.new.strftime("1007%Y")
+    $data_fim_ano = Time.new.strftime("3112%Y") 
+  
   end
 
   def varcadastro 

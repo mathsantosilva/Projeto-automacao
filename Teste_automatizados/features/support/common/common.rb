@@ -59,21 +59,16 @@ class Common
     end
 
     #Clicando no botão salvar
-    def botaosalvar
-        drop = find('input[type="button"][value="Salvar"]', match: :first)
-        drop.click
-    end
-
-    def botaosalvar_mx
-        drop = find('input[type="button"][value="Grabar"]', match: :first)
+    def botaosalvar_geral
+        drop = find('div[style="margin-top: 30px; clear: both"]  input[class="guardar"]')
         drop.click
     end
 
     #Clicando no botão cancelar
     def botaocancelar
-        drop = find("input[type=button][value='Cancelar']", match: :first)
+        drop = find("div[style='margin-top: 30px; clear: both'] input[class='cancelarOperacao']")
         drop.click
-        find('span[class="PlusButton pointer"]', text: 'Sim').click
+        find('span[class="PlusButton pointer"]', text: 'Confirmar').click
     end
 
     #Clicando no botão salvar
@@ -159,6 +154,7 @@ class Common
             end
         end
     end
+
     def inserir_cookie_sessao()
         if (current_path.downcase) == '/store/admin'
             browser = Capybara.current_session.driver.browser
