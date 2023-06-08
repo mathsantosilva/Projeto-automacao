@@ -1,6 +1,7 @@
 Dado('entro na tela de empresa') do
     # Realiza login
-    @login.logon_ambiente_mx
+    @login.logon_ambiente_geral
+    @common.fechar_popup
     # Acessando a empresa pela navegacao de telas
     @common.nav_def('Empresa','Empresas', 'label[class="pointer"]')
     @complements.varcommon

@@ -1,7 +1,7 @@
 Dado('que acesso a tela de empresa PTbr') do
   # Realiza login
   @login.logon_ambiente_geral
-  @login.fechar_popup
+  @common.fechar_popup
   # Acessando a empresa pela navegacao de telas
   @common.nav_def('Sociedad','Sociedads', 'label[class="pointer"]')
 end

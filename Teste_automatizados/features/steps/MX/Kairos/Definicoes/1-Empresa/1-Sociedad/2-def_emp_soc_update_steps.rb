@@ -1,7 +1,7 @@
 Dado('que acesso a empresa criada com cnpj') do
     #Realiza login
     @login.logon_ambiente_geral
-    @login.fechar_popup
+    @common.fechar_popup
     # Acessando a empresa pela navegação de telas
     sleep 5
     @common.nav_def('Sociedad','Sociedads', 'label[class="pointer"]')
