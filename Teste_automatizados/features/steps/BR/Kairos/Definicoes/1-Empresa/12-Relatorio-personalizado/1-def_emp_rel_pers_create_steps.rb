@@ -1,7 +1,8 @@
 Dado('que realizo o login pela tela de login em {string} no ambiente BR') do |path_site|
   visit path_site
   # Realiza login
-  @login.logon_ambiente_br 
+  @login.logon_ambiente_geral
+  @common.fechar_popup
 end
 
 Então('faço o caminho até a tela cadastro de relatorio personalizado') do
