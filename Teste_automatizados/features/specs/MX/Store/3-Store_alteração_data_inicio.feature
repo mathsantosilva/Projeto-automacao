@@ -10,4 +10,4 @@ Funcionalidade: Alteração
         Dado acesso a tela de gestão da empresa
         Quando Pesquiso a empresa e edito as configurações
         Quando Altero a data inicial da empresa e salvo
-        Então deverá apresentar a mensagem "Empresa editada com sucesso."
+        Então deverá alterar a data e informar "Empresa editada com sucesso."
