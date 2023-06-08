@@ -1,7 +1,7 @@
 Dado('que acesso a tela de login em {string} no ambiente mx') do |path|
   visit path
   # Realiza login
-  @login.logon_ambiente_mx
+  @login.logon_ambiente_geral
 end
 
 Então('faço o caminho até a tela cadastro de empresa') do

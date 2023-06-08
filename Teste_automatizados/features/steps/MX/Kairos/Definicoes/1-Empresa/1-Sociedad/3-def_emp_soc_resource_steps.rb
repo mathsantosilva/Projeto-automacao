@@ -1,6 +1,6 @@
 Dado('que acesso a tela de empresa PTbr') do
   # Realiza login
-  @login.logon_ambiente_mx
+  @login.logon_ambiente_geral
   # Acessando a empresa pela navegacao de telas
   @common.nav_def('Empresa', 'div[id="MenuEmpresas"]')
 end

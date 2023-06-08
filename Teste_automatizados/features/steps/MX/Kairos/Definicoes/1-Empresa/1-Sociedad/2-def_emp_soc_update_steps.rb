@@ -1,6 +1,6 @@
 Dado('que acesso a empresa criada com cnpj') do
     #Realiza login
-    @login.logon_ambiente_mx
+    @login.logon_ambiente_geral
     # Acessando a empresa pela navegação de telas
     sleep 5
     @common.nav_def('Empresa', 'div[id="MenuEmpresas"]')
