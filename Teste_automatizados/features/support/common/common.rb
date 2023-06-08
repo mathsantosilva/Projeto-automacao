@@ -255,4 +255,13 @@ class Common
         return contador_linhas
     end
 
+    def fechar_popup()
+        elemento = '[class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable ui-dialog-css"]'
+        if expect(find(elemento).assert_selector).to eq true
+            find('[id="closeModal"]').click
+        else
+            return
+        end
+    end
+
 end

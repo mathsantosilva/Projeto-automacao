@@ -2,7 +2,7 @@ Dado('entro na tela de empresa') do
     # Realiza login
     @login.logon_ambiente_mx
     # Acessando a empresa pela navegacao de telas
-    @common.nav_def('Empresa', 'div[id="MenuEmpresas"]')
+    @common.nav_def('Empresa','Empresas', 'label[class="pointer"]')
     @complements.varcommon
     @complements.varcadastro
 end

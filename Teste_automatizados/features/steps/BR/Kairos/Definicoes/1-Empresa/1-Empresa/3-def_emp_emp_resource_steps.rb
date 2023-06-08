@@ -2,7 +2,7 @@ Dado('que acesso a tela de empresa PTbr') do
   # Realiza login
   @login.logon_ambiente_mx
   # Acessando a empresa pela navegacao de telas
-  @common.nav_def('Empresa', 'div[id="MenuEmpresas"]')
+  @common.nav_def('Empresa','Empresas', 'label[class="pointer"]')
 end
   
   Quando('acesso a criação de empresa PTbr') do

@@ -2,11 +2,12 @@ Dado('que acesso a tela de login em {string} no ambiente mx') do |path|
   visit path
   # Realiza login
   @login.logon_ambiente_geral
+  @login.fechar_popup
 end
 
 Então('faço o caminho até a tela cadastro de empresa') do
   # Acessando a empresa pela navegacao de telas
-  @common.nav_def('Empresa','Sociedads', 'label[class="pointer"]')
+  @common.nav_def('Sociedad','Sociedads', 'label[class="pointer"]')
   # Carrega as variaveis utilizadas nas spec
   @complements.varcommon
   @complements.varcadastro

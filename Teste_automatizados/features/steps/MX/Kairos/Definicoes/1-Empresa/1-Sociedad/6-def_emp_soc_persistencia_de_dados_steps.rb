@@ -1,8 +1,9 @@
 Dado('entro na tela de empresa') do
     # Realiza login
     @login.logon_ambiente_geral
+    @login.fechar_popup
     # Acessando a empresa pela navegacao de telas
-    @common.nav_def('Empresa', 'div[id="MenuEmpresas"]')
+    @common.nav_def('Sociedad','Sociedads', 'label[class="pointer"]')
     @complements.varcommon
     @complements.varcadastro
 end
