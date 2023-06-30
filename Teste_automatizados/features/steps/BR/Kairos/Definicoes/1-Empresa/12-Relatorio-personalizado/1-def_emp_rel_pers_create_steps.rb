@@ -3,6 +3,7 @@ Dado('que realizo o login pela tela de login em {string} no ambiente BR') do |pa
   # Realiza login
   @login.logon_ambiente_geral
   @common.fechar_popup
+  @common.inserir_cookie_campanha
 end
 
 Então('faço o caminho até a tela cadastro de relatorio personalizado') do

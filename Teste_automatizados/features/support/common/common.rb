@@ -169,6 +169,12 @@ class Common
             visit @page
           end
     end
+    def inserir_cookie_campanha()
+        if (current_path.downcase) == '/dimep/account/logon'
+            browser = Capybara.current_session.driver.browser
+            browser.execute_script("window.localStorage.setItem('appKairos', true)")
+        end
+    end
 
     def inserir_colunas(contador_linhas, names, campo_definicao, tipo_campo,definicao)
         nomes = names
