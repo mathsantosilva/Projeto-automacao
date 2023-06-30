@@ -187,8 +187,6 @@ class Common
         select(nomes[tipo_campo].to_s, from: 'select_tipo'+linha).select_option
         
         if definicao && nomes[tipo_campo] == 'Ocorrência'
-
-            puts "ocorrencia"
             nome_provisorio = 'Ocorrencia'
             script_insere_id_ocor = """$(\'select[name=\"Campos["+ linha +"].Id"+nome_provisorio+"\"]\').attr(\"id\", \"select_"+nome_provisorio+linha+"\");"""
             page.execute_script(script_insere_id_ocor)
@@ -196,7 +194,6 @@ class Common
         end
         
         if definicao && nomes[tipo_campo] == 'Informações de Empresa'
-            puts "Infos empresa"
             nome_provisorio = 'InformacaoEmpresa'
             script_insere_id_infoempre = """$(\'select[name=\"Campos["+ linha +"].Id"+nome_provisorio+"\"]\').attr(\"id\", \"select_"+nome_provisorio+linha+"\");"""
             page.execute_script(script_insere_id_infoempre)
@@ -204,7 +201,6 @@ class Common
         end
 
         if definicao && nomes[tipo_campo] == 'Informações de Funcionário'
-            puts "infos funcionario"
             nome_provisorio = 'InformacaoFuncionario'
             script_insere_id_infofunc = """$(\'select[name=\"Campos["+ linha +"].Id"+nome_provisorio+"\"]\').attr(\"id\", \"select_"+nome_provisorio+linha+"\");"""
             page.execute_script(script_insere_id_infofunc)
@@ -212,7 +208,6 @@ class Common
         end
 
         if definicao && nomes[tipo_campo] == 'Marcação'
-            puts "marcação"
             nome_provisorio = 'TiposMarcacao'
             find('select[id="Campos[0].TiposMarcacao"]').click
             find('div[id="Campos_0__TiposMarcacao_chzn"] input[class="default"]', visible: false).set(nomes[campo_definicao])
@@ -221,10 +216,8 @@ class Common
             
         if definicao && nomes[tipo_campo] != 'Ocorrência' && nomes[tipo_campo] != 'Informações de Empresa' && nomes[tipo_campo] != 'Informações de Funcionário' && nomes[tipo_campo] != 'Marcação'
             script_insere_id_def = """$(\'select[name=\"Campos["+ linha +"].Id"+nomes[tipo_campo]+"\"]\').attr(\"id\", \"select_"+nomes[tipo_campo]+linha+"\");"""
-            puts script_insere_id_def
             page.execute_script(script_insere_id_def)
             id_select = 'select_'+nomes[tipo_campo]+linha
-            puts id_select
             select(nomes[campo_definicao].to_s, from: id_select, visible: false).select_option
         end
     end
@@ -232,26 +225,18 @@ class Common
     def selecionar_opcoes(contador_linhas, names, itens)
         linha = contador_linhas.to_s
         incre = 0
-        puts "etapa 1"
         find('tr[id="linha_'+ linha +'"]  a[class="search-choice-close"]').click
-        puts "etapa 2"
         for num in itens do
-            puts "etapa 3"
             find('div[id="Campos_'+ linha +'__OpcoesVisualizacao_chzn"]').click
-            puts "etapa 4"
             find('div[id="Campos_'+ linha +'__OpcoesVisualizacao_chzn"] input[value="Opções de visualização..."]').set(names[num])
-            puts "etapa 5"
             find('div[id="Campos_'+ linha +'__OpcoesVisualizacao_chzn"] li[class="active-result highlighted"] ', visible: false).click
-            puts "etapa 6"
             incre += 1
-            puts "etapa 7"
         end
 
     end
 
     def contador_incre(contador_linhas)
         contador_linhas += 1
-        puts contador_linhas
         return contador_linhas
     end
 
