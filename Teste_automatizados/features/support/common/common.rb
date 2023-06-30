@@ -160,7 +160,7 @@ class Common
             browser = Capybara.current_session.driver.browser
             browser.manage.add_cookie name: ".ASPXFORMSAUTHSTORE", value: $cookie_store, same_site: "Lax", http_only: true
             refresh 
-          end
+        end
         
           if (current_path.downcase) == '/dimep/account/logon'
             browser = Capybara.current_session.driver.browser
@@ -170,6 +170,13 @@ class Common
           end
     end
 
+    def inserir_cookie_local()
+        if (current_path.downcase) == '/dimep/account/logon'
+            browser = Capybara.current_session.driver.browser
+            browser.execute_script("window.localStorage.setItem('appKairos', true)")
+            visit @page
+        end
+    end
     def inserir_colunas(contador_linhas, names, campo_definicao, tipo_campo,definicao)
         nomes = names
         linha = contador_linhas.to_s
