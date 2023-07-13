@@ -16,10 +16,11 @@ def verifica_diretorio
   end
 end
 
-def gerador_de_arquivos(nome,linhas,escolha,quant,lista_pis)
+def gerador_de_arquivos(linhas,escolha,quant,lista)
   num = 0
   count = 0
-
+  time = Time.new.strftime('%d-%m-%Y-%H-%M')
+  nome = escolha + ' - ' << time.to_s
   while num < linhas.to_i
     case escolha
       when "CPF"
@@ -31,56 +32,88 @@ def gerador_de_arquivos(nome,linhas,escolha,quant,lista_pis)
       when "NUM"
         text = Faker::Number.number(digits: quant).to_s
       when "PIS"
-        text = lista_pis[count].to_s
+        text = lista[count].to_s
+        count += 1
+      when "CEI"
+        text = lista[count].to_s
         count += 1
     end
     File.open("./arquivos/#{nome}.txt", 'a+') do |f|
-      f.write(text << "\n")
+      f.write(text + "\n")
     end
     num += 1
   end
 end
 
+def gerador_cei(linhas)
+  escolha = "CEI"
+  quant = 0
+  fase2 = []
+  # Fase 4 - Divisor
+  divisor = 11
+
+  basepis = []
+  lista = []
+  contador = 1
+
+
+  linhas.to_i.times do
+    n = 1
+    n1 = 2 # numero diferente de zero
+    n2 = Faker::Number.within(range: 0..9)
+    n3 = Faker::Number.within(range: 0..9)
+    n4 = Faker::Number.within(range: 0..9)
+    n5 = Faker::Number.within(range: 0..9)
+    n6 = Faker::Number.within(range: 0..9)
+    n7 = Faker::Number.within(range: 0..9)
+    n8 = Faker::Number.within(range: 0..9)
+    n9 = Faker::Number.within(range: 0..9)
+    n10 = Faker::Number.within(range: 0..9)
+    n11 = 8
+
+    etapa1 = (n1 * 7) + (n2 * 4) + (n3 * 1) + (n4 * 8) + (n5 * 5) + (n6 * 2) + (n7 * 1) + (n8 * 6) + (n9 * 3) + (n10 * 7) + (n11 * 4)
+    etapa2 = etapa1.to_s 
+    etapa3 = (etapa2[etapa2.length - 1]).to_i + (etapa2[etapa2.length - 2]).to_i
+    etapa4 = ((10 - (etapa3 % 10 + (etapa3 / 10).floor) % 10) % 10).floor
+    lista.append(n1.to_s + n2.to_s + n3.to_s + n4.to_s + n5.to_s + n6.to_s + n7.to_s + n8.to_s + n9.to_s + n10.to_s + n11.to_s + etapa4.to_s)
+  end
+    
+  gerador_de_arquivos(linhas,escolha,quant,lista)
+  @result = true
+end
+
 def gerador_cpf(linhas)
-  time = Time.new.strftime('%Y-%m-%d-%H-%M')
-  nome = 'CPF-' << time.to_s
   quant = 0
   escolha = "CPF"
-  lista_pis = []
-  gerador_de_arquivos(nome,linhas,escolha,quant,lista_pis)
+  lista = []
+  gerador_de_arquivos(linhas,escolha,quant,lista)
   @result = true
 end
 
 def gerador_cnpj(linhas)
-  time = Time.new.strftime('%Y-%m-%d-%H-%M')
-  nome = 'CNPJ-' << time.to_s
   quant = 0
   escolha = "CNPJ"
-  lista_pis = []
-  gerador_de_arquivos(nome,linhas,escolha,quant,lista_pis)
+  lista = []
+  gerador_de_arquivos(linhas,escolha,quant,lista)
   @result = true
 end
 
 def gerador_nif(linhas)
-  time = Time.new.strftime('%Y-%m-%d-%H-%M')
-  nome = 'NIF-' << time.to_s
   quant = 0
   escolha = "NIF"
-  lista_pis = []
-  gerador_de_arquivos(nome,linhas,escolha,quant,lista_pis)
+  lista = []
+  gerador_de_arquivos(linhas,escolha,quant,lista)
   @result = true
 end
 
 def gerador_num(linhas)
-  print('Informe a quantidade de numeros por linhas: ')
+  print('| Informe a quantidade de numeros por linhas: ')
   quant = $stdin.gets.strip.to_i
 
   if quant.to_i > 0 
-    time = Time.new.strftime('%Y-%m-%d-%H-%M')
-    nome = 'Num-' << time.to_s
     escolha = "NUM"
-    lista_pis = []
-    gerador_de_arquivos(nome,linhas,escolha,quant,lista_pis)
+    lista = []
+    gerador_de_arquivos(linhas,escolha,quant,lista)
   else
     @result = false
     return
@@ -89,8 +122,6 @@ def gerador_num(linhas)
 end
 
 def gerador_pis(linhas)
-  time = Time.new.strftime('%Y-%m-%d-%H-%M')
-  nome = 'PIS-' << time.to_s
   escolha = "PIS"
   quant = 0
   fase2 = []
@@ -98,7 +129,7 @@ def gerador_pis(linhas)
   divisor = 11
 
   basepis = []
-  lista_pis = []
+  lista = []
   contador = 1
 
 
@@ -135,15 +166,15 @@ def gerador_pis(linhas)
     end
     pis_gerado << fase7.to_s
     # Guardando os Pis gerados em um Array
-    lista_pis.push(pis_gerado)
+    lista.push(pis_gerado)
   end
   # Fase 9 - Montando arquivo e escrevendo nele
-  gerador_de_arquivos(nome,linhas,escolha,quant,lista_pis)
+  gerador_de_arquivos(linhas,escolha,quant,lista)
   @result = true
 end
 
 def escolha(opcao)
-  print('Informe a quantidade de registros(Linhas): ')
+  print('| Informe a quantidade de registros(Linhas): ')
   linhas = $stdin.gets.strip
   if linhas.to_i > 0 
     case opcao
@@ -158,11 +189,14 @@ def escolha(opcao)
     when '5'
       gerador_pis(linhas)
     when '6'
+      gerador_cei(linhas)
+    when '7'
       gerador_num(linhas)
       gerador_cpf(linhas)
       gerador_cnpj(linhas)
       gerador_nif(linhas)
       gerador_pis(linhas)
+      gerador_cei(linhas)
     else
       puts '!!Opção invalida, escolha novamente!!'
       puts "\n"
@@ -181,16 +215,18 @@ def escolha(opcao)
 end
 
 def menu
-  print("Escolha quais dados aleatorios quer gerar: \n")
-  print('1 - CPF | ')
-  print('2 - CNPJ | ')
-  print('3 - NIF | ')
-  print('4 - Numeros | ')
-  print('5 - PIS | ')
-  print('6 - Todos | ')
-  print('7 - Sair |: ')
+  print("""| Escolha quais dados aleatorios quer gerar:
+| 1 - CPF
+| 2 - CNPJ
+| 3 - NIF
+| 4 - Numeros
+| 5 - PIS
+| 6 - CEI
+| 7 - Todos
+| 8 - Sair 
+| Escolher: """)
   opcao = $stdin.gets.strip
-  if(opcao == '7' )
+  if(opcao == '8' )
     return
   end
   escolha(opcao)
