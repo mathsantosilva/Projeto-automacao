@@ -1,7 +1,7 @@
 #language: pt
 
 @br
-@login_br
+@br_login
 Funcionalidade: Login
     Rotina resposavel pelo acesso a empresa 
 
