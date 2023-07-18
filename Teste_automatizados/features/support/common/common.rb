@@ -67,7 +67,7 @@ class Common
 
     #Clicando no botão salvar
     def botaosalvar_geral
-        drop = find('div[class="Conteudo"] div[style="clear: both"]  input[type=button]:nth-child(1)')
+        drop = find('div[class="Conteudo"] div[style="clear: both"] input:nth-child(1)')
         drop.click
     end
 
