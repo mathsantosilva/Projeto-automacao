@@ -24,6 +24,13 @@ class Common
         find('div[class="pointer DropDownHeaderElement"]', text: text).click
     end
 
+    def nav_app(text)
+        sleep 5
+        selecionar = find('span[id="toogleUserName"]')
+        selecionar.hover
+        find('div[class="pointer DropDownHeaderElement"]', text: text).click
+    end
+
     #acessando botao dentro de um table
     def select_button(elemento, button)
         @buscar = find(elemento)
@@ -177,6 +184,7 @@ class Common
             visit @page
         end
     end
+    
     def inserir_colunas(contador_linhas, names, campo_definicao, tipo_campo,definicao)
         nomes = names
         linha = contador_linhas.to_s

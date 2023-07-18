@@ -42,7 +42,6 @@ Dado('que entro na tela de login em {string} no ambiente BR') do |path|
     fill_in 'NewPassword', with: '2', visible: false
     fill_in 'RepeatNewPassword', with: '2', visible: false
     find('input[class="Pointer submitLogin"]', visible: false).click
-    print('validar')
     expect(find('div[class="validation-summary-ok"]')).to have_content 'Senha alterada com sucesso.'
     within('div[class="RecoverPassword"]') do
       find('a[href="/Dimep/Account/LogOn"]', text: "Iniciar sessão »", visible: false).click  
@@ -55,5 +54,9 @@ Dado('que entro na tela de login em {string} no ambiente BR') do |path|
   end                                                                                                   
                                                                                                         
   Então('deverá logar com sucesso com a nova senha na empresa BR e estar no path {string}') do |path_site| 
-    expect(page).to have_current_path(path_site)                       
+    expect(page).to have_current_path(path_site)
+    @common.nav_app('Alterar Senha')
+    fill_in 'Usuario_Senha', with: 1
+    fill_in 'Usuario_ConfirmarSenha', with: 1
+    @common.botaosalvar_geral
   end                                                                                                   
