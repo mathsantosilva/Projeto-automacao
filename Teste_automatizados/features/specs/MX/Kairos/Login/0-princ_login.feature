@@ -10,7 +10,7 @@ Funcionalidade: Login
         Quando insiro os dados de email e senha corretos
             |email|teste198652@dimep.com.br|
             |senha|1|
-        Então deverá logar com sucesso na empresa e estar no path "Dimep/Dashboard"
+        Então deverá logar com sucesso na empresa MX e estar no path "Dimep/Dashboard"
 
     @login_senha_incorreta
     Cenario: Login com a senha incorreta
@@ -41,4 +41,4 @@ Funcionalidade: Login
         Quando insiro os dados de email e nova senha
             |email|teste16578@dimep.com.br|
             |senha|2|
-        Então deverá logar com sucesso com a senha nova estar no path "Dimep/Dashboard"
+        Então deverá logar com sucesso com a nova senha na empresa MX e estar no path "Dimep/Dashboard"
