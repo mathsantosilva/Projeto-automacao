@@ -5,8 +5,7 @@ logs/*
 log
 logs
 .log
-**/features/suport/hooks.rb
 .vscode
-Teste_automatizados/features/support/hooks.rb
 Teste_automatizados/arquivos_testes/selenium.log
 Teste_automatizados/arquivos_testes/ListaEmpresasCriadas.txt
+Teste_automatizados/features/support/dados.json

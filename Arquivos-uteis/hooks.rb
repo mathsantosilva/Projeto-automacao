@@ -13,7 +13,6 @@ Before do
   $user_pt = #Inserir aqui email de acesso dos ambientes
   $user_en = #Inserir aqui email de acesso dos ambientes
   $senha = '1'
-  page.current_window.maximize
   Capybara.app_host = #Inserir aqui a URL do ambientes acessado
   @ambiente = # Inserir aqui o ambiente que o testes rodara 
   @projeto = # Inserir aqui o prjeto que o testes rodara

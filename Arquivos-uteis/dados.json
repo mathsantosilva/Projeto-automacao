@@ -1,0 +1,22 @@
+{
+    "dados_user": {
+        "login": "",
+        "senha": "",
+        "ambiente": "",
+        "url":""
+    },
+    "cookies": [
+        {
+            "nome": "",
+            "valor": ""
+        },
+        {
+            "nome": "",
+            "valor": ""
+        },
+        {
+            "nome": "",
+            "valor": ""
+        }
+    ]
+ }
