@@ -1,11 +1,13 @@
-class cadastro_empresa
+class Cadastro_empresa
 
     #inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
     include Capybara::DSL
     include RSpec::Matchers
 
-    @complements = Complements.new
-    @common = Common.new
+    def initialize
+        require_relative '../common/complements'
+        require_relative '../common/common'
+    end
 
     def cadastro_empresa_rfc_mx(max)
         num = 0
@@ -14,8 +16,8 @@ class cadastro_empresa
             @complements = Complements.new
             @common = Common.new
 
-            @complements.varcommon
-            @complements.varcadastro
+            
+            
             # Entrando na criacao de empresa
             fill_in 'Empresa_Codigo', with: $codigo_aleatorio
             fill_in 'Empresa_Telefone', with: '116541954654'
@@ -37,8 +39,8 @@ class cadastro_empresa
             fill_in 'Empresa_DataPrevisaoProximoFechamento', with: $data_fim_ano
             fill_in 'Empresa_DataLimiteTratamentoPonto', with: $data_fim_ano
             fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-            @common.botaosalvar_geral
-            @common.validar_permanencia_pagina('/Dimep/Empresas/Create')
+            @common.botao_salvar_geral
+            @validadores.validar_permanencia_pagina('/Dimep/Empresas/Create')
             
             cod = cod + 1
             num = num + 1
@@ -70,8 +72,8 @@ class cadastro_empresa
             @complements = Complements.new
             @common = Common.new
 
-            @complements.varcommon
-            @complements.varcadastro
+            
+            
             # Entrando na criacao de empresa
             fill_in 'Empresa_Codigo', with: $codigo_aleatorio
             fill_in 'Empresa_CEI', with: '294226088484'
@@ -96,8 +98,8 @@ class cadastro_empresa
             fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
             fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
             fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-            @common.botaosalvar_geral
-            @common.validar_permanencia_pagina('/Dimep/Empresas/Create')
+            @common.botao_salvar_geral
+            @validadores.validar_permanencia_pagina('/Dimep/Empresas/Create')
 
             cod = cod + 1
             num = num + 1
@@ -129,8 +131,8 @@ class cadastro_empresa
             @complements = Complements.new
             @common = Common.new
 
-            @complements.varcommon
-            @complements.varcadastro
+            
+            
             # Entrando na criacao de empresa
             fill_in 'Empresa_Codigo', with: $codigo_aleatorio
             fill_in 'Empresa_CEI', with: '294226088484'
@@ -155,8 +157,8 @@ class cadastro_empresa
             fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
             fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
             fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-            @common.botaosalvar_geral
-            @common.validar_permanencia_pagina('/Dimep/Empresas/Create')
+            @common.botao_salvar_geral
+            @validadores.validar_permanencia_pagina('/Dimep/Empresas/Create')
 
             cod = cod + 1
             num = num + 1
@@ -187,8 +189,8 @@ class cadastro_empresa
         while num < max.to_i do
             @complements = Complements.new
             @common = Common.new
-            @complements.varcommon
-            @complements.varcadastro
+            
+            
 
             cadas_emp_filial()
 

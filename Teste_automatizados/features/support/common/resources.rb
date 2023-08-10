@@ -1,4 +1,5 @@
 class Resources
+    
     attr_reader :modulos_empresa
     attr_reader :campos_empresa_portugues_br
     attr_reader :campos_empresa_ingles
@@ -53,10 +54,10 @@ class Resources
             'CEI/CNO/CAEPF:',
             'Telefone:',
             'Utiliza portaria 1510:',
+            'Utiliza portaria 671:',
             'Razão Social:',
             'CNPJ/CPF:',
             'Ramo de atividade:',
-            "AGRICULTURA, PECUÁRIA, PRODUÇÃO FLORESTAL, PESCA E AQÜICULTURA",
             'Endereço:',
             'Bairro:',
             'Cidade:',
@@ -64,14 +65,13 @@ class Resources
             'País:',
             'URL:',
             'Email:',
-            'Dia de abertura do período:',
+            'Data Inicial para Tratamento de Ponto:',
             'Fuso horário:',
             'Horário de verão:',
             'Início horário de verão:',
             'Fim horário de verão:',
             'Data de Previsão do Próximo Fechamento:',
             'Data Limite para Tratamento de Ponto:',
-            'Alteração Automática',
             'Chave do Kairos Connect :',
             'Chave pública para geração de Comprovante de Ponto:',
             'Logotipo personalizado:',

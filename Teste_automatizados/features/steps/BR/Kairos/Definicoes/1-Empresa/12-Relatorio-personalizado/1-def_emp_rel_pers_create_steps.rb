@@ -9,8 +9,8 @@ Então('faço o caminho até a tela cadastro de relatorio personalizado') do
   # Acessando a empresa pela navegacao de telas
   @common.nav_def('Empresa','Relatórios Personalizado', 'label[class="pointer"]')
   # Carrega as variaveis utilizadas nas spec
-  @complements.varcommon
-  @complements.varcadastro   
+  
+     
 end
 
 Dado('que preenche as colunas, insere todos os campos e insere o nome {string} no relatorio') do |nome_relatorio, table|
@@ -372,8 +372,8 @@ Dado('que preenche as colunas, insere todos os campos e insere o nome {string} n
 
   # Filtros
   find('div[class="checkboxCustom"]  label[for="ModoTotal1"]').click
-  @common.botaosalvar_geral
-  @common.validar_permanencia_pagina('/Dimep/RelatoriosPersonalizado/Create')
+  @common.botao_salvar_geral
+  @validadores.validar_permanencia_pagina('/Dimep/RelatoriosPersonalizado/Create')
   
 end
 
@@ -714,8 +714,8 @@ Dado('que preenche as colunas, insere somente o valor e insere o nome {string} n
 
   # Filtros
   find('div[class="checkboxCustom"]  label[for="ModoTotal1"]').click
-  @common.botaosalvar_geral
-  @common.validar_permanencia_pagina('/Dimep/RelatoriosPersonalizado/Create')
+  @common.botao_salvar_geral
+  @validadores.validar_permanencia_pagina('/Dimep/RelatoriosPersonalizado/Create')
 end
 
 Então('deverá cadastrar o relatorio e informar {string}') do |message_success|

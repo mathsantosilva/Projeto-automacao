@@ -6,8 +6,8 @@ Dado('que entro na tela de empresa') do
     @common.fechar_popup
     # Acessando a empresa pela navegacao de telas
     @common.nav_def('Empresa','Empresas', 'label[class="pointer"]')
-    @complements.varcommon
-    @complements.varcadastro
+    
+    
     @common.obtercodigoempresa
 end
 

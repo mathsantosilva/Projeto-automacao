@@ -7,7 +7,6 @@ require 'webdrivers'
 require 'json'
 
 context do
-  puts "Aqui"
   dados = File.new("./features/support/dados.json", "r")
   file = File.read(dados)
   $data_hash = JSON.parse(file)
@@ -18,7 +17,6 @@ context do
   $cookie_store = $data_hash['cookies'][0]['valor']
   $cookie_kairos_sessionid = $data_hash['cookies'][1]['valor']
   $cookie_aspnet = $data_hash['cookies'][2]['valor']
-  puts "Ali"
 end
 
 Before do
@@ -28,7 +26,8 @@ Before do
   @cadastros = Cadastros.new
   @common = Common.new
   @validadores = Validadores.new
-  @Consultores = Consultores.new
+  @consultores = Consultores.new
+  @store = Store.new
   @obrigatorio = Obrigatorios.new
   @cadastros_relogios = Cadastros_relogios.new
   @resources = Resources.new

@@ -1,8 +1,18 @@
 class Consultores
-    
+
     #inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
     include Capybara::DSL
     include RSpec::Matchers
+
+    def initialize
+        # Importar a classes para utilizar
+        require_relative '../validadores/validadores'
+        require_relative '../common/common'
+
+        # Instanciar classes necessarias
+        @validadores = Validadores.new
+        @common = Common.new
+    end
 
     # Acessa a primeira empresa que encontrar com CNPJ - De baixo para cima
     def consulta_acessa_empresa_cnpj()
@@ -12,7 +22,7 @@ class Consultores
             valor_td = find(caminho).text()
             correto = @validadores.validar_cnpj(valor_td)
             if correto
-                select_button(caminho, 'span[class="pointer spanButton"]')
+                @common.select_button(caminho, 'span[class="pointer spanButton"]')
                 break
             else
                 contador += 1
@@ -27,9 +37,9 @@ class Consultores
         while true
             caminho = "table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(3)"
             valor_td = find(caminho).text()
-            correto = validar_cpf(valor_td)
+            correto = @validadores.validar_cpf(valor_td)
             if correto
-                select_button(caminho, 'span[class="pointer spanButton"]')
+                @common.select_button(caminho, 'span[class="pointer spanButton"]')
                 break
             else
                 contador += 1

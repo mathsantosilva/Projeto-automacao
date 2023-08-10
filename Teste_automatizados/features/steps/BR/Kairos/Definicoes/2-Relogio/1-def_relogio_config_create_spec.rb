@@ -4,8 +4,8 @@ Dado('Acesso a tela de configuração de relogios para cadastrar uma nova config
       # Acessando a empresa pela navegacao de telas
       @common.nav_def('Relógios', 'Configurações Relógio', 'label[class="pointer"]')
       # Carrega as variaveis utilizadas nas spec
-      @complements.varcommon
-      @complements.varcadastro  
+      
+        
 end
 
 #Cadastrando relogio BioPoint II Sensor3

@@ -9,16 +9,17 @@ Então('vou até a tela de empresa para validar os campos') do
   
   Então('valido os campos em Portugues-BR na criação') do
     valor_resoureces = @resources.campos_empresa_portugues_br
+    valor_resoureces.delete("Alteração Automática")
     @validadores.validar_nome_Campos(valor_resoureces)
   end
   
   Quando('altero uma empresa para validar os campos') do
-    @Consultores.consulta_acessa_empresa_cnpj
+    @consultores.consulta_acessa_empresa_cnpj
   end
   
   Então('valida os campos em portugues-BR no update') do
     valor_resoureces = @resources.campos_empresa_portugues_br
-    valor_resoureces.delete("Dia de abertura do período:")
+    valor_resoureces.delete("Data Inicial para Tratamento de Ponto:")
     @validadores.validar_nome_Campos(valor_resoureces)
   end
   

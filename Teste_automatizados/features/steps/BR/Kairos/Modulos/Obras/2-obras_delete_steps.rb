@@ -4,8 +4,8 @@ Dado('que acesso as obras cadsatradas') do
     # Acessando a empresa pela navegacao de telas
     @common.nav_mod('Obras')
     # Carrega as variaveis utilizadas nas spec
-    @complements.varcommon
-    @complements.varcadastro
+    
+    
 end
 
 Quando('inicio a exclusão') do

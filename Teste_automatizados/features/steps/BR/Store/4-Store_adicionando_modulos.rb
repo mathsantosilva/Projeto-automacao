@@ -19,7 +19,7 @@ Quando('adiciono os modulos na empresa e salvo') do
     @resources.adicionando_modulos($modulos_empresa)
     @path_atual =  current_path
     find('input[class="btn btn-success"]').click
-    @common.validar_permanencia_pagina(@path_atual)
+    @validadores.validar_permanencia_pagina(@path_atual)
 end
 
 Então('deverá adicionar os modulos com sucesso e demonstrar a mensagem {string}') do |message_sucess|

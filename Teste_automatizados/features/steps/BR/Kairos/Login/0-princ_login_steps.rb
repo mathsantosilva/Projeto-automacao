@@ -58,5 +58,5 @@ Dado('que entro na tela de login em {string} no ambiente BR') do |path|
     @common.nav_app('Alterar Senha')
     fill_in 'Usuario_Senha', with: 1
     fill_in 'Usuario_ConfirmarSenha', with: 1
-    @common.botaosalvar_geral
+    @common.botao_salvar_geral
   end                                                                                                   

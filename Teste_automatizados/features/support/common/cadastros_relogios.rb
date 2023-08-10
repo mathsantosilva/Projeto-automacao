@@ -4,11 +4,14 @@ class Cadastros_relogios
     include Capybara::DSL
     include RSpec::Matchers
 
-    @complements = Complements.new
-    @common = Common.new
+    def initialize
+        # Importar a classes para utilizar
+        require_relative '../common/complements'
+        require_relative '../common/common'
 
-    @complements.varcommon
-    @complements.varcadastro
+        @complements = Complements.new
+        @common = Common.new
+    end
 
     def cadastro_cod_repetido_config_relog_DRep()
 

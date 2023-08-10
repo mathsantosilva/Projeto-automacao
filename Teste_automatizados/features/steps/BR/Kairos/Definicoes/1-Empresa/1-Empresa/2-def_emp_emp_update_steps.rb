@@ -3,16 +3,16 @@ Então('vou até a tela de empresas para alterar uma empresa existente') do
     @common.nav_def('Empresa','Empresas','label[class="DefinitionsTitle"]')
     
     # Carrega as variaveis utilizadas nas spec
-    @Complements.geradores_dados_aleatorios
-    @Complements.geradores_tempo
-    @Complements.geradores_dados_documentos_empresa
-    @Complements.geradores_dados_endereco
-    @Complements.geradores_dados_internet
+    @complements.geradores_dados_numericos_aleatorios
+    @complements.geradores_tempo
+    @complements.geradores_dados_documentos_empresa
+    @complements.geradores_dados_endereco
+    @complements.geradores_dados_internet
     
 end                                                                                            
                                                                                                
 Dado('que altero os dados da empresa com CNPJ') do 
-    @common.consultar_empresa_cnpj()      
+    @consultores.consulta_acessa_empresa_cnpj      
     expect(find('input[id="Empresa_Codigo"]').readonly?).to be(true)
     fill_in 'Empresa_CEI', with: '242035439181'
     fill_in 'Empresa_Telefone', with: '119563245132155'
@@ -41,7 +41,7 @@ Dado('que altero os dados da empresa com CNPJ') do
 end                                                                                            
                                                                                                
 Dado('que altero os dados da empresa com CPF') do   
-    @common.consultar_empresa_cpf()                                           
+    @consultores.consulta_acessa_empresa_cpf                                           
     expect(find('input[id="Empresa_Codigo"]').readonly?).to be(true)
     fill_in 'Empresa_CEI', with: '242035439181'
     fill_in 'Empresa_Telefone', with: '119563245132155'

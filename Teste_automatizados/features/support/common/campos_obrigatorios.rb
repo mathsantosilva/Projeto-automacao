@@ -1,5 +1,6 @@
 class Obrigatorios
 
+
     #inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
     include Capybara::DSL
     include RSpec::Matchers

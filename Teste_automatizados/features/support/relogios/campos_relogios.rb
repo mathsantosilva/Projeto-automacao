@@ -1,5 +1,5 @@
-class campos_relogios
-    
+class Campos_relogios
+
     #inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
     include Capybara::DSL
     include RSpec::Matchers

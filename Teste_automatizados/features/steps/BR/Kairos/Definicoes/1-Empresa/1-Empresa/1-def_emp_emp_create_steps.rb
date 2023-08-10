@@ -1,13 +1,13 @@
-  Então('vou até a tela de cadastro de empresas para cadastrar uma nova empresa') do
+  Então('vou até a tela de empresas para cadastrar uma nova empresa') do
     # Acessando a empresa pela navegacao de telas
     @common.nav_def('Empresa','Empresas', 'label[class="pointer"]')
     
     # Carrega as variaveis utilizadas nas spec
-    @Complements.geradores_dados_aleatorios
-    @Complements.geradores_tempo
-    @Complements.geradores_dados_documentos_empresa
-    @Complements.geradores_dados_endereco
-    @Complements.geradores_dados_internet
+    @complements.geradores_dados_numericos_aleatorios
+    @complements.geradores_tempo
+    @complements.geradores_dados_documentos_empresa
+    @complements.geradores_dados_endereco
+    @complements.geradores_dados_internet
   end
 
   Dado('que preencho os dados, uso CNPJ e clico em salvar') do
@@ -35,11 +35,11 @@
     fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
     fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
     @common.botao_salvar_geral
-    @common.validar_permanencia_pagina('/Dimep/Empresas/Create') 
+    @validadores.validar_permanencia_pagina('/Dimep/Empresas/Create') 
   end
 
   Dado('que preencho os dados, uso CPF e clico em salvar') do
-     fill_in 'Empresa_Codigo', with: $codigo_aleatorio
+     fill_in 'Empresa_Codigo', with: $codigo_aleatorio_10
     fill_in 'Empresa_CEI', with: '294226088484'
     fill_in 'Empresa_Telefone', with: '116541954654'
     find('label[for="CbUtilizaPortaria"]', visible: true)
@@ -62,18 +62,18 @@
     fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
     fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
     fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-    @common.botaosalvar_geral
-    @common.validar_permanencia_pagina('/Dimep/Empresas/Create')
+    @common.botao_salvar_geral
+    @validadores.validar_permanencia_pagina('/Dimep/Empresas/Create')
   end
 
   Dado('que preencho os dados, uso CNPJ em looping') do
-    @cadastros.looping_cadastro_empresa_cnpj_br
+    @cadastro_empresa.looping_cadastro_empresa_cnpj_br
   end
   
   Dado('que preencho os dados, uso CPF em looping') do
-    @cadastros.looping_cadastro_empresa_cpf_br
+    @cadastro_empresa.looping_cadastro_empresa_cpf_br
   end
 
-  Então('deverá apresentar uma mensagem {string}') do |message_success|
+  Então('deverá apresentar a mensagem de sucesso no cadastro da empresa {string}') do |message_success|
     expect(find('div[id=Summary-Field-Index]')).to have_content message_success
   end

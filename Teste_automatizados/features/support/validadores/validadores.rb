@@ -48,9 +48,18 @@ class Validadores
         end
     end
 
-    def validar_nome_Campos (valor_campos)
-        valor_campos.each do |campos|
-            expect(page).to have_content campos
+    def validar_nome_Campos(valor_campos)
+        result = []
+        contador = 0
+        buscar_campos = "$('div.Conteudo div.labelFormEdit:visible').text()"
+        campos_da_pagina = page.evaluate_script(buscar_campos)
+        campos_labels = campos_da_pagina.split(':')
+        for p in campos_labels do
+            result.push(p + ':')
+          end
+        valor_campos.each do |labels|
+            expect(result[contador]).to eql labels
+            contador += 1
         end
     end
 
