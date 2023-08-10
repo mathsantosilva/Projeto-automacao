@@ -4,7 +4,7 @@ class Common
     include Capybara::DSL
     include RSpec::Matchers
 
-    #executando a navegacao das paginas
+    # Navegação pelas opções do select de Definições 
     def nav_def(text, text2, value)
         sleep 5
         selecionar = find('div[id="toggleUserDefinitions"]')
@@ -17,6 +17,7 @@ class Common
         find(value).click
     end
 
+    # Navegação pelas opções do select de Modulos
     def nav_mod(text)
         sleep 5
         selecionar = find('span[id="toogleModulos"]')
@@ -24,43 +25,12 @@ class Common
         find('div[class="pointer DropDownHeaderElement"]', text: text).click
     end
 
+    # Navegação pelas opções do select do App
     def nav_app(text)
         sleep 5
         selecionar = find('span[id="toogleUserName"]')
         selecionar.hover
         find('div[class="pointer DropDownHeaderElement"]', text: text).click
-    end
-
-    def procurar_empresa_cnpj()
-        contador = 1
-        while true
-            caminho = "table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(3)"
-            valor_td = find(caminho).text()
-            correto = validar_cnpj(valor_td)
-            if correto
-                select_button(caminho, 'span[class="pointer spanButton"]')
-                break
-            else
-                contador += 1
-                next
-            end
-        end
-    end
-
-    def procurar_empresa_cpf()
-        contador = 1
-        while true
-            caminho = "table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(3)"
-            valor_td = find(caminho).text()
-            correto = validar_cpf(valor_td)
-            if correto
-                select_button(caminho, 'span[class="pointer spanButton"]')
-                break
-            else
-                contador += 1
-                next
-            end
-        end
     end
 
     #acessando botao dentro de um table
@@ -93,10 +63,6 @@ class Common
         page.execute_script(script_remove_chat)
     end
 
-    def validando_css(value, css)
-        find(value).to have_css(css)
-    end
-
     #Clicando no botão salvar
     def botao_salvar_geral()
         drop = find('div[class="Conteudo"] div[style="clear: both"] input:nth-child(1)')
@@ -121,76 +87,9 @@ class Common
         drop.click
     end
 
-    # obtem os dados da primeira empresa da lista
-    def obter_dados_empresa()
-        $codigoPrimeiraEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(1)', match: :first).text
-        $razaoPrimeiraEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(2)', match: :first).text
-        $cnpjPrimeiraEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(3)', match: :first).text
-        $cpfQuartaEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(4) > td:nth-child(3)', match: :first).text
-    end
-
-    def consultar_empresa_criada_razao
-        File.open("arquivos_testes/ListaEmpresasCriadas.txt", 'r') do |f|
-            leitura = f.readlines
-            tam = leitura.count
-            linha = leitura[tam -1]
-            linha_cortade = linha.split('|')
-            razao_sujo = linha_cortade[0].split(':')
-            razao_social = razao_sujo[1].strip
-            f.close
-            return razao_social
-        end
-    end
-
-    def consultar_empresa_criada_cnpj
-        File.open("arquivos_testes/ListaEmpresasCriadas.txt", 'r') do |f|
-            leitura = f.readlines
-            tam = leitura.count
-            linha = leitura[tam -1]
-            linha_cortade = linha.split('|')
-            cnpj_sujo = linha_cortade[1].split()
-            numero_cnpj = cnpj_sujo[1]
-            f.close
-            return numero_cnpj
-        end
-    end
-
-    def consultar_empresa_criada_email
-        File.open("arquivos_testes/ListaEmpresasCriadas.txt", 'r') do |f|
-            leitura = f.readlines
-            tam = leitura.count
-            linha = leitura[tam -1]
-            linha_cortade = linha.split('|')
-            email_sujo = linha_cortade[2].split()
-            email_empresa = email_sujo[1]
-            f.close
-            return email_empresa
-        end
-    end
-
     def gravar_arquivo_dados_empresa(email,cnpj,razao)
         File.open("./arquivos_testes/ListaEmpresasCriadas.txt", 'a+') do |f|
             f.write("Razão_Social: " +  razao + " | " +  "CNPJ/CPF: " + cnpj + " | " + "Email: " + email + " | "+ "Host: " + current_host + "\n" )
-        end
-    end
-
-    def validar_troca_pagina(url)
-        while true do
-            if current_path == url
-                break
-            else
-                next 
-            end
-        end
-    end
-
-    def validar_permanencia_pagina(url)
-        while true do
-            if (current_path) != url
-                break
-            else
-                next 
-            end
         end
     end
 
@@ -215,24 +114,6 @@ class Common
             browser.execute_script("window.localStorage.setItem('appKairos', true)")
             visit @page
         end
-    end
-
-    def validar_cnpj(valor)
-        if valor.match(%r{([0-9]{2}\.?[0-9]{3}\.?[0-9]{3}/?[0-9]{4}-?[0-9]{2})})
-            true
-        else
-            false
-        end
-        
-    end
-
-    def validar_cpf(valor)
-        if valor.match(/([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2})/)
-            true
-        else
-            false
-        end
-        
     end
 
     def inserir_colunas(contador_linhas, names, campo_definicao, tipo_campo,definicao)

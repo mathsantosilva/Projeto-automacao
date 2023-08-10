@@ -27,6 +27,8 @@ Before do
   @complements = Complements.new
   @cadastros = Cadastros.new
   @common = Common.new
+  @validadores = Validadores.new
+  @Consultores = Consultores.new
   @obrigatorio = Obrigatorios.new
   @cadastros_relogios = Cadastros_relogios.new
   @resources = Resources.new

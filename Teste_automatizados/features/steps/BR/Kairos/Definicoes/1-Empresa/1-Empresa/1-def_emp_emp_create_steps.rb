@@ -1,13 +1,17 @@
   Então('vou até a tela de cadastro de empresas para cadastrar uma nova empresa') do
     # Acessando a empresa pela navegacao de telas
     @common.nav_def('Empresa','Empresas', 'label[class="pointer"]')
+    
     # Carrega as variaveis utilizadas nas spec
-    @complements.varcommon
-    @complements.varcadastro
+    @Complements.geradores_dados_aleatorios
+    @Complements.geradores_tempo
+    @Complements.geradores_dados_documentos_empresa
+    @Complements.geradores_dados_endereco
+    @Complements.geradores_dados_internet
   end
 
   Dado('que preencho os dados, uso CNPJ e clico em salvar') do
-    fill_in 'Empresa_Codigo', with: $codigo_aleatorio
+    fill_in 'Empresa_Codigo', with: $codigo_aleatorio_10
     fill_in 'Empresa_CEI', with: '294226088484'
     fill_in 'Empresa_Telefone', with: '116541954654'
     find('label[for="CbUtilizaPortaria"]', visible: true)
@@ -30,16 +34,16 @@
     fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
     fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
     fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-    @common.botaosalvar_geral
+    @common.botao_salvar_geral
     @common.validar_permanencia_pagina('/Dimep/Empresas/Create') 
   end
 
   Dado('que preencho os dados, uso CPF e clico em salvar') do
-    fill_in 'Empresa_Codigo', with: $codigo_aleatorio
+     fill_in 'Empresa_Codigo', with: $codigo_aleatorio
     fill_in 'Empresa_CEI', with: '294226088484'
     fill_in 'Empresa_Telefone', with: '116541954654'
     find('label[for="CbUtilizaPortaria"]', visible: true)
-    fill_in 'Empresa_RazaoSocial', with: $nome_empresa_aleatoria << ' ' << $time.to_s
+    fill_in 'Empresa_RazaoSocial', with: $razao_social_aleatoria << ' ' << $time.to_s
     find('label[for="rdCpf"]').click
     fill_in 'Empresa_CnpjCpf', with: $cpf
     select('INDÚSTRIAS EXTRATIVAS', from: 'Empresa_RamoAtividade_Id').select_option
