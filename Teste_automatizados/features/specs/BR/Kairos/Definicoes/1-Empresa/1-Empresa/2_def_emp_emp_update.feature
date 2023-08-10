@@ -1,18 +1,23 @@
 #language: pt
 
-@empresa_update
+@br
+@br_definicoes
+@br_empresa
+@br_empresa_update
 Funcionalidade: Alteração de Empresa
+    Rotina responsavel pela alteração de bancos já criados
 
-    @empresa_update_cnpj
+    Contexto: Acessando a tela de empresas
+        Dado que acesso a tela de login em "Dimep/Account/LogOn" no ambiente BR
+        Então vou até a tela de empresas para alterar uma empresa existente 
+
+
+    @br_empresa_update_cnpj
     Cenario: Alteração da empresa criada com CNPJ
-        Dado que acesso a empresa criada com cnpj
-        Quando altero os dados da empresa com cnpj
-        Quando for salvar o cadastro com cnpj
-        Então ira demonstrar a mensagem "Empresa editada com sucesso"
+        Dado que altero os dados da empresa com CNPJ
+        Então deverá apresentar a mensagem de sucesso na alteração da empresa "Empresa editada com sucesso"
 
-    @empresa_update_cnpj
+    @br_empresa_update_cpf
     Cenario: Alteração da empresa criada com CPF
-        Dado que acesso a empresa criada com cpf
-        Quando altero os dados da empresa com cpf
-        Quando for salvar o cadastro com cpf
-        Então ira informar a mensagem "Empresa editada com sucesso"
+        Dado que altero os dados da empresa com CPF
+        Então deverá apresentar a mensagem de sucesso na alteração da empresa "Empresa editada com sucesso"
