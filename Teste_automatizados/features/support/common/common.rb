@@ -31,6 +31,38 @@ class Common
         find('div[class="pointer DropDownHeaderElement"]', text: text).click
     end
 
+    def procurar_empresa_cnpj()
+        contador = 1
+        while true
+            caminho = "table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(3)"
+            valor_td = find(caminho).text()
+            correto = validar_cnpj(valor_td)
+            if correto
+                select_button(caminho, 'span[class="pointer spanButton"]')
+                break
+            else
+                contador += 1
+                next
+            end
+        end
+    end
+
+    def procurar_empresa_cpf()
+        contador = 1
+        while true
+            caminho = "table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(3)"
+            valor_td = find(caminho).text()
+            correto = validar_cpf(valor_td)
+            if correto
+                select_button(caminho, 'span[class="pointer spanButton"]')
+                break
+            else
+                contador += 1
+                next
+            end
+        end
+    end
+
     #acessando botao dentro de um table
     def select_button(elemento, button)
         @buscar = find(elemento)
@@ -45,7 +77,7 @@ class Common
         find(button).click
     end
 
-    def selecionarprimeiraocorrencia
+    def selecionar_primeira_ocorrencia()
         item = find('#MainTable > tbody > tr:nth-child(1) > td:nth-child(1) > div > label')
         item.click
     end
@@ -66,31 +98,31 @@ class Common
     end
 
     #Clicando no botão salvar
-    def botaosalvar_geral
+    def botao_salvar_geral()
         drop = find('div[class="Conteudo"] div[style="clear: both"] input:nth-child(1)')
         drop.click
     end
 
     #Clicando no botão cancelar
-    def botaocancelar
+    def botao_cancelar()
         drop = find("div[style='margin-top: 30px; clear: both'] input[class='cancelarOperacao']")
         drop.click
         find('span[class="PlusButton pointer"]', text: 'Confirmar').click
     end
 
     #Clicando no botão salvar
-    def botaosalvar_config_relogio
+    def botao_salvar_config_relogio()
         drop = find('input[type="submit"][value="Salvar"]', match: :first)
         drop.click
     end
 
-    def botaosalvar_config_relogio_mx
+    def botao_salvar_config_relogio_mx()
         drop = find('input[type="submit"][value="Grabar"]', match: :first)
         drop.click
     end
 
     # obtem os dados da primeira empresa da lista
-    def obterdadosempresa
+    def obter_dados_empresa()
         $codigoPrimeiraEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(1)', match: :first).text
         $razaoPrimeiraEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(2)', match: :first).text
         $cnpjPrimeiraEmpresa = find('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(3)', match: :first).text
@@ -184,7 +216,25 @@ class Common
             visit @page
         end
     end
-    
+
+    def validar_cnpj(valor)
+        if valor.match(%r{([0-9]{2}\.?[0-9]{3}\.?[0-9]{3}/?[0-9]{4}-?[0-9]{2})})
+            true
+        else
+            false
+        end
+        
+    end
+
+    def validar_cpf(valor)
+        if valor.match(/([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2})/)
+            true
+        else
+            false
+        end
+        
+    end
+
     def inserir_colunas(contador_linhas, names, campo_definicao, tipo_campo,definicao)
         nomes = names
         linha = contador_linhas.to_s

@@ -7,6 +7,7 @@ require 'webdrivers'
 require 'json'
 
 context do
+  puts "Aqui"
   dados = File.new("./features/support/dados.json", "r")
   file = File.read(dados)
   $data_hash = JSON.parse(file)
@@ -17,10 +18,10 @@ context do
   $cookie_store = $data_hash['cookies'][0]['valor']
   $cookie_kairos_sessionid = $data_hash['cookies'][1]['valor']
   $cookie_aspnet = $data_hash['cookies'][2]['valor']
+  puts "Ali"
 end
 
 Before do
-  puts "seila"
   # Instanciando as Classes
   @login = Login.new
   @complements = Complements.new
@@ -31,12 +32,6 @@ Before do
   @resources = Resources.new
 end
 
-
-
 After do |scenario|
-  if scenario.failed?
-    path = "html-report/#{scenario.__id__}.html"
-    page.driver.browser.save_screenshot(path)
-    attach(path, "image/png")
-  end
+
 end

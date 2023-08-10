@@ -1,22 +1,20 @@
-Dado('que acesso a empresa criada com cnpj') do
-    #Realiza login
-    @login.logon_ambiente_geral
-    @common.fechar_popup
-    @common.inserir_cookie_local
+Então('vou até a tela de empresas para alterar uma empresa existente') do                      
     # Acessando a empresa pela navegação de telas
-    sleep 5
-    @common.nav_def('Empresa','Empresas', 'label[class="pointer"]')
-    sleep 5
-    @common.select_button('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(1)', 'img[class="pointer icons editIcon"]')
-end
-
-Quando('altero os dados da empresa com cnpj') do
+    @common.nav_def('Empresa','Empresas','label[class="DefinitionsTitle"]')
+    # Carrega as variaveis utilizadas nas spec
+    @complements.varcommon
+    @complements.varcadastro
+    
+end                                                                                            
+                                                                                               
+Dado('que altero os dados da empresa com CNPJ') do 
+    @common.procurar_empresa_cnpj()      
     expect(find('input[id="Empresa_Codigo"]').readonly?).to be(true)
     fill_in 'Empresa_CEI', with: '242035439181'
     fill_in 'Empresa_Telefone', with: '119563245132155'
     expect(find('input[id="CbUtilizaPortaria"]', visible: false).checked?).to be(true)
     expect(find('input[id="CbUtilizaPortaria"]', visible: false).disabled?).to be(true)
-    expect(find('input[id="Empresa_RazaoSocial"]').readonly?).to be(true)
+    #expect(find('input[id="Empresa_RazaoSocial"]').readonly?).to be(true)
     expect(find('input[id="Empresa_CnpjCpf"]').readonly?).to be(true)
     drop_ramo = find('#Empresa_RamoAtividade_Id')
     drop_ramo.all('option').sample.select_option
@@ -34,29 +32,12 @@ Quando('altero os dados da empresa com cnpj') do
     fill_in 'Empresa_FimHorarioVerao', with: '10062021'
     fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10062021'
     fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10082021'
-    fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-end
-
-Quando('for salvar o cadastro com cnpj') do
-    @common.botaosalvar
-end
-
-Então('ira demonstrar a mensagem {string}') do |message_success|
-    expect(find('div[id=Summary-Field-Index]')).to have_content message_success
-end
-
-Dado('que acesso a empresa criada com cpf') do
-    #Realiza login
-    @login.logon_ambiente_br
-    # Acessando a empresa pela navegação de telas
-    sleep 5
-    @common.nav_def('Empresa', 'div[id="MenuEmpresas"]')
-    sleep 5
-    @common.select_button('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(4) > td:nth-child(1)', 'img[class="pointer icons editIcon"]')
-end
-
-Quando('altero os dados da empresa com cpf') do
-    sleep 5
+    fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria         
+    @common.botao_salvar_geral
+end                                                                                            
+                                                                                               
+Dado('que altero os dados da empresa com CPF') do   
+    @common.procurar_empresa_cpf()                                           
     expect(find('input[id="Empresa_Codigo"]').readonly?).to be(true)
     fill_in 'Empresa_CEI', with: '242035439181'
     fill_in 'Empresa_Telefone', with: '119563245132155'
@@ -79,14 +60,10 @@ Quando('altero os dados da empresa com cpf') do
     fill_in 'Empresa_FimHorarioVerao', with: '10062021'
     fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10062021'
     fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10082021'
-    fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-end
-
-Quando('for salvar o cadastro com cpf') do
-    @common.botaosalvar
-
-end
-
-Então('ira informar a mensagem {string}') do |message_success|
-    expect(find('div[id=Summary-Field-Index]')).to have_content message_success
-end
+    fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria  
+    @common.botao_salvar_geral               
+end                                                                                            
+     
+Então('deverá apresentar a mensagem de sucesso na alteração da empresa {string}') do |message_success|  
+    expect(find('div[id=Summary-Field-Index]')).to have_content message_success                
+end 

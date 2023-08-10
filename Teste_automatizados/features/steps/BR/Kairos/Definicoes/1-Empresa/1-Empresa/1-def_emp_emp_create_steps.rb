@@ -1,12 +1,4 @@
-Dado('que acesso a tela de login em {string} no ambiente BR') do |path|
-    visit path
-    # Realiza login
-    @login.logon_ambiente_geral
-    @common.fechar_popup
-    @common.inserir_cookie_local
-  end
-
-  Então('faço o caminho até a tela cadastro de empresa BR') do
+  Então('vou até a tela de cadastro de empresas para cadastrar uma nova empresa') do
     # Acessando a empresa pela navegacao de telas
     @common.nav_def('Empresa','Empresas', 'label[class="pointer"]')
     # Carrega as variaveis utilizadas nas spec
