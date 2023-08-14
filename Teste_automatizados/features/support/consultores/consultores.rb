@@ -14,6 +14,21 @@ class Consultores
         @common = Common.new
     end
 
+    def consulta_acessa_empresa_codigo(codigo)
+        contador = 1
+        while true
+            caminho = "table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(1)"
+            valor_td = find(caminho).text()
+            if valor_td == codigo
+                @common.select_button(caminho, 'span[class="pointer spanButton"]')
+                break
+            else
+                contador += 1
+                next
+            end
+        end
+    end
+
     # Acessa a primeira empresa que encontrar com CNPJ - De baixo para cima
     def consulta_acessa_empresa_cnpj()
         contador = 1
@@ -98,9 +113,9 @@ class Consultores
             valor_td = find(caminho).text()
             correto = @validadores.validar_cnpj(valor_td)
             if correto
-                $codigo_Empresa_Cnpj = find("table[class='ContentTable'] tbody tr:nth-child(#{contador}) td:nth-child(1)").text
-                $razao_Empresa_Cnpj = find("table[class='ContentTable'] tbody tr:nth-child(#{contador}) td:nth-child(2)").text
-                $cnpj_Empresa = find("table[class='ContentTable'] tbody tr:nth-child(#{contador}) td:nth-child(3)").text
+                $codigo_Empresa_Cnpj = find("table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(1)").text
+                $razao_Empresa_Cnpj = find("table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(2)").text
+                $cnpj_Empresa = find("table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(3)").text
                 break
             else
                 contador += 1
@@ -117,9 +132,9 @@ class Consultores
             valor_td = find(caminho).text()
             correto = @validadores.validar_cpf(valor_td)
             if correto
-                $codigo_Empresa_Cpf = find("table[class='ContentTable'] tbody tr:nth-child(#{contador}) td:nth-child(1)").text
-                $razao_Empresa_Cpf = find("table[class='ContentTable'] tbody tr:nth-child(#{contador}) td:nth-child(2)").text
-                $cpf_Empresa = find("table[class='ContentTable'] tbody tr:nth-child(#{contador}) td:nth-child(3)").text
+                $codigo_Empresa_Cpf = find("table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(1)").text
+                $razao_Empresa_Cpf = find("table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(2)").text
+                $cpf_Empresa = find("table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(3)").text
                 break
             else
                 contador += 1

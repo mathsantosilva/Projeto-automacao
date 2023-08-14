@@ -30,9 +30,19 @@ Before do
   @store = Store.new
   @obrigatorio = Obrigatorios.new
   @cadastros_relogios = Cadastros_relogios.new
+  @cadastro_empresa = Cadastro_empresa.new
   @resources = Resources.new
 end
 
 After do |scenario|
-
+  if scenario.failed?
+    # Verifica se a pasta 'screenshots' existe e a cria se necessário
+    screenshots_folder = 'screenshots'
+    Dir.mkdir(screenshots_folder) unless File.directory?(screenshots_folder)
+        
+    # Capturar a screenshot aqui
+    screenshot_name = "screenshot_#{Time.now.strftime('%Y%m%d%H%M%S')}.png"
+    page.save_screenshot(File.join('screenshots', screenshot_name))
+    puts "Screenshot capturada: #{screenshot_name}"
+  end
 end
