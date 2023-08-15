@@ -14,7 +14,8 @@ class Complements
 
   def geradores_tempo()
     $time = Time.new.strftime("%d-%m-%Y - %H%M")
-    data_inicio_mes = Time.new.strftime("01%m%Y")
+    $hora = Time.new.strftime("%H%M")
+    $data_inicio_mes = Time.new.strftime("01%m%Y")
     $data_inicio_ano = Time.new.strftime("0101%Y")
     $data_ano_atual = Time.new.strftime("%Y")
     $data_inicio_verao = Time.new.strftime("1005%Y")
