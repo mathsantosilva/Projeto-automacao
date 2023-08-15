@@ -16,7 +16,7 @@ FileUtils.rm_f(Dir.glob("logs/*.png"))
 
 Capybara.configure do |config|
     Webdrivers.install_dir = '\GoogleDrive\atual'
-    config.default_driver = :selenium_chrome
+    config.default_driver = :selenium_chrome_headless
     Capybara.page.driver.browser.manage.window.maximize
     config.run_server = false
     config.default_max_wait_time = 50
