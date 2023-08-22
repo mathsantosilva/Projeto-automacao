@@ -45,7 +45,7 @@ class Validadores
     def validar_permanencia_pagina(url)
         @complements.geradores_tempo
         hora_inicio = $hora.to_i
-        hora_fim = hora_inicio + 15
+        hora_fim = hora_inicio + 10
         minuto = hora_fim.to_s.slice(2,2)
         if minuto.to_i >= 70
             min = minuto.to_i - 70
@@ -57,7 +57,10 @@ class Validadores
             hora_fim = ("#{hora.to_i}#{min.to_i}").to_i
         end
         while true do
+            puts hora_fim
             hora_atual = $hora.to_i
+            puts hora_atual
+            puts hora_atual >= hora_fim
             if (current_path) != url || hora_atual >= hora_fim
                 break
             else

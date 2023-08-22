@@ -46,7 +46,7 @@ Funcionalidade: Verificação de campos
         Quando acesso a empresa recem criada com os tipos de caracteres diferentes 
         Então devera conter somente os caracteres aceitos pelos campos 
             |Empresa_Telefone         |11111111111111111111                                                                                                                                                                               |
-            |Empresa_Endereco         |1a2b3c4d5e6f7g8h9i1j0k1l1m1n1o1p1q1r1s1t1u1v1x1w1y1z1!@#$%¨&*?:><^`'11111111111111111111111111111111111111111111111111111222222222222222222222222222222222222222222222222222222222222222222223333 |
+            |Empresa_Endereco         |1a2b3c4d5e6f7g8h9i1j0k1l1m1n1o1p1q1r1s1t1u1v1x1w1y1z1!@#$%¨&*?:><^`'11111111111111111111111111111111111111111111111111111222222222222222222222222222222222222222222222222222222222222222222223333  |
             |Empresa_Bairro           |1a2b3c4d5e6f7g8h9i1j0k1l1m1n1o1p1q1r1s1t1u1v1x1w1y1z1!@#$%¨&*?:><^`'11111                                                                                                                          |
             |Empresa_Cidade           |1a2b3c4d5e6f7g8h9i1j0k1l1m1n1o1p1q1r1s1t1u1v1x1w1y1z1!@#$%¨&*?:><^`'11111                                                                                                                          |
             |Empresa_UF               |1a                                                                                                                                                                                                 |

@@ -21,6 +21,7 @@ Então('vou até a tela de empresa e acesso a criação de empresas para validar
   Dado('que preencho os dados focando no limite dos campos e clico em salvar') do
         find('span[class="PlusButton"]').click
         @codigoAtual = $codigo_aleatorio_10.to_s.slice(0,9)
+        fill_in 'Empresa_Codigo', with: ""
         fill_in 'Empresa_Codigo', with: $codigo_aleatorio_10
         fill_in 'Empresa_CEI', with: '294226088484'
         fill_in 'Empresa_Telefone', with: '11111111111111111111111111111111111111111111111111'
@@ -34,6 +35,11 @@ Então('vou até a tela de empresa e acesso a criação de empresas para validar
         fill_in 'Empresa_URL', with: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
         fill_in 'Empresa_Email', with: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.com.brrrrrrrrrrr'
         fill_in 'Empresa_DataAbertura', with: '01012021'
+        find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
+        fill_in 'Empresa_InicioHorarioVerao', with: '10032021'
+        fill_in 'Empresa_FimHorarioVerao', with: '10052021'
+        fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
+        fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
         fill_in 'connectChave_ChaveConnect', with: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
         @common.botao_salvar_geral
   end
@@ -50,6 +56,7 @@ Então('vou até a tela de empresa e acesso a criação de empresas para validar
   Dado('que preencho os dados com varios tipos de caracteres e clico em salvar') do
     find('span[class="PlusButton"]').click
     @codigoAtual = $codigo_aleatorio_10.to_s.slice(0,9)
+    fill_in 'Empresa_Codigo', with: ""
     fill_in 'Empresa_Codigo', with: $codigo_aleatorio_10
     fill_in 'Empresa_CEI', with: '294226088484'
     fill_in 'Empresa_Telefone', with: '11111111111111111111'
@@ -63,6 +70,11 @@ Então('vou até a tela de empresa e acesso a criação de empresas para validar
     fill_in 'Empresa_URL', with: "1a2b3c4d5e6f7g8h9i1j0k1l1m1n1o1p1q1r1s1t1u1v1x1w1y1z1!@#$%¨&*?:><^`'11111111111111111111111111111111111111111111111111111222222222222222222222222222222222222222222222222222222222222222222223333"
     fill_in 'Empresa_Email', with: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.com.br"
     fill_in 'Empresa_DataAbertura', with: '01012021'
+    find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
+    fill_in 'Empresa_InicioHorarioVerao', with: '10032021'
+    fill_in 'Empresa_FimHorarioVerao', with: '10052021'
+    fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
+    fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
     fill_in 'connectChave_ChaveConnect', with: "1a2b3c4d5e6f7g8h9i1j0k1l1m1n1o1p"
     @common.botao_salvar_geral 
   end
