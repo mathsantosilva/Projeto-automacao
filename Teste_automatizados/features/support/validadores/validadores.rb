@@ -47,8 +47,8 @@ class Validadores
         hora_inicio = $hora.to_i
         hora_fim = hora_inicio + 10
         minuto = hora_fim.to_s.slice(2,2)
-        if minuto.to_i >= 70
-            min = minuto.to_i - 70
+        if minuto.to_i >= 60
+            min = minuto.to_i - 60
             tam_min = min.to_s.length
             if tam_min < 2
                 min = ("0" + min.to_s).to_i
