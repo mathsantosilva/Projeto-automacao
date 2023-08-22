@@ -18,12 +18,11 @@ class Validadores
 
     # Valida se trocou da tela em que estava 
     def validar_troca_pagina(url)
-        @complements.geradores_tempo
-        hora_inicio = $hora.to_i
-        hora_fim = hora_inicio + 15
+        hora_inicio = Time.new.strftime("%H%M")
+        hora_fim = hora_inicio + 10
         minuto = hora_fim.to_s.slice(2,2)
-        if minuto.to_i >= 70
-            min = minuto.to_i - 70
+        if minuto.to_i >= 60
+            min = minuto.to_i - 60
             tam_min = min.to_s.length
             if tam_min < 2
                 min = ("0" + min.to_s).to_i
@@ -32,7 +31,7 @@ class Validadores
             hora_fim = ("#{hora.to_i}#{min.to_i}").to_i
         end
         while true do
-            hora_atual = $hora.to_i
+            hora_atual = Time.new.strftime("%H%M")
             if current_path == url || hora_atual >= hora_fim
                 break
             else
@@ -43,8 +42,7 @@ class Validadores
 
     # Valida se ainda esta tela em que estava 
     def validar_permanencia_pagina(url)
-        @complements.geradores_tempo
-        hora_inicio = $hora.to_i
+        hora_inicio = Time.new.strftime("%H%M").to_i
         hora_fim = hora_inicio + 10
         minuto = hora_fim.to_s.slice(2,2)
         if minuto.to_i >= 60
@@ -58,7 +56,7 @@ class Validadores
         end
         while true do
             puts hora_fim
-            hora_atual = $hora.to_i
+            hora_atual = Time.new.strftime("%H%M").to_i
             puts hora_atual
             puts hora_atual >= hora_fim
             if (current_path) != url || hora_atual >= hora_fim
