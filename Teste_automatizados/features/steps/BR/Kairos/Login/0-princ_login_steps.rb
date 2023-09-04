@@ -1,7 +1,7 @@
 Dado('que entro na tela de login em {string} no ambiente BR') do |path|                             
     visit path
     @common.inserir_cookie_local
-
+    @common.fechar_popup
   end                                                                                                   
                                                                                                         
   Dado('que insiro os dados de email e senha corretos') do |table|                                      
