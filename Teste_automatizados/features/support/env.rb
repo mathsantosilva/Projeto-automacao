@@ -25,6 +25,7 @@ Capybara.register_driver :selenium_chrome_headless do |app|
     chrome_options.add_argument("--disable-extensions")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--pageLoadStrategy=normal")
     chrome_options.add_argument("--headless=new")
     Capybara::Selenium::Driver.new(app, browser: :chrome, options: chrome_options, clear_session_storage: true, clear_local_storage: true)
   end

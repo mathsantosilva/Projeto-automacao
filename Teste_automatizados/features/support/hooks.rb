@@ -43,10 +43,10 @@ After do |scenario|
 
     # Verifica se as pastas existem e a cria se necessário
     Dir.mkdir(screenshots_folder) unless File.directory?(screenshots_folder)
-    Dir.mkdir("#{screenshots_folder}/#{scenario_folder}") unless File.directory?(scenario_folder)
+    Dir.mkdir("#{screenshots_folder}/#{scenario_folder}") unless File.directory?("#{screenshots_folder}/#{scenario_folder}")
         
     # Capturar a screenshot aqui e salva na pasta correspondente
-    screenshot_name = "error_#{Time.now.strftime('%Y-%m-%d-%H%M')}.png"
+    screenshot_name = "error_#{Time.now.strftime('%Y-%m-%d-%H%M%S')}.png"
     page.save_screenshot(File.join("#{screenshots_folder}/#{scenario_folder}", screenshot_name))
     puts "Screenshot capturada: #{screenshot_name}"
   end
