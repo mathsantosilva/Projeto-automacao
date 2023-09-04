@@ -19,7 +19,7 @@ class Validadores
     # Valida se trocou da tela em que estava 
     def validar_troca_pagina(url)
         hora_inicio = Time.new.strftime("%H%M")
-        hora_fim = hora_inicio + 5
+        hora_fim = hora_inicio + 3
         minuto = hora_fim.to_s.slice(2,2)
         if minuto.to_i >= 60
             min = minuto.to_i - 60
@@ -43,7 +43,7 @@ class Validadores
     # Valida se ainda esta tela em que estava 
     def validar_permanencia_pagina(url)
         hora_inicio = Time.new.strftime("%H%M").to_i
-        hora_fim = hora_inicio + 5
+        hora_fim = hora_inicio + 3
         minuto = hora_fim.to_s.slice(2,2)
         if minuto.to_i >= 60
             min = minuto.to_i - 60
