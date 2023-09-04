@@ -1,7 +1,6 @@
 Dado('que entro na tela de login em {string} no ambiente BR') do |path|                             
     visit path
     @common.inserir_cookie_local
-    @common.fechar_popup
   end                                                                                                   
                                                                                                         
   Dado('que insiro os dados de email e senha corretos') do |table|                                      
@@ -55,6 +54,7 @@ Dado('que entro na tela de login em {string} no ambiente BR') do |path|
                                                                                                         
   Então('deverá logar com sucesso com a nova senha na empresa BR e estar no path {string}') do |path_site| 
     expect(page).to have_current_path(path_site)
+    @common.fechar_popup
     @common.nav_app('Alterar Senha')
     fill_in 'Usuario_Senha', with: 1
     fill_in 'Usuario_ConfirmarSenha', with: 1
