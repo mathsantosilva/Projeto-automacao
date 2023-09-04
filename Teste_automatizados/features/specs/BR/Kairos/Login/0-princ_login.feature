@@ -12,7 +12,7 @@ Funcionalidade: Login
     Cenario: Login com dados corretos
 
         Dado que insiro os dados de email e senha corretos
-            |email|teste198652@dimep.com.br|
+            |email|autostoreweb@dimep.com.br|
             |senha|1|
         Então deverá logar com sucesso na empresa BR e estar no path "/Dimep/Dashboard"
 
@@ -20,7 +20,7 @@ Funcionalidade: Login
     Cenario: Login com a senha incorreta
 
         Dado que insiro os dados de email e senha incorretos
-            |email|teste198652@dimep.com.br|
+            |email|autostoreweb@dimep.com.br|
             |senha|123456789|
         Então devera informar a mensagem "Ops! Usuário e/ou senha incorreto"
 
@@ -37,9 +37,9 @@ Funcionalidade: Login
 
         Dado acesso a tela de alteração de senha
         Quando Insiro os dados atuais de login e senha 
-            |email|teste198652@dimep.com.br|
+            |email|autostoreweb@dimep.com.br|
             |senha|1|
         Quando insiro os dados de email e nova senha
-            |email|teste198652@dimep.com.br|
+            |email|autostoreweb@dimep.com.br|
             |senha|2|
         Então deverá logar com sucesso com a nova senha na empresa BR e estar no path "/Dimep/Dashboard"
