@@ -3,6 +3,9 @@ Dado('que realizo o login pela tela de login em {string} no ambiente BR') do |pa
   # Realiza login
   @login.logon_ambiente_geral
   @common.fechar_popup
+  @complements.geradores_tempo
+  @complements.geradores_dados_numericos_aleatorios
+
 end
 
 Então('faço o caminho até a tela cadastro de relatorio personalizado') do
@@ -15,7 +18,7 @@ end
 
 Dado('que preenche as colunas, insere todos os campos e insere o nome {string} no relatorio') do |nome_relatorio, table|
   names = table.rows_hash
-  fill_in 'Codigo', with: $codigo_aleatorio
+  fill_in 'Codigo', with: $codigo_aleatorio_10
   fill_in 'Descricao', with: nome_relatorio + ' - ' << $time.to_s
   contador_linhas = 0
 
