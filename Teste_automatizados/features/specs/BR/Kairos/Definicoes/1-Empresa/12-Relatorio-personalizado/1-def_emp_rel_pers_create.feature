@@ -13,196 +13,202 @@ Funcionalidade: Criação de empresa
     @br_relatorio_personalizado_create_completo
     Cenario: Criação de relatorio personalizado completo
         Dado que preenche as colunas, insere todos os campos e insere o nome "Rel total" no relatorio
-            |campo_tipo_1|Evento|
-            |campo_tipo_2|Justificativa|
-            |campo_tipo_3|Ocorrência|
-            |campo_tipo_4|Marcação|
-            |campo_tipo_5|Horário|
-            |campo_tipo_6|Data|
-            |campo_tipo_7|Justificativa Edição de Ponto|
-            |campo_tipo_8|Informações de Empresa|
-            |campo_tipo_9|Informações de Funcionário|
-            |campo_tipo_10|Fórmula|
-            |definicao_campo_valor|Valor|
-            |definicao_campo_codigo|Código|
-            |definicao_campo_descricao|Descrição|
-            |definicao_evento_ad|Adicional Noturno|
-            |definicao_evento_atab|Atraso Abonado|
-            |definicao_evento_at|Atrasos|
-            |definicao_evento_dsdsr|Desconto de DSR|
-            |definicao_evento_dt|Domingo Trabalhado|
-            |definicao_evento_dsrab|DSR Abonado|
-            |definicao_evento_ftab|Falta Abonada|
-            |definicao_evento_ft|Faltas|
-            |definicao_evento_fgtr|Folga Trabalhada|
-            |definicao_evento_hrex100|Hora Extra 100%|
-            |definicao_evento_hrex50|Hora Extra 50%|
-            |definicao_evento_hrexn100|Hora Extra Noturna 100%|
-            |definicao_evento_hrexn50|Hora Extra Noturna 50%|
-            |definicao_evento_hrtr|Horas a Trabalhar|
-            |definicao_evento_hrdsr|Horas DSR|
-            |definicao_just_am|Atestado Médico|
-            |definicao_just_aom|Atraso Ônibus/Metrô|
-            |definicao_just_atftb|Atraso/Falta – Debitar BH|
-            |definicao_just_hrexb|Hora Extra – Creditar BH|
-            |definicao_just_sdsr|Saída a Serviço|
-            |definicao_just_sdat|Saída Antecipada|
-            |definicao_just_trcg|Trânsito Congestionado|
-            |definicao_ocor_at|Atraso|
-            |definicao_ocor_bchrc|Banco Horas Credito|
-            |definicao_ocor_bchrd|Banco Horas Debito|
-            |definicao_ocor_ft|Falta|
-            |definicao_ocor_hrex|Hora Extra|
-            |definicao_ocor_hrexadnot|Hora Extra Ad. Noturno|
-            |definicao_ocor_hrtrs|Horas Trabalhadas|
-            |definicao_ocor_incs|Inconsistência|
-            |definicao_ocor_int11hr|Intervalo 11 Horas|
-            |definicao_marc_au|Automático|
-            |definicao_marc_ed|Editado|
-            |definicao_marc_in|Indevido|
-            |definicao_marc_or|Original|
-            |definicao_marc_we|Web|
-            |definicao_marc_mia|Marcações Importação Acesso|
-            |definicao_marc_miapi|Marcações Integração API|
-            |definicao_marc_mdesk|Marcações via Desktop|
-            |definicao_marc_vo|Vinculado a obra|
-            |definicao_marc_mb|Mobile|
-            |definicao_marc_mbof|Mobile Offline|
-            |definicao_info_empr_cod|Código|
-            |definicao_info_empr_cei|CEI/CNO/CAEPF|
-            |definicao_info_empr_razao|Razão Social|
-            |definicao_info_empr_cnpj|CNPJ/CPF|
-            |definicao_info_empr_ramo|Ramo de atividade|
-            |definicao_info_empr_fuso|Fuso horário|
-            |definicao_info_func_nomec|Nome Completo|
-            |definicao_info_func_nomesoc|Nome Social|
-            |definicao_info_func_mat|Matricula|
-            |definicao_info_func_dtad|Data de Admissão|
-            |definicao_info_func_dtdm|Data de Demissão|
-            |definicao_info_func_crc|Crachá|
-            |definicao_info_func_es|Estrutura|
-            |definicao_info_func_gr|Grupo|
-            |definicao_info_func_cg|Cargo|
-            |definicao_info_func_hr|Horário|
-            |definicao_info_func_cgsp|Carga Suplementar|
-            |definicao_info_func_rgcl|Regra de Cálculo|
-            |definicao_info_func_fd|Feriados|
-            |definicao_info_func_bshr|Base de Horas|
-            |definicao_info_func_vlhr|Valor da Hora|
-            |definicao_info_func_lthral|Limite de horas de alocação|
-            |definicao_info_func_tpfunc|Tipo funcionário|
-            |definicao_info_func_cpalt1|Campo Alternativo 1|
-            |definicao_info_func_cpalt2|Campo Alternativo 2|
-            |definicao_info_func_cpalt3|Campo Alternativo 3|
-            |definicao_info_func_cpext1|Extra 1|
-            |definicao_info_func_cpext2|Extra 2|
-            |definicao_info_func_cpext3|Extra 3|
-            |definicao_info_func_cpext4|Extra 4|
-            |definicao_info_func_cpext5|Extra 5|
-            |definicao_info_func_cpext6|Extra 6|
-            |definicao_info_func_cpext7|Extra 7|
-            |definicao_info_func_cpext8|Extra 8|
-            |definicao_info_func_cpext9|Extra 9|
-            |definicao_info_func_cpext10|Extra 10|
-            |definicao_info_func_pis|PIS|
-            |definicao_info_func_cpf|CPF|
+            |Evento1                       |Adicional Noturno          |
+            |Evento2                       |Atraso Abonado             |
+            |Evento3                       |Atrasos                    |
+            |Evento4                       |Desconto de DSR            |
+            |Evento5                       |Domingo Trabalhado         |
+            |Evento6                       |DSR Abonado                |
+            |Evento7                       |Falta Abonada              |
+            |Evento8                       |Faltas                     |
+            |Evento9                       |Folga Trabalhada           |
+            |Evento10                      |Hora Extra 100%            |
+            |Evento11                      |Hora Extra 50%             |
+            |Evento12                      |Hora Extra Noturna 100%    |
+            |Evento13                      |Hora Extra Noturna 50%     |
+            |Evento14                      |Horas a Trabalhar          |
+            |Evento15                      |Horas DSR                  |
+            |Justificativa1                |Atestado Médico            |
+            |Justificativa2                |Atraso Ônibus/Metrô        |
+            |Justificativa3                |Atraso/Falta – Debitar BH  |
+            |Justificativa4                |Hora Extra – Creditar BH   |
+            |Justificativa5                |Saída a Serviço            |
+            |Justificativa6                |Saída Antecipada           |
+            |Justificativa7                |Trânsito Congestionado     |
+            |Ocorrência1                   |Atraso                     |
+            |Ocorrência2                   |Banco Horas Credito        |
+            |Ocorrência3                   |Banco Horas Debito         |
+            |Ocorrência4                   |Falta                      |
+            |Ocorrência5                   |Hora Extra                 |
+            |Ocorrência6                   |Hora Extra Ad. Noturno     |
+            |Ocorrência7                   |Horas Trabalhadas          |
+            |Ocorrência8                   |Inconsistência             |
+            |Ocorrência9                   |Intervalo 11 Horas         |
+            |Marcação1                     |Automático                 |
+            |Marcação2                     |Editado                    |
+            |Marcação3                     |Indevido                   |
+            |Marcação4                     |Original                   |
+            |Marcação5                     |Web                        |
+            |Marcação6                     |Marcações Importação Acesso|
+            |Marcação7                     |Marcações Integração API   |
+            |Marcação8                     |Marcações via Desktop      |
+            |Marcação9                     |Vinculado a obra           |
+            |Marcação10                    |Mobile                     |
+            |Marcação11                    |Mobile Offline             |
+            |Horário1                      |vazio                      |
+            |Data1                         |DDMMYYYY                   |
+            |Data2                         |MMYYYY                     |
+            |Data3                         |YYYY                       |
+            |Data4                         |YYYYMM                     |
+            |Data5                         |YYYYMMDD                   |
+            |Data6                         |DD/MM/YYYY                 |
+            |Data7                         |MM/YYYY                    |
+            |Data8                         |DD-MM-YYYY                 |
+            |Data9                         |MM-YYYY                    |
+            |Data10                        |MM                         |
+            |Justificativa Edição de Ponto1|vazio                      |
+            |Informações de Empresa1       |Código                     |
+            |Informações de Empresa2       |CEI/CNO/CAEPF              |
+            |Informações de Empresa3       |Razão Social               |
+            |Informações de Empresa4       |CNPJ/CPF                   |
+            |Informações de Empresa5       |Ramo de atividade          |
+            |Informações de Empresa6       |Fuso horário               |
+            |Informações de Funcionário1   |Nome Completo              |
+            |Informações de Funcionário2   |Nome Social                |
+            |Informações de Funcionário3   |Matricula                  |
+            |Informações de Funcionário4   |Data de Admissão           |
+            |Informações de Funcionário5   |Data de Demissão           |
+            |Informações de Funcionário6   |Crachá                     |
+            |Informações de Funcionário7   |Estrutura                  |
+            |Informações de Funcionário8   |Grupo                      |
+            |Informações de Funcionário9   |Cargo                      |
+            |Informações de Funcionário10  |Horário                    |
+            |Informações de Funcionário11  |Carga Suplementar          |
+            |Informações de Funcionário12  |Regra de Cálculo           |
+            |Informações de Funcionário13  |Feriados                   |
+            |Informações de Funcionário14  |Base de Horas              |
+            |Informações de Funcionário15  |Valor da Hora              |
+            |Informações de Funcionário16  |Limite de horas de alocação|
+            |Informações de Funcionário17  |Tipo funcionário           |
+            |Informações de Funcionário18  |Campo Alternativo 1        |
+            |Informações de Funcionário19  |Campo Alternativo 2        |
+            |Informações de Funcionário20  |Campo Alternativo 3        |
+            |Informações de Funcionário21  |Extra 1                    |
+            |Informações de Funcionário22  |Extra 2                    |
+            |Informações de Funcionário23  |Extra 3                    |
+            |Informações de Funcionário24  |Extra 4                    |
+            |Informações de Funcionário25  |Extra 5                    |
+            |Informações de Funcionário26  |Extra 6                    |
+            |Informações de Funcionário27  |Extra 7                    |
+            |Informações de Funcionário28  |Extra 8                    |
+            |Informações de Funcionário29  |Extra 9                    |
+            |Informações de Funcionário30  |Extra 10                   |
+            |Informações de Funcionário31  |PIS                        |
+            |Informações de Funcionário32  |CPF                        |
+            |Fórmula1                      |Horas                      |
+            #|Fórmula2                      |Decimal                    |
+            #|Fórmula3                      |Inteiro                    |
+            #|Fórmula4                      |Texto                      |
         Então deverá cadastrar o relatorio e informar "O Relatório Personalizado foi adicionado com sucesso"
 
 
     @br_relatorio_personalizado_create_valores
     Cenario: Criação de relatorio personalizado com os campos de valores
         Dado que preenche as colunas, insere somente o valor e insere o nome "Rel valor" no relatorio
-            |campo_tipo_1|Evento|
-            |campo_tipo_2|Justificativa|
-            |campo_tipo_3|Ocorrência|
-            |campo_tipo_4|Marcação|
-            |campo_tipo_5|Horário|
-            |campo_tipo_6|Data|
-            |campo_tipo_7|Justificativa Edição de Ponto|
-            |campo_tipo_8|Informações de Empresa|
-            |campo_tipo_9|Informações de Funcionário|
-            |campo_tipo_10|Fórmula|
-            |definicao_campo_valor|Valor|
-            |definicao_campo_codigo|Código|
-            |definicao_campo_descricao|Descrição|
-            |definicao_evento_ad|Adicional Noturno|
-            |definicao_evento_atab|Atraso Abonado|
-            |definicao_evento_at|Atrasos|
-            |definicao_evento_dsdsr|Desconto de DSR|
-            |definicao_evento_dt|Domingo Trabalhado|
-            |definicao_evento_dsrab|DSR Abonado|
-            |definicao_evento_ftab|Falta Abonada|
-            |definicao_evento_ft|Faltas|
-            |definicao_evento_fgtr|Folga Trabalhada|
-            |definicao_evento_hrex100|Hora Extra 100%|
-            |definicao_evento_hrex50|Hora Extra 50%|
-            |definicao_evento_hrexn100|Hora Extra Noturna 100%|
-            |definicao_evento_hrexn50|Hora Extra Noturna 50%|
-            |definicao_evento_hrtr|Horas a Trabalhar|
-            |definicao_evento_hrdsr|Horas DSR|
-            |definicao_just_am|Atestado Médico|
-            |definicao_just_aom|Atraso Ônibus/Metrô|
-            |definicao_just_atftb|Atraso/Falta – Debitar BH|
-            |definicao_just_hrexb|Hora Extra – Creditar BH|
-            |definicao_just_sdsr|Saída a Serviço|
-            |definicao_just_sdat|Saída Antecipada|
-            |definicao_just_trcg|Trânsito Congestionado|
-            |definicao_ocor_at|Atraso|
-            |definicao_ocor_bchrc|Banco Horas Credito|
-            |definicao_ocor_bchrd|Banco Horas Debito|
-            |definicao_ocor_ft|Falta|
-            |definicao_ocor_hrex|Hora Extra|
-            |definicao_ocor_hrexadnot|Hora Extra Ad. Noturno|
-            |definicao_ocor_hrtrs|Horas Trabalhadas|
-            |definicao_ocor_incs|Inconsistência|
-            |definicao_ocor_int11hr|Intervalo 11 Horas|
-            |definicao_marc_au|Automático|
-            |definicao_marc_ed|Editado|
-            |definicao_marc_in|Indevido|
-            |definicao_marc_or|Original|
-            |definicao_marc_we|Web|
-            |definicao_marc_mia|Marcações Importação Acesso|
-            |definicao_marc_miapi|Marcações Integração API|
-            |definicao_marc_mdesk|Marcações via Desktop|
-            |definicao_marc_vo|Vinculado a obra|
-            |definicao_marc_mb|Mobile|
-            |definicao_marc_mbof|Mobile Offline|
-            |definicao_info_empr_cod|Código|
-            |definicao_info_empr_cei|CEI/CNO/CAEPF|
-            |definicao_info_empr_razao|Razão Social|
-            |definicao_info_empr_cnpj|CNPJ/CPF|
-            |definicao_info_empr_ramo|Ramo de atividade|
-            |definicao_info_empr_fuso|Fuso horário|
-            |definicao_info_func_nomec|Nome Completo|
-            |definicao_info_func_nomesoc|Nome Social|
-            |definicao_info_func_mat|Matricula|
-            |definicao_info_func_dtad|Data de Admissão|
-            |definicao_info_func_dtdm|Data de Demissão|
-            |definicao_info_func_crc|Crachá|
-            |definicao_info_func_es|Estrutura|
-            |definicao_info_func_gr|Grupo|
-            |definicao_info_func_cg|Cargo|
-            |definicao_info_func_hr|Horário|
-            |definicao_info_func_cgsp|Carga Suplementar|
-            |definicao_info_func_rgcl|Regra de Cálculo|
-            |definicao_info_func_fd|Feriados|
-            |definicao_info_func_bshr|Base de Horas|
-            |definicao_info_func_vlhr|Valor da Hora|
-            |definicao_info_func_lthral|Limite de horas de alocação|
-            |definicao_info_func_tpfunc|Tipo funcionário|
-            |definicao_info_func_cpalt1|Campo Alternativo 1|
-            |definicao_info_func_cpalt2|Campo Alternativo 2|
-            |definicao_info_func_cpalt3|Campo Alternativo 3|
-            |definicao_info_func_cpext1|Extra 1|
-            |definicao_info_func_cpext2|Extra 2|
-            |definicao_info_func_cpext3|Extra 3|
-            |definicao_info_func_cpext4|Extra 4|
-            |definicao_info_func_cpext5|Extra 5|
-            |definicao_info_func_cpext6|Extra 6|
-            |definicao_info_func_cpext7|Extra 7|
-            |definicao_info_func_cpext8|Extra 8|
-            |definicao_info_func_cpext9|Extra 9|
-            |definicao_info_func_cpext10|Extra 10|
-            |definicao_info_func_pis|PIS|
-            |definicao_info_func_cpf|CPF|
+            |Evento1                       |Adicional Noturno          |
+            |Evento2                       |Atraso Abonado             |
+            |Evento3                       |Atrasos                    |
+            |Evento4                       |Desconto de DSR            |
+            |Evento5                       |Domingo Trabalhado         |
+            |Evento6                       |DSR Abonado                |
+            |Evento7                       |Falta Abonada              |
+            |Evento8                       |Faltas                     |
+            |Evento9                       |Folga Trabalhada           |
+            |Evento10                      |Hora Extra 100%            |
+            |Evento11                      |Hora Extra 50%             |
+            |Evento12                      |Hora Extra Noturna 100%    |
+            |Evento13                      |Hora Extra Noturna 50%     |
+            |Evento14                      |Horas a Trabalhar          |
+            |Evento15                      |Horas DSR                  |
+            |Justificativa1                |Atestado Médico            |
+            |Justificativa2                |Atraso Ônibus/Metrô        |
+            |Justificativa3                |Atraso/Falta – Debitar BH  |
+            |Justificativa4                |Hora Extra – Creditar BH   |
+            |Justificativa5                |Saída a Serviço            |
+            |Justificativa6                |Saída Antecipada           |
+            |Justificativa7                |Trânsito Congestionado     |
+            |Ocorrência1                   |Atraso                     |
+            |Ocorrência2                   |Banco Horas Credito        |
+            |Ocorrência3                   |Banco Horas Debito         |
+            |Ocorrência4                   |Falta                      |
+            |Ocorrência5                   |Hora Extra                 |
+            |Ocorrência6                   |Hora Extra Ad. Noturno     |
+            |Ocorrência7                   |Horas Trabalhadas          |
+            |Ocorrência8                   |Inconsistência             |
+            |Ocorrência9                   |Intervalo 11 Horas         |
+            |Marcação1                     |Automático                 |
+            |Marcação2                     |Editado                    |
+            |Marcação3                     |Indevido                   |
+            |Marcação4                     |Original                   |
+            |Marcação5                     |Web                        |
+            |Marcação6                     |Marcações Importação Acesso|
+            |Marcação7                     |Marcações Integração API   |
+            |Marcação8                     |Marcações via Desktop      |
+            |Marcação9                     |Vinculado a obra           |
+            |Marcação10                    |Mobile                     |
+            |Marcação11                    |Mobile Offline             |
+            |Horário1                      |vazio                      |
+            |Data1                         |DDMMYYYY                   |
+            |Data2                         |MMYYYY                     |
+            |Data3                         |YYYY                       |
+            |Data4                         |YYYYMM                     |
+            |Data5                         |YYYYMMDD                   |
+            |Data6                         |DD/MM/YYYY                 |
+            |Data7                         |MM/YYYY                    |
+            |Data8                         |DD-MM-YYYY                 |
+            |Data9                         |MM-YYYY                    |
+            |Data10                        |MM                         |
+            |Justificativa Edição de Ponto1|vazio                      |
+            |Informações de Empresa1       |Código                     |
+            |Informações de Empresa2       |CEI/CNO/CAEPF              |
+            |Informações de Empresa3       |Razão Social               |
+            |Informações de Empresa4       |CNPJ/CPF                   |
+            |Informações de Empresa5       |Ramo de atividade          |
+            |Informações de Empresa6       |Fuso horário               |
+            |Informações de Funcionário1   |Nome Completo              |
+            |Informações de Funcionário2   |Nome Social                |
+            |Informações de Funcionário3   |Matricula                  |
+            |Informações de Funcionário4   |Data de Admissão           |
+            |Informações de Funcionário5   |Data de Demissão           |
+            |Informações de Funcionário6   |Crachá                     |
+            |Informações de Funcionário7   |Estrutura                  |
+            |Informações de Funcionário8   |Grupo                      |
+            |Informações de Funcionário9   |Cargo                      |
+            |Informações de Funcionário10  |Horário                    |
+            |Informações de Funcionário11  |Carga Suplementar          |
+            |Informações de Funcionário12  |Regra de Cálculo           |
+            |Informações de Funcionário13  |Feriados                   |
+            |Informações de Funcionário14  |Base de Horas              |
+            |Informações de Funcionário15  |Valor da Hora              |
+            |Informações de Funcionário16  |Limite de horas de alocação|
+            |Informações de Funcionário17  |Tipo funcionário           |
+            |Informações de Funcionário18  |Campo Alternativo 1        |
+            |Informações de Funcionário19  |Campo Alternativo 2        |
+            |Informações de Funcionário20  |Campo Alternativo 3        |
+            |Informações de Funcionário21  |Extra 1                    |
+            |Informações de Funcionário22  |Extra 2                    |
+            |Informações de Funcionário23  |Extra 3                    |
+            |Informações de Funcionário24  |Extra 4                    |
+            |Informações de Funcionário25  |Extra 5                    |
+            |Informações de Funcionário26  |Extra 6                    |
+            |Informações de Funcionário27  |Extra 7                    |
+            |Informações de Funcionário28  |Extra 8                    |
+            |Informações de Funcionário29  |Extra 9                    |
+            |Informações de Funcionário30  |Extra 10                   |
+            |Informações de Funcionário31  |PIS                        |
+            |Informações de Funcionário32  |CPF                        |
+            |Fórmula1                      |Horas                      |
+            #|Fórmula2                      |Decimal                    |
+            #|Fórmula3                      |Inteiro                    |
+            #|Fórmula4                      |Texto                      |
         Então deverá cadastrar o relatorio e informar "O Relatório Personalizado foi adicionado com sucesso"

@@ -116,55 +116,94 @@ class Common
         end
     end
 
-    def inserir_colunas(contador_linhas, names, campo_definicao, tipo_campo,definicao)
-        nomes = names
-        linha = contador_linhas.to_s
+    def inserir_colunas(campos, todos)
+        linha = 0
+        linha_marc = 0
+        linha_val = 0
+        alfabeto = ('a'..'zz').to_a
+        for campo in campos do
+            separar = campo[0].split(/(\d+)/)
+            campo_key = separar[0]
+            campo_value = campo[1]
 
-        # Adicionar nova coluna
-        find('a[data-bind="click: AddNewItemCampo"] ').click
+            # Adicionar nova coluna
+            find('a[data-bind="click: AddNewItemCampo"] ').click
 
-        # Adicionar a descrição
-        find('tr[id="linha_'+ linha +'"] input[name="Campos['+ linha +'].Descricao"]', visible: false).click
-        find('tr[id="linha_'+ linha +'"] input[name="Campos['+ linha +'].Descricao"]', visible: false).set(linha.to_s + ' - ' + nomes[campo_definicao])
+            # Adicionar a descrição(Somente as 3 primeiras letras)
+            find("tr[id=\"linha_#{linha}\"] input[name=\"Campos[#{linha}].Descricao\"]", visible: false).click
+            find("tr[id=\"linha_#{linha}\"] input[name=\"Campos[#{linha}].Descricao\"]", visible: false).set(linha.to_s + ' - ' + campo_key[0..2] + ' - ' + campo_value[0..2])
+            case campo_key
+            when 'Ocorrência'
+                tipo_subs = 'IdOcorrencia'
+            when 'Informações de Empresa'
+                tipo_subs = 'IdInformacaoEmpresa'
+            when 'Informações de Funcionário'
+                tipo_subs = 'IdInformacaoFuncionario'
+            when 'Data'
+                tipo_subs = 'Formato'
+            when 'Fórmula'
+                tipo_subs = 'Formula'
+            else
+                tipo_subs = 'Id' + campo_key.to_s
+            end
 
+            select(campo_key.to_s, from: "Campos[#{linha}].TipoCampoRelatorioPersonalizado")
 
-        script_insere_id_tipo = "$(\"select[name='Campos["+linha+"].TipoCampoRelatorioPersonalizado']\").attr(\"id\", \"select_tipo"+linha+"\");"
-        page.execute_script(script_insere_id_tipo)
-        select(nomes[tipo_campo].to_s, from: 'select_tipo'+linha).select_option
-        
-        if definicao && nomes[tipo_campo] == 'Ocorrência'
-            nome_provisorio = 'Ocorrencia'
-            script_insere_id_ocor = """$(\'select[name=\"Campos["+ linha +"].Id"+nome_provisorio+"\"]\').attr(\"id\", \"select_"+nome_provisorio+linha+"\");"""
-            page.execute_script(script_insere_id_ocor)
-            select(nomes[campo_definicao].to_s, from: "select_"+nome_provisorio+linha).select_option
-        end
-        
-        if definicao && nomes[tipo_campo] == 'Informações de Empresa'
-            nome_provisorio = 'InformacaoEmpresa'
-            script_insere_id_infoempre = """$(\'select[name=\"Campos["+ linha +"].Id"+nome_provisorio+"\"]\').attr(\"id\", \"select_"+nome_provisorio+linha+"\");"""
-            page.execute_script(script_insere_id_infoempre)
-            select(nomes[campo_definicao].to_s, from: "select_"+nome_provisorio+linha).select_option
-        end
+            if campo_key == "Marcação"
+                find("div#Campos_#{linha}__TiposMarcacao_chzn > ul.chzn-choices > li.search-field").click
+                find("li#Campos_#{linha}__TiposMarcacao_chzn_o_#{linha_marc}").click
+                linha_marc = contador_incre(linha_marc)
+            elsif campo_key.to_s == "Fórmula" 
+                puts "Formula"
+                find("input[name=\"Campos[#{linha}].Formula\"]").set("a+b+c+d")
+                select(campo_value.to_s, from: "Campos[#{linha}].FormatoCampo")
+            elsif campo_key.to_s != 'Horário' && campo_key.to_s != 'Justificativa Edição de Ponto'
+               select(campo_value.to_s, from: "Campos[#{linha}].#{tipo_subs}")
+            end
 
-        if definicao && nomes[tipo_campo] == 'Informações de Funcionário'
-            nome_provisorio = 'InformacaoFuncionario'
-            script_insere_id_infofunc = """$(\'select[name=\"Campos["+ linha +"].Id"+nome_provisorio+"\"]\').attr(\"id\", \"select_"+nome_provisorio+linha+"\");"""
-            page.execute_script(script_insere_id_infofunc)
-            select(nomes[campo_definicao].to_s, from: "select_"+nome_provisorio+linha).select_option
-        end
+            # Adiciona todos os campos de visualização (Valor, descrição, codigo)
+            if todos == true
+                if campo_key.to_s == 'Ocorrência'
+                    begin
+                        caixa_visualizacao = find("div#Campos_#{linha}__OpcoesVisualizacaoOcorrencia_chzn", wait: 1)
+                    rescue
+                        caixa_visualizacao = ""
+                    end
 
-        if definicao && nomes[tipo_campo] == 'Marcação'
-            nome_provisorio = 'TiposMarcacao'
-            find('select[id="Campos[0].TiposMarcacao"]').click
-            find('div[id="Campos_0__TiposMarcacao_chzn"] input[class="default"]', visible: false).set(nomes[campo_definicao])
-            find('div[id="Campos_0__TiposMarcacao_chzn"] li[class="active-result highlighted"]', visible: false).click
-        end
-            
-        if definicao && nomes[tipo_campo] != 'Ocorrência' && nomes[tipo_campo] != 'Informações de Empresa' && nomes[tipo_campo] != 'Informações de Funcionário' && nomes[tipo_campo] != 'Marcação'
-            script_insere_id_def = """$(\'select[name=\"Campos["+ linha +"].Id"+nomes[tipo_campo]+"\"]\').attr(\"id\", \"select_"+nomes[tipo_campo]+linha+"\");"""
-            page.execute_script(script_insere_id_def)
-            id_select = 'select_'+nomes[tipo_campo]+linha
-            select(nomes[campo_definicao].to_s, from: id_select, visible: false).select_option
+                    if caixa_visualizacao 
+                        find("div#Campos_#{linha}__OpcoesVisualizacaoOcorrencia_chzn").click
+                        find("li#Campos_#{linha}__OpcoesVisualizacaoOcorrencia_chzn_o_0").click
+                    end
+                elsif campo_key.to_s != "Marcação" && campo_key.to_s != "Horário" && campo_key.to_s != "Justificativa Edição de Ponto" && campo_key.to_s != "Informações de Empresa" && campo_key.to_s != "Informações de Funcionário" && campo_key.to_s != "Fórmula"
+                    begin
+                        caixa_visualizacao = find("div#Campos_#{linha}__OpcoesVisualizacao_chzn", wait: 1)
+                    rescue
+                        caixa_visualizacao = ""
+                    end
+                    if caixa_visualizacao != ""
+                        (0..1).each do |n|
+                            find("div#Campos_#{linha}__OpcoesVisualizacao_chzn").click
+                            find("li#Campos_#{linha}__OpcoesVisualizacao_chzn_o_#{n}").click
+                        end
+                    end
+                end
+            end
+
+            # Vai adicionando uma letra a cada caixa de variavel que encontra
+            if campo_key.to_s != "Marcação" && campo_key.to_s != "Horário" && campo_key.to_s != "Justificativa Edição de Ponto" && campo_key.to_s != "Informações de Empresa" && campo_key.to_s != "Informações de Funcionário" && campo_key.to_s != "Fórmula"
+                begin
+                    caixa_variavel = find("input[name=\"Campos[#{linha}].Variavel\"]", wait: 1)
+                rescue
+                    caixa_variavel = ""
+                end
+                if caixa_variavel != ""
+                    find("input[name=\"Campos[#{linha}].Variavel\"]").set(alfabeto[linha_val])
+                    letras = "#{letras}#{alfabeto[linha_val]}"
+                    letras = "#{letras}+"
+                    linha_val = contador_incre(linha_val)
+                end
+            end
+            linha = contador_incre(linha)
         end
     end
 
