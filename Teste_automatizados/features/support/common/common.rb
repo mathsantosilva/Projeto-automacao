@@ -203,9 +203,11 @@ class Common
                     linha_val = contador_incre(linha_val)
                 end
             end
+            if linha > 0
+                porcent = ((linha.to_f/campos_length.to_f)*100).to_i
+                puts "Porcentagem de progresso: #{porcent}%"
+            end
             linha = contador_incre(linha)
-            porcent = (linha/campos_length)*100
-            puts "Porcentagem de progresso: #{porcent}%"
         end
     end
 
