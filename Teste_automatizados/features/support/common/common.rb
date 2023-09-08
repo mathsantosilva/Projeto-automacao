@@ -121,6 +121,7 @@ class Common
         linha_marc = 0
         linha_val = 0
         alfabeto = ('a'..'zz').to_a
+        campos_length = campos.length
         for campo in campos do
             separar = campo[0].split(/(\d+)/)
             campo_key = separar[0]
@@ -204,6 +205,8 @@ class Common
                 end
             end
             linha = contador_incre(linha)
+            porcent = (linha/campos_length)*100
+            puts "Porcentagem de progresso: #{porcent}%"
         end
     end
 
