@@ -155,7 +155,6 @@ class Common
                 find("li#Campos_#{linha}__TiposMarcacao_chzn_o_#{linha_marc}").click
                 linha_marc = contador_incre(linha_marc)
             elsif campo_key.to_s == "Fórmula" 
-                puts "Formula"
                 find("input[name=\"Campos[#{linha}].Formula\"]").set("a+b+c+d")
                 select(campo_value.to_s, from: "Campos[#{linha}].FormatoCampo")
             elsif campo_key.to_s != 'Horário' && campo_key.to_s != 'Justificativa Edição de Ponto'
