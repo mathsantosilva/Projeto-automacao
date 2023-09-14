@@ -1,4 +1,9 @@
-Então('pego a URL e faço um print dela no console') do 
+Então('pego a URL e faço um print dela no console') do
     url = current_path
     puts url
-end
+  end
+  
+  Então('a url deverá ser igual a pretendida {string}') do |path|
+    url = current_path
+    expect(current_path).to eql path
+  end
