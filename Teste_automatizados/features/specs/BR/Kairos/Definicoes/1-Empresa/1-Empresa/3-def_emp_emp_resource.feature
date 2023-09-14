@@ -5,7 +5,7 @@
 @br_empresa
 @br_empresa_resource
 Funcionalidade: Resource empresas
-    Rotina responsavel pela verificação dos bancos create e update
+    Rotina responsável pela verificação dos campos nos bancos criados e editados
 
     Contexto: Acessando a tela de empresas
         Dado que acesso a tela de login em "Dimep/Account/LogOn" no ambiente BR

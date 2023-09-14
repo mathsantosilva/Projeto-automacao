@@ -5,8 +5,8 @@
 @br_empresa
 @br_empresa_create
 Funcionalidade: Criação de empresa
-    Rotina responsavel pela criação de novas empresas dentro do mesmo banco
-
+    Rotina responsável pela criação de novas empresas dentro do mesmo banco
+    
     Contexto: Acessando a tela de cadastro de empresas
         Dado que acesso a tela de login em "Dimep/Account/LogOn" no ambiente BR
         Então vou até a tela de empresas para cadastrar uma nova empresa 

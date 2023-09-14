@@ -19,7 +19,7 @@ Capybara.register_driver :selenium_chrome_headless do |app|
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--excludeSwitches')
     chrome_options.add_argument('--silent') # Isso deve ajudar a suprimir as mensagens
-    #chrome_options.add_argument('--start-maximized')
+    chrome_options.add_argument('--start-maximized')
     chrome_options.add_argument("--enable-automation")
     chrome_options.add_argument("--ignore-certificate-errors")
     chrome_options.add_argument("--disable-extensions")

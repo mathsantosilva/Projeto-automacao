@@ -5,7 +5,7 @@
 @br_empresa
 @br_empresa_update
 Funcionalidade: Alteração de Empresa
-    Rotina responsavel pela alteração de bancos já criados
+    Rotina responsável pela alteração de bancos já criados
 
     Contexto: Acessando a tela de empresas
         Dado que acesso a tela de login em "Dimep/Account/LogOn" no ambiente BR
