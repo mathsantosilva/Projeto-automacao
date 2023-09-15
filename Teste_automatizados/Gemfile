@@ -16,6 +16,7 @@ gem 'cucumber-rails'
 gem 'faker', '~> 2.22'
 gem 'ffi',  '~> 1.1'
 gem 'fiddle'
+gem 'fileutils'
 gem 'nif', '~> 0.0.3'
 gem "rack", ">= 2.2.6.4"
 gem 'rails'

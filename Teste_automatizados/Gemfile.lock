@@ -148,6 +148,7 @@ GEM
       websocket-driver (>= 0.5.1)
     ffi (1.15.5-x64-mingw-ucrt)
     fiddle (1.1.1)
+    fileutils (1.7.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -289,6 +290,7 @@ DEPENDENCIES
   faker (~> 2.22)
   ffi (~> 1.1)
   fiddle
+  fileutils
   json
   nif (~> 0.0.3)
   rack (>= 2.2.6.4)

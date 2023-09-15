@@ -40,14 +40,28 @@ After do |scenario|
     # Setando o nome das pastas
     screenshots_folder = 'screenshots'
     scenario_folder = scenario.name
+    historico_folder = 'historico'
 
     # Verifica se as pastas existem e a cria se necessário
     Dir.mkdir(screenshots_folder) unless File.directory?(screenshots_folder)
     Dir.mkdir("#{screenshots_folder}/#{scenario_folder}") unless File.directory?("#{screenshots_folder}/#{scenario_folder}")
-        
+    arquivos = Dir.children("#{screenshots_folder}/#{scenario_folder}")
+    if arquivos.length > 0
+      Dir.mkdir("#{screenshots_folder}/#{scenario_folder}/#{historico_folder}") unless File.directory?("#{screenshots_folder}/#{scenario_folder}/#{historico_folder}")
+      for arq in arquivos do
+        unless File.directory?("#{screenshots_folder}/#{scenario_folder}/#{arq}")
+          begin
+            puts arq
+            FileUtils.mv("#{screenshots_folder}/#{scenario_folder}/#{arq}", "#{screenshots_folder}/#{scenario_folder}/#{historico_folder}")
+          rescue StandardError => e
+            puts "Erro em mover arquivo: #{e}"
+          end
+        end
+      end
+    end
     # Capturar a screenshot aqui e salva na pasta correspondente
     screenshot_name = "error_#{Time.now.strftime('%Y-%m-%d-%H%M%S')}.png"
     page.save_screenshot(File.join("#{screenshots_folder}/#{scenario_folder}", screenshot_name))
-    puts "Screenshot capturada: #{screenshot_name}"
+    puts "Screenshot capturada em: #{scenario_folder} - #{screenshot_name}"
   end
 end
