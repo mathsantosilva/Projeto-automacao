@@ -7,9 +7,11 @@ class Validadores
     def initialize
         # Importar a classes para utilizar
         require_relative '../common/complements'
+        require_relative '../arquivos/arquivos'
 
         # Instanciar classes necessarias
         @complements = Complements.new
+        @arquivos = Arquivos.new
     end
 
     def validando_css(value, css)
@@ -114,6 +116,18 @@ class Validadores
         valor_resource.each do |mensagem|
             expect(campos_labels[contador]).to eql mensagem[1]
             contador += 1
+        end
+    end
+
+    def validar_erro(caminho, nome, itens)
+        begin
+            elemento = find('div.Conteudo span.field-validation-error', wait: 5)
+        rescue => exception
+            return
+        end
+        puts elemento
+        if expect(elemento).to have_content "Erro desconhecido"
+            @arquivos.escrever(caminho, nome, itens)
         end
     end
 

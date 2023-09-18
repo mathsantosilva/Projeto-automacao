@@ -32,6 +32,7 @@ Before do
   @cadastros_relogios = Cadastros_relogios.new
   @cadastro_empresa = Cadastro_empresa.new
   @resources = Resources.new
+  @arquivos = Arquivos.new
 end
 
 After do |scenario|
