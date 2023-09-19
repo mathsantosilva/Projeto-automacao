@@ -32,7 +32,7 @@ Capybara.register_driver :selenium_chrome_headless do |app|
 
 
 Capybara.configure do |config|
-    Webdrivers.install_dir = '\GoogleDrive\atual'
+    Webdrivers.install_dir = '../../arquivos_testes/GoogleDrive/atual'
     config.default_driver = :selenium_chrome_headless    
     config.run_server = false
     config.default_max_wait_time = 120
