@@ -231,12 +231,12 @@ class Common
 
     def fechar_popup()
         begin 
-            elemento = find('[class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable ui-dialog-css"]', wait: 5)
+            elemento = find('div.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-draggable.ui-resizable.ui-dialog-css', wait: 5)
         rescue
             return
         end
         if elemento
-            find('[id="closeModal"]', wait: 10).click
+            find('a#closeModal', wait: 10).click
         else
             return
         end
