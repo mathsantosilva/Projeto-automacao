@@ -20,8 +20,8 @@ Dado('que preencho os dados, uso CNPJ e clico em salvar') do
   fill_in 'Empresa_Telefone', with: '116541954654'
   itens.push('116541954654')
   find('label[for="CbUtilizaPortaria"]', visible: true)
-  fill_in 'Empresa_RazaoSocial', with: "Automação de testes - Criação - #{$time.to_s}"
-  itens.push("Automação de testes - Criação - #{$time.to_s}")
+  fill_in 'Empresa_RazaoSocial', with: "Automação de testes - Criação empresa - #{$time.to_s}"
+  itens.push("Automação de testes - Criação empresa - #{$time.to_s}")
   find('label[for="rdCnpj"]').click
   fill_in 'Empresa_CnpjCpf', with: $cnpj
   itens.push($cnpj)

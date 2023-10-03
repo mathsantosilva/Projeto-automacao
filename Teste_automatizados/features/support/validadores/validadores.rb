@@ -53,7 +53,7 @@ class Validadores
             if current_path != url
                 break
             elsif minutos_atual >=  minutos_fim
-                puts "Timeout validação permanencia pagina" 
+                puts "Erro timeout validação permanencia pagina" 
                 break
             else
                 next

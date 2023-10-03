@@ -5,12 +5,11 @@
 @br_empresa
 @br_empresa_update
 Funcionalidade: Alteração de Empresa
-    Rotina responsável pela alteração de bancos já criados
+    Rotina responsável pela alteração de empresas já criadas
 
     Contexto: Acessando a tela de empresas
         Dado que acesso a tela de login em "Dimep/Account/LogOn" no ambiente BR
         Então vou até a tela de empresas para alterar uma empresa existente 
-
 
     @br_empresa_update_cnpj
     Cenario: Alteração da empresa criada com CNPJ

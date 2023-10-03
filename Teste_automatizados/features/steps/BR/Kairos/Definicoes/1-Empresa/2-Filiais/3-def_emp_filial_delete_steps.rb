@@ -1,35 +1,16 @@
-Dado('Acesso a tela de filiais para deletar') do
-  
-  #logando
-  @login.logon_ambiente_br
-
-  sleep 1
-  
-  # Acessando a empresa filial pela navegação de telas
-  @common.nav_def('Empresa','div[id="MenuFiliais"')
-
-  #removendo o chat
-  @common.remove_chat
-
+Então('vou até a tela de empresas para remover uma filial existente') do
+    # Acessando a empresa pela navegacao de telas
+    @common.nav_def('Empresa','Filiais', 'label.DefinitionsTitle')
 end
 
-Quando('Clico para remover a filial') do
-
-  #Selecionando e clicando no botão remover
-  @common.select_button('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(1)','img[class="pointer icons deleteIcon"]')
-
+Dado('que clico na ultima filial apresentada na lista') do
+  filial_linha = find('div.Conteudo table.ContentTable tbody tr:nth-last-child(1) td:nth-child(3)')
+  filial_linha.hover
+  filia_button = find('div.Conteudo table.ContentTable tbody tr:nth-last-child(1) td:nth-child(3) span.btnDeleteFilial')
+  filia_button.click
+  find('div.ui-dialog span#bFilial').click
 end
 
-Quando('Confirmo a remoção da filial') do
-
-  #Clicando para confirmar a remoção da filial
-  @common.confir_remover
-
-end
-
-Então('Aguardo uma mensagem de remoção {string}') do |message_sucess|
-
-  #Mensagem de sucesso na remoção
-  expect(find('div[id=Summary-Field-Index]')).to have_content message_sucess
-    
+Então('deverá apresentar a mensagem de sucesso na remoção da filial {string}') do |message_success|
+  expect(find('div[id=Summary-Field-Index]')).to have_content message_success
 end

@@ -4,17 +4,17 @@
 @br_definicoes
 @br_empresa
 @br_empresa_verifica
-Funcionalidade: Verificação de campos
-    Rotina responsável pela verificação dos dados que são aceito pelos campos
+Funcionalidade: Verificação dos campos das empresas
+    Rotina responsável pela verificação dos dados que são aceito pelos campos e mensagens de obrigatoriedade
 
     Contexto: Acessando a tela de empresas
         Dado que acesso a tela de login em "Dimep/Account/LogOn" no ambiente BR
         Então vou até a tela de empresa e acesso a criação de empresas para validar os campos
 
     @br_empresa_verifica_obrigatoriedade_campos
-    Cenario: Validando a obrigatoriedade dos campos
+    Cenario: Validando a obrigatoriedade dos campos na criação de empresas
         Dado que entro na criação de empresa e clico em salvar
-        Então deverá informar as seguintes mensagens
+        Então deverá informar as seguintes obrigatoriedades na criação de empresas
             |codigo          |Por favor adicione um código                     |
             |telefone        |Por favor introduza um telefone                  |
             |razao_social    |Por favor introduza uma razão social             |
@@ -26,10 +26,10 @@ Funcionalidade: Verificação de campos
             |uf              |Por favor introduza um UF                        |
 
     @br_empresa_verifica_limite_campos
-    Cenario: Validando os valores limites dos campos
-        Dado que preencho os dados focando no limite dos campos e clico em salvar
+    Cenario: Validando os valores limites dos campos na criação de empresas
+        Dado que preencho os dados da empresa focando no limite dos campos e clico em salvar
         Quando acesso a empresa recem criada com o limite dos campos
-        Então devera conter somente a quantidade de caracteres aceitos pelos campos
+        Então devera conter somente a quantidade de caracteres aceitos pelos campos de cadastro da empresa
             |Empresa_Telefone         |11111111111111111111                                                                                                                                                                                    |
             |Empresa_Endereco         |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
             |Empresa_Bairro           |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                                                                                                                        |
@@ -41,10 +41,10 @@ Funcionalidade: Verificação de campos
             |connectChave_ChaveConnect|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                                                                                                                                                                        |
 
     @br_empresa_verifica_tipos_caracteres_campos
-    Cenario: Validando os tipos de caracteres dos campos
-        Dado que preencho os dados com varios tipos de caracteres e clico em salvar
+    Cenario: Validando os tipos de caracteres dos campos na criação de empresas
+        Dado que preencho os dados da empresa com varios tipos de caracteres e clico em salvar
         Quando acesso a empresa recem criada com os tipos de caracteres diferentes 
-        Então devera conter somente os caracteres aceitos pelos campos 
+        Então devera conter somente os caracteres aceitos pelos campos de cadastro da empresa  
             |Empresa_Telefone         |11111111111111111111                                                                                                                                                                               |
             |Empresa_Endereco         |1a2b3c4d5e6f7g8h9i1j0k1l1m1n1o1p1q1r1s1t1u1v1x1w1y1z1!@#$%¨&*?:><^`'11111111111111111111111111111111111111111111111111111222222222222222222222222222222222222222222222222222222222222222222223333  |
             |Empresa_Bairro           |1a2b3c4d5e6f7g8h9i1j0k1l1m1n1o1p1q1r1s1t1u1v1x1w1y1z1!@#$%¨&*?:><^`'11111                                                                                                                          |
