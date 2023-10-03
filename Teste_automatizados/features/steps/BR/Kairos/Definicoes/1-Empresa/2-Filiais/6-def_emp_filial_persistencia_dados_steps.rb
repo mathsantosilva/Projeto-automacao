@@ -6,6 +6,7 @@ Então('vou até a tela de filial e acesso a criação de Filiais para validar a
   @complements.geradores_dados_documentos_empresa
   @complements.geradores_dados_endereco
   @complements.geradores_dados_internet
+  @complements.geradores_dados_telefonia
 end
 
 Dado('que preencho os dados utilizando um codigo já existente em outra filial e clico em salvar') do
@@ -14,7 +15,7 @@ Dado('que preencho os dados utilizando um codigo já existente em outra filial e
   fill_in 'Filial_Codigo', with: ""
   fill_in 'Filial_Codigo', with: $codigo_filial
   fill_in 'Filial_CEI', with: '294226088484'
-  fill_in 'Filial_Telefone', with: '116541954654'
+  fill_in 'Filial_Telefone', with: $telefone
   fill_in 'Filial_Descricao', with: 'Automação de testes - Validação persistencia de dados - ' << $time.to_s
   fill_in 'Filial_CnpjCpf', with: $cnpj
   fill_in 'Filial_Endereco', with: $endereco_aleatorio
@@ -43,7 +44,7 @@ Dado('que preencho os dados utilizando uma razão social já existente em outra 
   find('span[class="PlusButton"]').click                               
   fill_in 'Filial_Codigo', with: $codigo_aleatorio_10
   fill_in 'Filial_CEI', with: '294226088484'
-  fill_in 'Filial_Telefone', with: '116541954654'
+  fill_in 'Filial_Telefone', with: $telefone
   fill_in 'Filial_Descricao', with: $razao_filial
   fill_in 'Filial_CnpjCpf', with: $cnpj
   fill_in 'Filial_Endereco', with: $endereco_aleatorio
@@ -72,7 +73,7 @@ Dado('que preencho os dados utilizando um CNPJ já existente em outra filial e c
   find('span[class="PlusButton"]').click                               
   fill_in 'Filial_Codigo', with: $codigo_aleatorio_10
   fill_in 'Filial_CEI', with: '294226088484'
-  fill_in 'Filial_Telefone', with: '116541954654'
+  fill_in 'Filial_Telefone', with: $telefone
   fill_in 'Filial_Descricao', with: 'Automação de testes - Validação persistencia de dados - ' << $time.to_s
   find('label[for="rdCnpj"]').click
   fill_in 'Filial_CnpjCpf', with: $cnpjcpf_filial
@@ -102,7 +103,7 @@ Dado('que preencho os dados utilizando uma CPF já existente em outra filial e c
   find('span[class="PlusButton"]').click                               
   fill_in 'Filial_Codigo', with: $codigo_aleatorio_10
   fill_in 'Filial_CEI', with: '294226088484'
-  fill_in 'Filial_Telefone', with: '116541954654'
+  fill_in 'Filial_Telefone', with: $telefone
   fill_in 'Filial_Descricao', with: 'Automação de testes - Validação persistencia de dados - ' << $time.to_s
   find('label[for="rdCpf"]').click
   fill_in 'Filial_CnpjCpf', with: $cnpjcpf_filial

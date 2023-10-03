@@ -11,7 +11,7 @@ Então('vou até a tela de filiais para alterar uma filial existente') do
 end                                                                                                  
                                                                                                      
 Dado('que altero os dados da filial com CNPJ') do 
-  @consultores.consulta_acessa_filial('CNPJ')
+  @consultores.consulta_acessa_filial('Criação filial CNPJ')
   fill_in 'Filial_Codigo', with: $codigo_aleatorio_10
   fill_in 'Filial_CEI', with: '294226088484'
   fill_in 'Filial_Telefone', with: '999999999'
@@ -36,7 +36,7 @@ Dado('que altero os dados da filial com CNPJ') do
 end                                                                                                  
                                                                                                      
 Dado('que altero os dados da filial com CPF') do
-  @consultores.consulta_acessa_filial('CPF')
+  @consultores.consulta_acessa_filial('Criação filial CPF')
   fill_in 'Filial_Codigo', with: $codigo_aleatorio_10
   fill_in 'Filial_CEI', with: '294226088484'
   fill_in 'Filial_Telefone', with: '999999999'

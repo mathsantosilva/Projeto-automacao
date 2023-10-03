@@ -8,10 +8,12 @@ class Consultores
         # Importar a classes para utilizar
         require_relative '../validadores/validadores'
         require_relative '../common/common'
+        require_relative '../tratar_dados/tratar_dados'
 
         # Instanciar classes necessarias
         @validadores = Validadores.new
         @common = Common.new
+        @tratar_dados = Tratar_dados.new
     end
 
     def consulta_acessa_empresa_codigo(codigo)
@@ -30,12 +32,7 @@ class Consultores
     end
 
     def consulta_acessa_filial(seletor)
-        case seletor
-        when 'CNPJ'
-            nome_filial_esperado = 'Criação filial CNPJ'
-        when 'CPF'
-            nome_filial_esperado = 'Criação filial CPF'
-        end
+        nome_filial_esperado = seletor
         contador = 1
 
         while true
@@ -150,12 +147,7 @@ class Consultores
     end
 
     def consulta_guarda_filial(seletor)
-        case seletor
-        when 'CNPJ'
-            nome_filial_esperado = 'Criação filial CNPJ'
-        when 'CPF'
-            nome_filial_esperado = 'Criação filial CPF'
-        end
+        nome_filial_esperado = seletor
         contador = 1
 
         while true
@@ -175,6 +167,7 @@ class Consultores
                 $codigo_filial = page.evaluate_script(buscar_campo_codigo)
                 $razao_filial = page.evaluate_script(buscar_campo_razao)
                 $cnpjcpf_filial = page.evaluate_script(buscar_campo_cnpjcpf)
+                $cnpjcpf_filial = @tratar_dados.limpar_string($cnpjcpf_filial)
                 find('div#MenuFiliais').click
                 break
             else

@@ -13,7 +13,7 @@ Então('passo por todos os campos da criação de filiais em Portugues-BR na cri
 end
 
 Quando('altero uma filial para validar os campos') do
-  @consultores.consulta_acessa_filial('CNPJ')
+  @consultores.consulta_acessa_filial('Criação filial CNPJ')
 end
 
 Então('passo por todos os campos da edição de filiais em portugues-BR no update') do |table|
