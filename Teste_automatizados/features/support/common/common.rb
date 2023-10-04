@@ -257,7 +257,7 @@ class Common
                 nome_filial = nome_filial.strip
             rescue => exception
                 if minutos_atual >=  minutos_fim
-                    puts "Erro timeout validação permanencia pagina" 
+                    puts "Erro timeout apagar filial" 
                     break
                 else
                     contador += 1
@@ -270,7 +270,7 @@ class Common
                 find('span#bFilial').click
                 break
             elsif  minutos_atual >=  minutos_fim
-                puts "Erro timeout validação permanencia pagina" 
+                puts "Erro timeout apagar filial" 
                 break
             else
                 contador += 1
