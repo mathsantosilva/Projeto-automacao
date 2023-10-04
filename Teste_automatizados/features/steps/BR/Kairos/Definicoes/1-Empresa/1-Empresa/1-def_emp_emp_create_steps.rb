@@ -12,6 +12,7 @@ end
 
 Dado('que preencho os dados, uso CNPJ e clico em salvar') do
   itens = Array.new
+  itens.push(" ")
   fill_in 'Empresa_Codigo', with: $codigo_aleatorio_10
   itens.push($codigo_aleatorio_10)
   fill_in 'Empresa_CEI', with: '294226088484'
@@ -19,8 +20,8 @@ Dado('que preencho os dados, uso CNPJ e clico em salvar') do
   fill_in 'Empresa_Telefone', with: '116541954654'
   itens.push('116541954654')
   find('label[for="CbUtilizaPortaria"]', visible: true)
-  fill_in 'Empresa_RazaoSocial', with: 'Automação de testes - Criação - ' << $time.to_s
-  itens.push('Automação de testes - Criação - ' << $time.to_s)
+  fill_in 'Empresa_RazaoSocial', with: "Automação de testes - Criação empresa - #{$time.to_s}"
+  itens.push("Automação de testes - Criação empresa - #{$time.to_s}")
   find('label[for="rdCnpj"]').click
   fill_in 'Empresa_CnpjCpf', with: $cnpj
   itens.push($cnpj)
@@ -62,6 +63,7 @@ end
 
 Dado('que preencho os dados, uso CPF e clico em salvar') do
   itens = Array.new
+  itens.push(" ")
   fill_in 'Empresa_Codigo', with: $codigo_aleatorio_10
   itens.push($codigo_aleatorio_10)
   fill_in 'Empresa_CEI', with: '294226088484'
@@ -69,8 +71,8 @@ Dado('que preencho os dados, uso CPF e clico em salvar') do
   fill_in 'Empresa_Telefone', with: '116541954654'
   itens.push('116541954654')
   find('label[for="CbUtilizaPortaria"]', visible: true)
-  fill_in 'Empresa_RazaoSocial', with: $razao_social_aleatoria << ' ' << $time.to_s
-  itens.push($razao_social_aleatoria << ' ' << $time.to_s)
+  fill_in 'Empresa_RazaoSocial', with: "#{$razao_social_aleatoria}  #{$time.to_s}"
+  itens.push("#{$razao_social_aleatoria}  #{$time.to_s}")
   find('label[for="rdCpf"]').click
   fill_in 'Empresa_CnpjCpf', with: $cpf
   itens.push($cpf)
@@ -107,7 +109,7 @@ Dado('que preencho os dados, uso CPF e clico em salvar') do
   itens.push($chave_aleatoria)
   @common.botao_salvar_geral
   @validadores.validar_permanencia_pagina('/Dimep/Empresas/Create')
-  @validadores.validar_erro("..\\arquivos_testes", "Lista_itens_erro_empresa_cpf.txt", itens)
+  @validadores.validar_erro("..//arquivos_testes", "Lista_itens_erro_empresa_cpf.txt", itens)
 end
 
 Dado('que preencho os dados, uso CNPJ em looping') do

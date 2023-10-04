@@ -8,10 +8,12 @@ class Consultores
         # Importar a classes para utilizar
         require_relative '../validadores/validadores'
         require_relative '../common/common'
+        require_relative '../tratar_dados/tratar_dados'
 
         # Instanciar classes necessarias
         @validadores = Validadores.new
         @common = Common.new
+        @tratar_dados = Tratar_dados.new
     end
 
     def consulta_acessa_empresa_codigo(codigo)
@@ -20,6 +22,26 @@ class Consultores
             caminho = "table[class='ContentTable'] tbody tr:nth-last-child(#{contador}) td:nth-child(1)"
             valor_td = find(caminho).text()
             if valor_td == codigo
+                @common.select_button(caminho, 'span[class="pointer spanButton"]')
+                break
+            else
+                contador += 1
+                next
+            end
+        end
+    end
+
+    def consulta_acessa_filial(seletor)
+        nome_filial_esperado = seletor
+        contador = 1
+
+        while true
+            caminho = "div.Conteudo table.ContentTable tbody tr:nth-last-child(#{contador}) td:nth-child(2)"
+            valor_td = find(caminho).text()
+            valor_separado = valor_td.split('+')
+            nome_filial_atual = valor_separado[1]
+            nome_filial_atual = nome_filial_atual.strip
+            if nome_filial_atual == nome_filial_esperado
                 @common.select_button(caminho, 'span[class="pointer spanButton"]')
                 break
             else
@@ -123,6 +145,38 @@ class Consultores
             end
         end
     end
+
+    def consulta_guarda_filial(seletor)
+        nome_filial_esperado = seletor
+        contador = 1
+
+        while true
+            caminho = "div.Conteudo table.ContentTable tbody tr:nth-last-child(#{contador}) td:nth-child(2)"
+            valor_td = find(caminho).text()
+            valor_separado = valor_td.split('+')
+            nome_filial_atual = valor_separado[1]
+            if nome_filial_atual != "" && nome_filial_atual != nil
+
+                nome_filial_atual = nome_filial_atual.strip
+            end
+            if nome_filial_atual == nome_filial_esperado
+                @common.select_button(caminho, 'span[class="pointer spanButton"]')
+                buscar_campo_codigo = "input = document.querySelector('input#Filial_Codigo').value"
+                buscar_campo_razao = "input = document.querySelector('input#Filial_Descricao').value"
+                buscar_campo_cnpjcpf = "input = document.querySelector('input#Filial_CnpjCpf').value"
+                $codigo_filial = page.evaluate_script(buscar_campo_codigo)
+                $razao_filial = page.evaluate_script(buscar_campo_razao)
+                $cnpjcpf_filial = page.evaluate_script(buscar_campo_cnpjcpf)
+                $cnpjcpf_filial = @tratar_dados.limpar_string($cnpjcpf_filial)
+                find('div#MenuFiliais').click
+                break
+            else
+                contador += 1
+                next
+            end
+        end
+    end
+
 
     # Obtem os dados da primeira empresa que usar um cpf - De de cima para baixa
     def consulta_guarda_dados_empresa_cpf()

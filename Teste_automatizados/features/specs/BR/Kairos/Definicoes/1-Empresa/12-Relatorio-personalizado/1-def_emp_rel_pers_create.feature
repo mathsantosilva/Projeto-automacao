@@ -73,39 +73,44 @@ Funcionalidade: Criação de empresa
             |Informações de Empresa4       |CNPJ/CPF                   |
             |Informações de Empresa5       |Ramo de atividade          |
             |Informações de Empresa6       |Fuso horário               |
-            |Informações de Funcionário1   |Nome Completo              |
-            |Informações de Funcionário2   |Nome Social                |
-            |Informações de Funcionário3   |Matricula                  |
-            |Informações de Funcionário4   |Data de Admissão           |
-            |Informações de Funcionário5   |Data de Demissão           |
-            |Informações de Funcionário6   |Crachá                     |
-            |Informações de Funcionário7   |Estrutura                  |
-            |Informações de Funcionário8   |Grupo                      |
-            |Informações de Funcionário9   |Cargo                      |
-            |Informações de Funcionário10  |Horário                    |
-            |Informações de Funcionário11  |Carga Suplementar          |
-            |Informações de Funcionário12  |Regra de Cálculo           |
-            |Informações de Funcionário13  |Feriados                   |
-            |Informações de Funcionário14  |Base de Horas              |
-            |Informações de Funcionário15  |Valor da Hora              |
-            |Informações de Funcionário16  |Limite de horas de alocação|
-            |Informações de Funcionário17  |Tipo funcionário           |
-            |Informações de Funcionário18  |Campo Alternativo 1        |
-            |Informações de Funcionário19  |Campo Alternativo 2        |
-            |Informações de Funcionário20  |Campo Alternativo 3        |
-            |Informações de Funcionário21  |Extra 1                    |
-            |Informações de Funcionário22  |Extra 2                    |
-            |Informações de Funcionário23  |Extra 3                    |
-            |Informações de Funcionário24  |Extra 4                    |
-            |Informações de Funcionário25  |Extra 5                    |
-            |Informações de Funcionário26  |Extra 6                    |
-            |Informações de Funcionário27  |Extra 7                    |
-            |Informações de Funcionário28  |Extra 8                    |
-            |Informações de Funcionário29  |Extra 9                    |
-            |Informações de Funcionário30  |Extra 10                   |
-            |Informações de Funcionário31  |PIS                        |
-            |Informações de Funcionário32  |CPF                        |
-            |Fórmula1                      |Horas                      |
+            |Informações de Funcionário1   |Nome Completo               |
+            |Informações de Funcionário2   |Nome Social                 |
+            |Informações de Funcionário3   |Matricula                   |
+            |Informações de Funcionário4   |Data de Admissão            |
+            |Informações de Funcionário5   |Data de Demissão            |
+            |Informações de Funcionário6   |Crachá                      |
+            |Informações de Funcionário7   |Descrição da Estrutura      |
+            |Informações de Funcionário8   |Código da Estrutura         |
+            |Informações de Funcionário9   |Centro de Custo da Estrutura|
+            |Informações de Funcionário10  |Descrição do Grupo          |
+            |Informações de Funcionário11  |Código do Grupo             |
+            |Informações de Funcionário12  |Cargo                       |
+            |Informações de Funcionário13  |Descrição do Horário        |
+            |Informações de Funcionário14  |Código do Horário           |
+            |Informações de Funcionário15  |Horário da Jornada          |
+            |Informações de Funcionário16  |Carga Suplementar           |
+            |Informações de Funcionário17  |Regra de Cálculo            |
+            |Informações de Funcionário18  |Feriados                    |
+            |Informações de Funcionário19  |Base de Horas               |
+            |Informações de Funcionário20  |Valor da Hora               |
+            |Informações de Funcionário21  |Limite de horas de alocação |
+            |Informações de Funcionário22  |Tipo funcionário            |
+            |Informações de Funcionário23  |Campo Alternativo 1         |
+            |Informações de Funcionário24  |Campo Alternativo 2         |
+            |Informações de Funcionário25  |Campo Alternativo 3         |
+            |Informações de Funcionário26  |Extra 1                     |
+            |Informações de Funcionário27  |Extra 2                     |
+            |Informações de Funcionário28  |Extra 3                     |
+            |Informações de Funcionário29  |Extra 4                     |
+            |Informações de Funcionário30  |Extra 5                     |
+            |Informações de Funcionário31  |Extra 6                     |
+            |Informações de Funcionário32  |Extra 7                     |
+            |Informações de Funcionário33  |Extra 8                     |
+            |Informações de Funcionário34  |Extra 9                     |
+            |Informações de Funcionário35  |Extra 10                    |
+            |Informações de Funcionário36  |PIS                         |
+            |Informações de Funcionário37  |CPF                         |
+            |Fórmula1                      |Horas                       |
             #|Fórmula2                      |Decimal                    |
             #|Fórmula3                      |Inteiro                    |
             #|Fórmula4                      |Texto                      |
@@ -175,39 +180,44 @@ Funcionalidade: Criação de empresa
             |Informações de Empresa4       |CNPJ/CPF                   |
             |Informações de Empresa5       |Ramo de atividade          |
             |Informações de Empresa6       |Fuso horário               |
-            |Informações de Funcionário1   |Nome Completo              |
-            |Informações de Funcionário2   |Nome Social                |
-            |Informações de Funcionário3   |Matricula                  |
-            |Informações de Funcionário4   |Data de Admissão           |
-            |Informações de Funcionário5   |Data de Demissão           |
-            |Informações de Funcionário6   |Crachá                     |
-            |Informações de Funcionário7   |Estrutura                  |
-            |Informações de Funcionário8   |Grupo                      |
-            |Informações de Funcionário9   |Cargo                      |
-            |Informações de Funcionário10  |Horário                    |
-            |Informações de Funcionário11  |Carga Suplementar          |
-            |Informações de Funcionário12  |Regra de Cálculo           |
-            |Informações de Funcionário13  |Feriados                   |
-            |Informações de Funcionário14  |Base de Horas              |
-            |Informações de Funcionário15  |Valor da Hora              |
-            |Informações de Funcionário16  |Limite de horas de alocação|
-            |Informações de Funcionário17  |Tipo funcionário           |
-            |Informações de Funcionário18  |Campo Alternativo 1        |
-            |Informações de Funcionário19  |Campo Alternativo 2        |
-            |Informações de Funcionário20  |Campo Alternativo 3        |
-            |Informações de Funcionário21  |Extra 1                    |
-            |Informações de Funcionário22  |Extra 2                    |
-            |Informações de Funcionário23  |Extra 3                    |
-            |Informações de Funcionário24  |Extra 4                    |
-            |Informações de Funcionário25  |Extra 5                    |
-            |Informações de Funcionário26  |Extra 6                    |
-            |Informações de Funcionário27  |Extra 7                    |
-            |Informações de Funcionário28  |Extra 8                    |
-            |Informações de Funcionário29  |Extra 9                    |
-            |Informações de Funcionário30  |Extra 10                   |
-            |Informações de Funcionário31  |PIS                        |
-            |Informações de Funcionário32  |CPF                        |
-            |Fórmula1                      |Horas                      |
+            |Informações de Funcionário1   |Nome Completo               |
+            |Informações de Funcionário2   |Nome Social                 |
+            |Informações de Funcionário3   |Matricula                   |
+            |Informações de Funcionário4   |Data de Admissão            |
+            |Informações de Funcionário5   |Data de Demissão            |
+            |Informações de Funcionário6   |Crachá                      |
+            |Informações de Funcionário7   |Descrição da Estrutura      |
+            |Informações de Funcionário8   |Código da Estrutura         |
+            |Informações de Funcionário9   |Centro de Custo da Estrutura|
+            |Informações de Funcionário10  |Descrição do Grupo          |
+            |Informações de Funcionário11  |Código do Grupo             |
+            |Informações de Funcionário12  |Cargo                       |
+            |Informações de Funcionário13  |Descrição do Horário        |
+            |Informações de Funcionário14  |Código do Horário           |
+            |Informações de Funcionário15  |Horário da Jornada          |
+            |Informações de Funcionário16  |Carga Suplementar           |
+            |Informações de Funcionário17  |Regra de Cálculo            |
+            |Informações de Funcionário18  |Feriados                    |
+            |Informações de Funcionário19  |Base de Horas               |
+            |Informações de Funcionário20  |Valor da Hora               |
+            |Informações de Funcionário21  |Limite de horas de alocação |
+            |Informações de Funcionário22  |Tipo funcionário            |
+            |Informações de Funcionário23  |Campo Alternativo 1         |
+            |Informações de Funcionário24  |Campo Alternativo 2         |
+            |Informações de Funcionário25  |Campo Alternativo 3         |
+            |Informações de Funcionário26  |Extra 1                     |
+            |Informações de Funcionário27  |Extra 2                     |
+            |Informações de Funcionário28  |Extra 3                     |
+            |Informações de Funcionário29  |Extra 4                     |
+            |Informações de Funcionário30  |Extra 5                     |
+            |Informações de Funcionário31  |Extra 6                     |
+            |Informações de Funcionário32  |Extra 7                     |
+            |Informações de Funcionário33  |Extra 8                     |
+            |Informações de Funcionário34  |Extra 9                     |
+            |Informações de Funcionário35  |Extra 10                    |
+            |Informações de Funcionário36  |PIS                         |
+            |Informações de Funcionário37  |CPF                         |
+            |Fórmula1                      |Horas                       |
             #|Fórmula2                      |Decimal                    |
             #|Fórmula3                      |Inteiro                    |
             #|Fórmula4                      |Texto                      |

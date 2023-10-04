@@ -26,13 +26,13 @@ Capybara.register_driver :selenium_chrome_headless do |app|
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--pageLoadStrategy=normal")
-    chrome_options.add_argument("--headless=new")
+    #chrome_options.add_argument("--headless=new")
     Capybara::Selenium::Driver.new(app, browser: :chrome, options: chrome_options, clear_session_storage: true, clear_local_storage: true)
   end
 
 
 Capybara.configure do |config|
-    Webdrivers.install_dir = '\GoogleDrive\atual'
+    Webdrivers.install_dir = '../../arquivos_testes/GoogleDrive/atual'
     config.default_driver = :selenium_chrome_headless    
     config.run_server = false
     config.default_max_wait_time = 120

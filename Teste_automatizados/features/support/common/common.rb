@@ -242,4 +242,43 @@ class Common
         end
     end
 
+    def apagar_filial(nome)
+        minutos_de_tolerancia = 3
+        minutos_inicio_split = Time.new.strftime("%H,%M").split(",")
+        puts minutos_inicio_split
+        minutos_fim = (minutos_inicio_split[0].to_i * 60) + (minutos_inicio_split[1].to_i) + minutos_de_tolerancia
+        puts minutos_fim
+        contador = 0
+        while true
+            minutos_atual_split = Time.new.strftime("%H,%M").split(",")
+            minutos_atual = (minutos_atual_split[0].to_i * 60) + (minutos_atual_split[1].to_i)
+            begin
+                elemento = "div.Conteudo table.ContentTable tbody tr:nth-last-child(#{contador}) td:nth-child(2)"
+                nome_filial = find(elemento, wait: 1).text()
+                nome_filial = nome_filial.split('+')[1]
+                nome_filial = nome_filial.strip
+            rescue => exception
+                if minutos_atual >=  minutos_fim
+                    puts "Erro timeout validação permanencia pagina" 
+                    break
+                else
+                    contador += 1
+                    next
+                end
+            end
+            if nome == nome_filial
+                find(elemento).hover
+                find("div.Conteudo table.ContentTable tbody tr:nth-last-child(#{contador}) td:nth-child(3) span.btnDeleteFilial").click
+                find('span#bFilial').click
+                break
+            elsif  minutos_atual >=  minutos_fim
+                puts "Erro timeout validação permanencia pagina" 
+                break
+            else
+                contador += 1
+                next
+            end
+        end
+    end
+
 end

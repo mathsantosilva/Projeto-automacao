@@ -46,8 +46,10 @@ class Complements
   end
 
   def geradores_dados_telefonia()
+    Faker::Config.locale = 'pt-BR'
     $codigo_area = Faker::PhoneNumber.area_code
     $telefone = Faker::PhoneNumber.cell_phone
+    $tel = Faker::Number.number(digits: 15)
   end
     
   def geradores_dados_cadastros()

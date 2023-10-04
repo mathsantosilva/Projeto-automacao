@@ -13,7 +13,7 @@ Funcionalidade: Resource empresas
 
     @br_empresa_resource_pt
     @br_empresa_resource_create_ptbr 
-    Cenario: Validando Resource no Create PTbr
+    Cenario: Validando Resource na criação de empresas PTbr
         Quando vou para a criação de empresas para validar os campos
         Então passo por todos os campos em Portugues-BR na criação
             |codigo                   |Código:                                            |
@@ -46,7 +46,7 @@ Funcionalidade: Resource empresas
 
     @br_empresa_resource_pt
     @br_empresa_resource_update_ptbr
-    Cenario: Validando Resource no update PTbr
+    Cenario: Validando Resource na edição de empresas PTbr
     	Quando altero uma empresa para validar os campos 
         Então passo por todos os campos em portugues-BR no update
             |codigo                   |Código:                                            |

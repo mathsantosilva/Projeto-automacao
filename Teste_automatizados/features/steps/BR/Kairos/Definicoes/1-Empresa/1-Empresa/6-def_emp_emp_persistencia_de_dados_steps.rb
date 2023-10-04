@@ -13,7 +13,7 @@ Então('vou até a tela de empresa e acesso a criação de empresas para validar
     @consultores.consulta_guarda_dados_empresa_cnpj                                     
     find('span[class="PlusButton"]').click
     fill_in 'Empresa_Codigo', with: ""
-    fill_in 'Empresa_Codigo', with: $codigo_Empresa_Cnpj
+    fill_in 'Empresa_Codigo', with: $codigo_filial
     fill_in 'Empresa_CEI', with: '294226088484'
     fill_in 'Empresa_Telefone', with: '116541954654'
     find('label[for="CbUtilizaPortaria"]', visible: true)
@@ -49,7 +49,7 @@ Então('vou até a tela de empresa e acesso a criação de empresas para validar
     fill_in 'Empresa_CEI', with: '294226088484'
     fill_in 'Empresa_Telefone', with: '116541954654'
     find('label[for="CbUtilizaPortaria"]', visible: true)
-    fill_in 'Empresa_RazaoSocial', with: $razao_Empresa_Cnpj
+    fill_in 'Empresa_RazaoSocial', with: $razao_filial
     fill_in 'Empresa_CnpjCpf', with: $cnpj
     select('INDÚSTRIAS EXTRATIVAS', from: 'Empresa_RamoAtividade_Id').select_option
     fill_in 'Empresa_Endereco', with: $endereco_aleatorio

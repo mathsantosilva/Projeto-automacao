@@ -6,15 +6,18 @@ class Arquivos
 
     def initialize
         # Importar a classes para utilizar
-        require_relative '../common/complements'
-        require_relative '../common/common'
-
-        @complements = Complements.new
-        @common = Common.new
     end
 
-    def escrever(caminho, itens, nome)
-        for item in itens do
+    def escrever(caminho, nome, itens)
+        lista_itens = Array.new
+        if itens.class == String || itens.class == Integer
+            lista_itens.push(itens)
+        else
+            for n in itens do
+                lista_itens.push(n)
+            end
+        end
+        for item in lista_itens do
             File.open("#{caminho}/#{nome}", 'a+') do |f|
                 f.write("#{item} \n")
             end

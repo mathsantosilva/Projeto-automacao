@@ -44,24 +44,19 @@ class Validadores
 
     # Valida se ainda esta tela em que estava 
     def validar_permanencia_pagina(url)
-        hora_inicio = Time.new.strftime("%H%M").to_i
-        hora_fim = hora_inicio + 3
-        minuto = hora_fim.to_s.slice(2,2)
-        if minuto.to_i >= 60
-            min = minuto.to_i - 60
-            tam_min = min.to_s.length
-            if tam_min < 2
-                min = ("0" + min.to_s).to_i
-            end
-            hora = hora_fim.to_s.slice(0,2).to_i + 1
-            hora_fim = ("#{hora.to_i}#{min.to_i}").to_i
-        end
+        minutos_de_tolerancia = 3
+        minutos_inicio_split = Time.new.strftime("%H,%M").split(",")
+        minutos_fim = (minutos_inicio_split[0].to_i * 60) + (minutos_inicio_split[1].to_i) + minutos_de_tolerancia
         while true do
-            hora_atual = Time.new.strftime("%H%M").to_i
-            if (current_path) != url || hora_atual >= hora_fim
+            minutos_atual_split = Time.new.strftime("%H,%M").split(",")
+            minutos_atual = (minutos_atual_split[0].to_i * 60) + (minutos_atual_split[1].to_i)
+            if current_path != url
+                break
+            elsif minutos_atual >=  minutos_fim
+                puts "Erro timeout validação permanencia pagina" 
                 break
             else
-                next 
+                next
             end
         end
     end
@@ -121,11 +116,10 @@ class Validadores
 
     def validar_erro(caminho, nome, itens)
         begin
-            elemento = find('div.Conteudo span.field-validation-error', wait: 5)
+            elemento = find('div.Conteudo div.field-validation-error', wait: 5)
         rescue => exception
             return
         end
-        puts elemento
         if expect(elemento).to have_content "Erro desconhecido"
             @arquivos.escrever(caminho, nome, itens)
         end
