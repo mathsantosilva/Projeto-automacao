@@ -245,9 +245,7 @@ class Common
     def apagar_filial(nome)
         minutos_de_tolerancia = 3
         minutos_inicio_split = Time.new.strftime("%H,%M").split(",")
-        puts minutos_inicio_split
         minutos_fim = (minutos_inicio_split[0].to_i * 60) + (minutos_inicio_split[1].to_i) + minutos_de_tolerancia
-        puts minutos_fim
         contador = 0
         while true
             minutos_atual_split = Time.new.strftime("%H,%M").split(",")
