@@ -38,8 +38,7 @@ class Consultores
         while true
             caminho = "div.Conteudo table.ContentTable tbody tr:nth-last-child(#{contador}) td:nth-child(2)"
             valor_td = find(caminho).text()
-            valor_separado = valor_td.split('+')
-            nome_filial_atual = valor_separado[1]
+            valor_separado = valor_td.split('+')[1]
             nome_filial_atual = nome_filial_atual.strip
             if nome_filial_atual == nome_filial_esperado
                 @common.select_button(caminho, 'span[class="pointer spanButton"]')
@@ -156,7 +155,6 @@ class Consultores
             valor_separado = valor_td.split('+')
             nome_filial_atual = valor_separado[1]
             if nome_filial_atual != "" && nome_filial_atual != nil
-
                 nome_filial_atual = nome_filial_atual.strip
             end
             if nome_filial_atual == nome_filial_esperado

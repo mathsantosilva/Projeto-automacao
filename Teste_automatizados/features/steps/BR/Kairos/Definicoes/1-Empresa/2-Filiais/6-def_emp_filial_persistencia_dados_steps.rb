@@ -10,7 +10,7 @@ Então('vou até a tela de filial e acesso a criação de Filiais para validar a
 end
 
 Dado('que preencho os dados utilizando um codigo já existente em outra filial e clico em salvar') do
-  @consultores.consulta_guarda_filial("CNPJ") 
+  @consultores.consulta_guarda_filial("Update filial CNPJ") 
   find('span[class="PlusButton"]').click
   fill_in 'Filial_Codigo', with: ""
   fill_in 'Filial_Codigo', with: $codigo_filial
@@ -40,7 +40,7 @@ Então('devera apresentar a mensagem do codigo da filial {string}') do |message_
 end
 
 Dado('que preencho os dados utilizando uma razão social já existente em outra filial e clico em salvar') do
-  @consultores.consulta_guarda_filial("CNPJ") 
+  @consultores.consulta_guarda_filial("Update filial CNPJ") 
   find('span[class="PlusButton"]').click                               
   fill_in 'Filial_Codigo', with: $codigo_aleatorio_10
   fill_in 'Filial_CEI', with: '294226088484'
@@ -69,13 +69,14 @@ Então('devera apresentar a mensagem da razão social da filial {string}') do |m
 end
 
 Dado('que preencho os dados utilizando um CNPJ já existente em outra filial e clico em salvar') do
-  @consultores.consulta_guarda_filial("CNPJ") 
+  @consultores.consulta_guarda_filial("Update filial CNPJ") 
   find('span[class="PlusButton"]').click                               
   fill_in 'Filial_Codigo', with: $codigo_aleatorio_10
   fill_in 'Filial_CEI', with: '294226088484'
   fill_in 'Filial_Telefone', with: $telefone
   fill_in 'Filial_Descricao', with: 'Automação de testes - Validação persistencia de dados - ' << $time.to_s
   find('label[for="rdCnpj"]').click
+  puts $cnpjcpf_filial
   fill_in 'Filial_CnpjCpf', with: $cnpjcpf_filial
   fill_in 'Filial_Endereco', with: $endereco_aleatorio
   fill_in 'Filial_Bairro', with: $bairro_aleatorio
@@ -99,13 +100,14 @@ Então('devera apresentar a mensagem do CNPJ da filial {string}') do |message_fa
 end
 
 Dado('que preencho os dados utilizando uma CPF já existente em outra filial e clico em salvar') do
-  @consultores.consulta_guarda_filial("CPF") 
+  @consultores.consulta_guarda_filial("Update filial CPF") 
   find('span[class="PlusButton"]').click                               
   fill_in 'Filial_Codigo', with: $codigo_aleatorio_10
   fill_in 'Filial_CEI', with: '294226088484'
   fill_in 'Filial_Telefone', with: $telefone
   fill_in 'Filial_Descricao', with: 'Automação de testes - Validação persistencia de dados - ' << $time.to_s
   find('label[for="rdCpf"]').click
+  puts $cnpjcpf_filial
   fill_in 'Filial_CnpjCpf', with: $cnpjcpf_filial
   fill_in 'Filial_Endereco', with: $endereco_aleatorio
   fill_in 'Filial_Bairro', with: $bairro_aleatorio

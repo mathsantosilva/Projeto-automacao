@@ -20,7 +20,7 @@ class Tratar_dados
           elsif string.include? ','
             string.sub!(",", "")
           else
-            break
+            return string
           end
         end
       end
