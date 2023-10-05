@@ -76,7 +76,6 @@ Dado('que preencho os dados utilizando um CNPJ já existente em outra filial e c
   fill_in 'Filial_Telefone', with: $telefone
   fill_in 'Filial_Descricao', with: 'Automação de testes - Validação persistencia de dados - ' << $time.to_s
   find('label[for="rdCnpj"]').click
-  puts $cnpjcpf_filial
   fill_in 'Filial_CnpjCpf', with: $cnpjcpf_filial
   fill_in 'Filial_Endereco', with: $endereco_aleatorio
   fill_in 'Filial_Bairro', with: $bairro_aleatorio
@@ -107,7 +106,6 @@ Dado('que preencho os dados utilizando uma CPF já existente em outra filial e c
   fill_in 'Filial_Telefone', with: $telefone
   fill_in 'Filial_Descricao', with: 'Automação de testes - Validação persistencia de dados - ' << $time.to_s
   find('label[for="rdCpf"]').click
-  puts $cnpjcpf_filial
   fill_in 'Filial_CnpjCpf', with: $cnpjcpf_filial
   fill_in 'Filial_Endereco', with: $endereco_aleatorio
   fill_in 'Filial_Bairro', with: $bairro_aleatorio
