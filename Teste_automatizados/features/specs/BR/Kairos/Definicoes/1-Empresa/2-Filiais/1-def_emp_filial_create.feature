@@ -24,13 +24,13 @@ Funcionalidade: Criação de filiais
         Então deverá apresentar a mensagem de sucesso no cadastro da filial "A Filial foi criada com sucesso"
 
     @br_filial_create_unico
-    @br_filial_create_cnpj_exclusão
+    @br_filial_create_cnpj_exclusao
     Cenario: Criação de filiais com CNPJ para serem excluidas
         Dado que preencho os dados, utilizo o cnpj para cadastrar a filial que será excluida e clico em salvar
         Então deverá apresentar a mensagem de sucesso no cadastro da filial "A Filial foi criada com sucesso"
     
     @br_filial_create_unico
-    @br_filial_create_cpf_exclusão
+    @br_filial_create_cpf_exclusao
     Cenario: Criação de filiais com CPF para serem excluidas
         Dado que preencho os dados, utilizo o cpf para cadastrar a filial que será excluida e clico em salvar
         Então deverá apresentar a mensagem de sucesso no cadastro da filial "A Filial foi criada com sucesso"
