@@ -125,4 +125,31 @@ class Validadores
         end
     end
 
+    # Valida se ainda esta tela em que estava 
+    def validar_page_loading
+        minutos_de_tolerancia = 1
+        minutos_inicio_split = Time.new.strftime("%H,%M").split(",")
+        minutos_fim = (minutos_inicio_split[0].to_i * 60) + (minutos_inicio_split[1].to_i) + minutos_de_tolerancia
+        while true do
+            minutos_atual_split = Time.new.strftime("%H,%M").split(",")
+            minutos_atual = (minutos_atual_split[0].to_i * 60) + (minutos_atual_split[1].to_i)
+            begin
+                element = find('div[id="LoadDashboard"]', wait: 5)
+                puts element
+                expect(element).to have_css('style="display: none;"')
+            rescue
+                break
+            end
+            if element
+                break
+            elsif minutos_atual >=  minutos_fim
+                puts "Erro timeout validação loading dashboard" 
+                break
+            else
+                next
+            end
+
+        end
+    end
+
 end

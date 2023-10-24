@@ -176,7 +176,6 @@ class Consultores
         end
     end
 
-
     # Obtem os dados da primeira empresa que usar um cpf - De de cima para baixa
     def consulta_guarda_dados_empresa_cpf()
         contador = 1
