@@ -40,6 +40,7 @@ Funcionalidade: Resource empresas
             |data_limite              |Data Limite para Tratamento de Ponto:              |
             |chave_connect            |Chave do Kairos Connect :                          |
             |chave_publica            |Chave pública para geração de Comprovante de Ponto:|
+            |visica                   |Utiliza Facial Visica:                             |
             |logo                     |Logotipo personalizado:                            |
             |Localizacao              |Localização:                                       |
             |adendo                   |Adendo LGPD:                                       |
