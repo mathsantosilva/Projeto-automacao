@@ -20,7 +20,7 @@ Dado('que preenche as colunas, insere todos os campos e insere o nome {string} n
   campos = table.rows_hash
   fill_in 'Codigo', with: $codigo_aleatorio_10
   fill_in 'Descricao', with: nome_relatorio + ' - ' << $time.to_s
-
+  find('label[for="TotaisPorPessoa"]').click
   # Metodo passa por todos os campos
   @common.inserir_colunas(campos, true)
   #@common.selecionar_opcoes(contador_linhas, names, ['definicao_campo_codigo', 'definicao_campo_descricao', 'definicao_campo_valor'])
@@ -36,7 +36,7 @@ Dado('que preenche as colunas, insere somente o valor e insere o nome {string} n
   campos = table.rows_hash
   fill_in 'Codigo', with: $codigo_aleatorio_10
   fill_in 'Descricao', with: nome_relatorio + ' - ' << $time.to_s
-
+  find('label[for="TotaisPorPessoa"]').click
   # Metodo passa por todos os campos
   @common.inserir_colunas(campos, false)
   #@common.selecionar_opcoes(contador_linhas, names, ['definicao_campo_codigo', 'definicao_campo_descricao', 'definicao_campo_valor'])
