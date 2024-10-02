@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.4"
+ruby "3.3.3"
 
 gem "activerecord", ">= 7.0.4.1"
 gem 'allure-cucumber'
@@ -13,18 +13,18 @@ gem 'capybara'
 gem 'cpf_cnpj'
 gem 'cucumber'
 gem 'cucumber-rails'
-gem 'faker', '~> 2.22'
-gem 'ffi',  '~> 1.1'
+gem 'faker', '>= 2.22'
+gem 'ffi',  '>= 1.1'
 gem 'fiddle'
 gem 'fileutils'
-gem 'nif', '~> 0.0.3'
+gem 'nif', '>= 0.0.3'
 gem "rack", ">= 2.2.6.4"
 gem 'rails'
 gem 'rspec'
 gem 'sys-uname'
 gem 'selenium-webdriver'
 gem 'watir-scroll'
-gem 'webdrivers', '~> 5.0'
+gem 'webdrivers', '>= 5.0'
 gem 'json'
 
 group :development do
